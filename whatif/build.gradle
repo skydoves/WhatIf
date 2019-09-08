@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'org.jetbrains.dokka-android'
+apply from: '../dependencies.gradle'
+
+android {
+    compileSdkVersion versions.compileSdk
+    defaultConfig {
+        minSdkVersion versions.minSdkLib
+        targetSdkVersion versions.compileSdk
+        versionCode versions.versionCode
+        versionName versions.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+    testImplementation "junit:junit:$versions.junit"
+    testImplementation "org.robolectric:robolectric:$versions.robolectric"
+    androidTestImplementation "androidx.test:runner:$versions.runner"
+    androidTestImplementation "androidx.test.ext:junit:$versions.junitExt"
+}
+
+dokka {
+    moduleName = 'whatif'
+    outputFormat = 'html'
+    //noinspection GroovyAccessibility
+    outputDirectory = "$buildDir/javadoc"
+}
+
+tasks.withType(Javadoc) {
+    excludes = ['**/*.kt']
+    options.addBooleanOption('Xdoclint:none', true)
+}
+
+apply from: '../spotless.gradle'

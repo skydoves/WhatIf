@@ -1,0 +1,2 @@
+include ':app', ':whatif'
+rootProject.name='WhatifDemo'
