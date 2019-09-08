@@ -3,10 +3,11 @@
 <p align="center">
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
   <a href="https://android-arsenal.com/api?level=15"><img alt="API" src="https://img.shields.io/badge/API-15%2B-brightgreen.svg?style=flat"/></a>
+  <a href="https://skydoves.github.io/libraries/whatif/javadoc/whatif/com.skydoves.whatif/index.html"><img alt="Javadoc" src="https://img.shields.io/badge/Javadoc-WhatIf-yellow"/></a>
 </p>
 
 <p align="center">
-WhatIf is kotlin extensions for expressing a single if-else statement, nullable and boolean.
+☔ WhatIf is kotlin extensions for expressing a single if-else statement, nullable and boolean.
 </p>
 
 <p align="center">
