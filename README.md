@@ -3,10 +3,11 @@
 <p align="center">
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
   <a href="https://android-arsenal.com/api?level=15"><img alt="API" src="https://img.shields.io/badge/API-15%2B-brightgreen.svg?style=flat"/></a>
+  <a href="https://skydoves.github.io/libraries/whatif/javadoc/whatif/com.skydoves.whatif/index.html"><img alt="Javadoc" src="https://img.shields.io/badge/Javadoc-WhatIf-yellow"/></a>
 </p>
 
 <p align="center">
-WhatIf is kotlin extensions for expressing a single if-else statement, nullable and boolean.
+☔ WhatIf is kotlin extensions for expressing a single if-else statement, nullable and boolean.
 </p>
 
 <p align="center">
@@ -19,6 +20,93 @@ Add a dependency code to your **module**'s `build.gradle` file.
 ```gradle
 dependencies {
     implementation "com.github.skydoves:whatif:1.0.0"
+}
+```
+
+## Usage
+### WhatIf
+`WhatIf` is an expression for invoking `whatIf` lambda when the given boolean is true and not-null.
+```kotlin
+val nullableBoolean: Boolean? = true
+whatIf(nullableBoolean) {
+  log("not-null and true : $nullableBoolean")
+}
+```
+Here is an extension for nullable booleans.
+```kotlin
+nullableBoolean.whatIf {
+  log("not-null and true : $nullableBoolean")
+}
+```
+### WhatIfNot
+The `whatIf` expression is basically composed with `given`, `whatIf`, `whatIfNot`.<br>
+If the target is null or false, `whatIfNot` will be invoked instead of the `whatIf`.<br>
+If we do not need to handle `whatIfNot` case, it can be omitted.
+```kotlin
+whatIf(
+  given = nullableBoolean,
+  whatIf = { log("not-null and true : $nullableBoolean") },
+  whatIfNot = { log("null or false : $nullableBoolean") }
+)
+```
+Or here is an extension for nullable boolean.
+```kotlin
+nullableBoolean.whatIf(
+  whatIf = { log("not-null and true : $nullableBoolean") },
+  whatIfNot = { log("not-null or false : $nullableBoolean") }
+)
+```
+
+### WhatIf in the builder pattern
+Sometimes we should set builder differently to depend on options.<br>
+`WhatIf` is useful when using a chaining function like a builder pattern.<br>
+It can be applied to any builder patterns like `AlertDialog.Builder` or anything.
+```kotlin
+val balloon = Balloon.Builder(baseContext)
+  .setArrowSize(10)
+  .setArrowVisible(true)
+  .whatIf(nullableBoolean) { setTextColor(Color.YELLOW) }
+  .whatIf(nullableBoolean, { setText("Hello, whatIf") }, { setText("Good-Bye whatIf") })
+  .setWidthRatio(1.0f)
+  .build()
+```
+
+### WhatIfNotNull
+`WhatIfNotNull` is an expression for invoking [whatIf] lambda when the target object is not null.
+```kotlin
+val nullableObject: Person? = Person()
+nullableObject.whatIfNotNull {
+  log("$it is not null")
+}
+```
+And we can handle the null case.<br>
+If the target is null, [whatIfNot] will be invoked instead of the [whatIf].
+```kotlin
+nullableObject.whatIfNotNull(
+  whatIf = { log("$it is not null.") },
+  whatIfNot = { log("$it is null.") }
+)
+```
+
+### WhatIfLet
+The basic concept is the same as `whatIf` but it is useful when the receiver and the result should be different.<br>
+```kotlin
+val length = nullableString?.whatIfLet(
+  given = nullableString.length < 5,
+  whatIf = { it.length },
+  whatIfNot = {
+    log("$it, length can not over than 5.")
+    5
+  }
+)
+```
+We can use default value instead of the `whatIfNot` and can be omitted the `whatIfNot`.
+```kotlin
+val length = nullableString?.whatIfLet(
+  nullableString.length < 5,
+  default = nullableString.length) { 
+  log("$it, length can not over than 5.")
+  5
 }
 ```
 
