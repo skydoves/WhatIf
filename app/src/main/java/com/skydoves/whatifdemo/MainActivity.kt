@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
     // example2 : nullable Boolean true-false check extension with whatIfNot
     nullableBoolean.whatIf(
       whatIf = { log("not-null and true : $nullableBoolean") },
-      whatIfNot = { log("not-null or false : $nullableBoolean") }
+      whatIfNot = { log("null or false : $nullableBoolean") }
     )
 
     // example3 : nullable String true-false check extension with default value.
