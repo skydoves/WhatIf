@@ -1,0 +1,13 @@
+apply plugin: 'com.novoda.bintray-release'
+apply from: '../dependencies.gradle'
+
+publish {
+    userOrg = 'devmagician'
+    groupId = 'com.github.skydoves'
+    artifactId = 'whatif'
+    publishVersion = versions.versionName
+    desc = 'WhatIf is kotlin extensions for expressing a single if-else statement, nullable and boolean.'
+    website = 'https://github.com/skydoves/WhatIf'
+    issueTracker = "${website}/issues"
+    repository = "${website}.git"
+}
