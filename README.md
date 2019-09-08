@@ -16,6 +16,7 @@
 </p>
 
 ## Download
+[![Download](https://api.bintray.com/packages/devmagician/maven/whatif/images/download.svg) ](https://bintray.com/devmagician/maven/whatif/_latestVersion)
 [![Jitpack](https://jitpack.io/v/skydoves/whatif.svg)](https://jitpack.io/#skydoves/whatif)
 ### Gradle
 Add a dependency code to your **module**'s `build.gradle` file.
