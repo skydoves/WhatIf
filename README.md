@@ -114,7 +114,8 @@ val length = nullableString?.whatIfLet(
 ```
 
 ## Find this library useful? :heart:
-Support it by joining __[stargazers](https://github.com/skydoves/whatif/stargazers)__ for this repository. :star:
+Support it by joining __[stargazers](https://github.com/skydoves/whatif/stargazers)__ for this repository. :star: <br>
+And __[follow](https://github.com/skydoves)__ me for my next creations! 🤩
 
 # License
 ```xml
