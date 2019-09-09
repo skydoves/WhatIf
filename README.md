@@ -114,8 +114,8 @@ val length = nullableString?.whatIfLet(
 ```
 
 ### WhatIfNotNullOrEmpty
-An expression for invoking `whatIf` lambda when the __array type__ is not null and not empty.<br>
-If the array type target is null or empty, `whatIfNot` will be invoked instead of the `whatIf`.
+An expression for invoking `whatIf` lambda when the __collections__ or __array type__ is not null and not empty.<br>
+If the collections or array type target is null or empty, `whatIfNot` will be invoked instead of the `whatIf`.
 ```kotlin
 nullableArray.whatIfNotNullOrEmpty {
   log("array is not null and not empty")
@@ -128,6 +128,11 @@ nullableArray.whatIfNotNullOrEmpty(
   whatIfNot = { log("array is null or empty") }
 )
 ```
+#### Array
+Array, ByteArray, ShortArray, IntArray, LongArray, FloatArray, DoubleArray, BooleanArray, CharArray
+
+#### Collections 
+List, Map, Set
 
 ## Find this library useful? :heart:
 Support it by joining __[stargazers](https://github.com/skydoves/whatif/stargazers)__ for this repository. :star: <br>
