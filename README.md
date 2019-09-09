@@ -75,7 +75,7 @@ val balloon = Balloon.Builder(baseContext)
 ```
 
 ### WhatIfNotNull
-`WhatIfNotNull` is an expression for invoking [whatIf] lambda when the target object is not null.
+`WhatIfNotNull` is an expression for invoking `whatIf` lambda when the target object is not null.
 ```kotlin
 val nullableObject: Person? = Person()
 nullableObject.whatIfNotNull {
@@ -83,7 +83,7 @@ nullableObject.whatIfNotNull {
 }
 ```
 And we can handle the null case.<br>
-If the target is null, [whatIfNot] will be invoked instead of the [whatIf].
+If the target is null, `whatIfNot` will be invoked instead of the `whatIf`.
 ```kotlin
 nullableObject.whatIfNotNull(
   whatIf = { log("$it is not null.") },
@@ -111,6 +111,22 @@ val length = nullableString?.whatIfLet(
   log("$it, length can not over than 5.")
   5
 }
+```
+
+### WhatIfNotNullOrEmpty
+An expression for invoking `whatIf` lambda when the __array type__ is not null and not empty.<br>
+If the array type target is null or empty, `whatIfNot` will be invoked instead of the `whatIf`.
+```kotlin
+nullableArray.whatIfNotNullOrEmpty {
+  log("array is not null and not empty")
+}
+```
+And we can handle the null or empty case.
+```kotlin
+nullableArray.whatIfNotNullOrEmpty(
+  whatIf = { log("array is not null and not empty") },
+  whatIfNot = { log("array is null or empty") }
+)
 ```
 
 ## Find this library useful? :heart:
