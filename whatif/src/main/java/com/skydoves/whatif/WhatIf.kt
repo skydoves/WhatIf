@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+@file:Suppress("unused")
+
 package com.skydoves.whatif
 
 /**
@@ -24,7 +26,7 @@ package com.skydoves.whatif
 @WhatIfInlineOnly
 inline fun <T> T.whatIf(
   given: (T) -> Boolean?,
-  crossinline whatIf: () -> Unit
+  whatIf: () -> Unit
 ) {
 
   if (given(this) == true) {
@@ -39,8 +41,8 @@ inline fun <T> T.whatIf(
 @WhatIfInlineOnly
 inline fun <T> T.whatIf(
   given: (T) -> Boolean?,
-  crossinline whatIf: () -> Unit,
-  crossinline whatIfNot: () -> Unit
+  whatIf: () -> Unit,
+  whatIfNot: () -> Unit
 ) {
 
   if (given(this) == true) {
@@ -57,7 +59,7 @@ inline fun <T> T.whatIf(
 @WhatIfInlineOnly
 inline fun <T> T.whatIf(
   given: Boolean?,
-  crossinline whatIf: T.() -> Unit
+  whatIf: T.() -> Unit
 ): T {
 
   if (given == true) {
@@ -74,8 +76,8 @@ inline fun <T> T.whatIf(
 @WhatIfInlineOnly
 inline fun <T> T.whatIf(
   given: Boolean?,
-  crossinline whatIf: T.() -> Unit,
-  crossinline whatIfNot: T.() -> Unit
+  whatIf: T.() -> Unit,
+  whatIfNot: T.() -> Unit
 ): T {
 
   if (given == true) {
@@ -93,7 +95,7 @@ inline fun <T> T.whatIf(
 @WhatIfInlineOnly
 inline fun <T> T.whatIf(
   given: () -> Boolean?,
-  crossinline whatIfDo: T.() -> Unit
+  whatIfDo: T.() -> Unit
 ): T {
 
   if (given() == true) {
@@ -110,8 +112,8 @@ inline fun <T> T.whatIf(
 @WhatIfInlineOnly
 inline fun <T> T.whatIf(
   given: () -> Boolean?,
-  crossinline whatIfDo: T.() -> Unit,
-  crossinline whatIfNot: T.() -> Unit
+  whatIfDo: T.() -> Unit,
+  whatIfNot: T.() -> Unit
 ): T {
 
   if (given() == true) {
@@ -131,7 +133,7 @@ inline fun <T> T.whatIf(
 inline fun <T, R> T.whatIfLet(
   given: Boolean?,
   default: R,
-  crossinline whatIf: (T) -> R
+  whatIf: (T) -> R
 ): R {
 
   if (given == true) {
@@ -148,8 +150,8 @@ inline fun <T, R> T.whatIfLet(
 @WhatIfInlineOnly
 inline fun <T, R> T.whatIfLet(
   given: Boolean?,
-  crossinline whatIf: (T) -> R,
-  crossinline whatIfNot: (T) -> R
+  whatIf: (T) -> R,
+  whatIfNot: (T) -> R
 ): R {
 
   if (given == true) {
@@ -161,7 +163,7 @@ inline fun <T, R> T.whatIfLet(
 /** An expression for invoking [whatIf] when the [T] target object is not null. */
 @WhatIfInlineOnly
 inline fun <T> T?.whatIfNotNull(
-  crossinline whatIf: (T) -> Unit
+  whatIf: (T) -> Unit
 ) {
 
   if (this != null) {
@@ -175,8 +177,8 @@ inline fun <T> T?.whatIfNotNull(
  */
 @WhatIfInlineOnly
 inline fun <T> T?.whatIfNotNull(
-  crossinline whatIf: (T) -> Unit,
-  crossinline whatIfNot: (T?) -> Unit
+  whatIf: (T) -> Unit,
+  whatIfNot: (T?) -> Unit
 ) {
 
   if (this != null) {
@@ -193,8 +195,8 @@ inline fun <T> T?.whatIfNotNull(
  */
 @WhatIfInlineOnly
 inline fun <T, R> T?.whatIfNotNullWith(
-  crossinline whatIf: (T) -> R,
-  crossinline whatIfNot: (T?) -> R
+  whatIf: (T) -> R,
+  whatIfNot: (T?) -> R
 ): R {
 
   if (this != null) {
@@ -206,7 +208,7 @@ inline fun <T, R> T?.whatIfNotNullWith(
 /** An expression for invoking [whatIf] when the target object is not null and true. */
 @WhatIfInlineOnly
 inline fun Boolean?.whatIf(
-  crossinline whatIf: () -> Unit
+  whatIf: () -> Unit
 ) {
 
   if (this == true) {
@@ -220,8 +222,8 @@ inline fun Boolean?.whatIf(
  */
 @WhatIfInlineOnly
 inline fun Boolean?.whatIf(
-  crossinline whatIf: () -> Unit,
-  crossinline whatIfNot: () -> Unit
+  whatIf: () -> Unit,
+  whatIfNot: () -> Unit
 ) {
 
   if (this == true) {
