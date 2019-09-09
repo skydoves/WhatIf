@@ -18,7 +18,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
     implementation "androidx.appcompat:appcompat:$versions.androidxAppcompat"
     implementation "com.github.skydoves:balloon:$versions.balloon"
-    implementation project(":whatif")
+    implementation "com.github.skydoves:whatif:$versions.versionName"
 }
 
 apply from: '../spotless.gradle'
