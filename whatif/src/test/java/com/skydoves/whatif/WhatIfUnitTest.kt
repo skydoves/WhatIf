@@ -145,7 +145,7 @@ class WhatIfUnitTest {
   @Test
   fun whatIfNotNullWithDifferentTypeReturnTest() {
     val nullableString: String? = "notNull"
-    var length = 0
+    val length: Int
 
     length = nullableString.whatIfNotNullWith(
       whatIf = { it.length },
