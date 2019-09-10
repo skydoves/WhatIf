@@ -22,7 +22,7 @@
 Add a dependency code to your **module**'s `build.gradle` file.
 ```gradle
 dependencies {
-    implementation "com.github.skydoves:whatif:1.0.1"
+    implementation "com.github.skydoves:whatif:1.0.2"
 }
 ```
 
@@ -91,6 +91,33 @@ nullableObject.whatIfNotNull(
 )
 ```
 
+### WhatIfNotNullOrEmpty
+An expression for invoking `whatIf` lambda when the __collections__ or __array type__ is not null and not empty.<br>
+If the collections or array type target is null or empty, `whatIfNot` will be invoked instead of the `whatIf`.
+```kotlin
+nullableList.whatIfNotNullOrEmpty {
+  log("list is not null and not empty : $it")
+}
+```
+And we can handle the null or empty case.
+```kotlin
+nullableList.whatIfNotNullOrEmpty(
+  whatIf = { log("list is not null and not empty : $it") },
+  whatIfNot = { log("list is null or empty") }
+)
+```
+Here is the same example for the array.
+```kotlin
+nullableArray.whatIfNotNullOrEmpty {
+  log("array is not null and not empty")
+}
+```
+#### Array
+Array, ByteArray, ShortArray, IntArray, LongArray, FloatArray, DoubleArray, BooleanArray, CharArray
+
+#### Collections 
+List, Map, Set
+
 ### WhatIfLet
 The basic concept is the same as `whatIf` but it is useful when the receiver and the result should be different.<br>
 ```kotlin
@@ -112,27 +139,6 @@ val length = nullableString?.whatIfLet(
   5
 }
 ```
-
-### WhatIfNotNullOrEmpty
-An expression for invoking `whatIf` lambda when the __collections__ or __array type__ is not null and not empty.<br>
-If the collections or array type target is null or empty, `whatIfNot` will be invoked instead of the `whatIf`.
-```kotlin
-nullableArray.whatIfNotNullOrEmpty {
-  log("array is not null and not empty")
-}
-```
-And we can handle the null or empty case.
-```kotlin
-nullableArray.whatIfNotNullOrEmpty(
-  whatIf = { log("array is not null and not empty") },
-  whatIfNot = { log("array is null or empty") }
-)
-```
-#### Array
-Array, ByteArray, ShortArray, IntArray, LongArray, FloatArray, DoubleArray, BooleanArray, CharArray
-
-#### Collections 
-List, Map, Set
 
 ## Find this library useful? :heart:
 Support it by joining __[stargazers](https://github.com/skydoves/whatif/stargazers)__ for this repository. :star: <br>
