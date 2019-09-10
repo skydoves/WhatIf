@@ -39,28 +39,10 @@ class WhatIfCollectionsUnitTest {
     assertThat(list?.get(0), `is`("NotNullOrEmpty"))
 
     list.whatIfNotNullOrEmpty {
-      list = arrayListOf("NotNullOrEmpty2")
+      list = arrayListOf(it[0] + "2")
     }
 
     assertThat(list?.get(0), `is`("NotNullOrEmpty2"))
-  }
-
-  @Test
-  fun whatIfNotNullOrEmptyMapTest() {
-    var map: Map<Int, String>? = null
-
-    map.whatIfNotNullOrEmpty(
-      whatIf = { },
-      whatIfNot = { map = mapOf(1 to "NotNullOrEmpty") }
-    )
-
-    assertThat(map?.get(1), `is`("NotNullOrEmpty"))
-
-    map.whatIfNotNullOrEmpty {
-      map = mapOf(1 to "NotNullOrEmpty2")
-    }
-
-    assertThat(map?.get(1), `is`("NotNullOrEmpty2"))
   }
 
   @Test
@@ -79,5 +61,23 @@ class WhatIfCollectionsUnitTest {
     }
 
     assertThat(set?.contains("NotNullOrEmpty2"), `is`(true))
+  }
+
+  @Test
+  fun whatIfNotNullOrEmptyMapTest() {
+    var map: Map<Int, String>? = null
+
+    map.whatIfNotNullOrEmpty(
+      whatIf = { },
+      whatIfNot = { map = mapOf(1 to "NotNullOrEmpty") }
+    )
+
+    assertThat(map?.get(1), `is`("NotNullOrEmpty"))
+
+    map.whatIfNotNullOrEmpty {
+      map = mapOf(1 to it[1] + "2")
+    }
+
+    assertThat(map?.get(1), `is`("NotNullOrEmpty2"))
   }
 }

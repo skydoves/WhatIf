@@ -16,29 +16,57 @@
 
 package com.skydoves.whatif
 
-/** An expression for invoking [whatIf] when the [Collection] is not null and not empty. */
+/** An expression for invoking [whatIf] when the [List] is not null and not empty. */
 @WhatIfInlineOnly
-inline fun <T> Collection<T>?.whatIfNotNullOrEmpty(
-  whatIf: () -> Unit
+inline fun <T> List<T>?.whatIfNotNullOrEmpty(
+  whatIf: (List<T>) -> Unit
 ) {
 
   if (!this.isNullOrEmpty()) {
-    whatIf()
+    whatIf(this)
   }
 }
 
 /**
- * An expression for invoking [whatIf] when the [Collection] is not null and not empty.
+ * An expression for invoking [whatIf] when the [List] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
 @WhatIfInlineOnly
-inline fun <T> Collection<T>?.whatIfNotNullOrEmpty(
-  whatIf: () -> Unit,
+inline fun <T> List<T>?.whatIfNotNullOrEmpty(
+  whatIf: (List<T>) -> Unit,
   whatIfNot: () -> Unit
 ) {
 
   if (!this.isNullOrEmpty()) {
-    whatIf()
+    whatIf(this)
+  } else {
+    whatIfNot()
+  }
+}
+
+/** An expression for invoking [whatIf] when the [Set] is not null and not empty. */
+@WhatIfInlineOnly
+inline fun <T> Set<T>?.whatIfNotNullOrEmpty(
+  whatIf: (Set<T>) -> Unit
+) {
+
+  if (!this.isNullOrEmpty()) {
+    whatIf(this)
+  }
+}
+
+/**
+ * An expression for invoking [whatIf] when the [Set] is not null and not empty.
+ * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
+ */
+@WhatIfInlineOnly
+inline fun <T> Set<T>?.whatIfNotNullOrEmpty(
+  whatIf: (Set<T>) -> Unit,
+  whatIfNot: () -> Unit
+) {
+
+  if (!this.isNullOrEmpty()) {
+    whatIf(this)
   } else {
     whatIfNot()
   }
@@ -47,11 +75,11 @@ inline fun <T> Collection<T>?.whatIfNotNullOrEmpty(
 /** An expression for invoking [whatIf] when the [Map] is not null and not empty. */
 @WhatIfInlineOnly
 inline fun <T, R> Map<T, R>?.whatIfNotNullOrEmpty(
-  whatIf: () -> Unit
+  whatIf: (Map<T, R>) -> Unit
 ) {
 
   if (!this.isNullOrEmpty()) {
-    whatIf()
+    whatIf(this)
   }
 }
 
@@ -61,12 +89,12 @@ inline fun <T, R> Map<T, R>?.whatIfNotNullOrEmpty(
  */
 @WhatIfInlineOnly
 inline fun <T, R> Map<T, R>?.whatIfNotNullOrEmpty(
-  whatIf: () -> Unit,
+  whatIf: (Map<T, R>) -> Unit,
   whatIfNot: () -> Unit
 ) {
 
   if (!this.isNullOrEmpty()) {
-    whatIf()
+    whatIf(this)
   } else {
     whatIfNot()
   }
