@@ -67,29 +67,3 @@ inline fun <T, R> Map<T, R>?.whatIfNotNullOrEmpty(
     whatIfNot()
   }
 }
-
-/** An expression for invoking [whatIf] when the [Set] is not null and not empty. */
-@WhatIfInlineOnly
-inline fun <T> Set<T>?.whatIfNotNullOrEmpty(
-  whatIf: () -> Unit
-) {
-  if (!this.isNullOrEmpty()) {
-    whatIf()
-  }
-}
-
-/**
- * An expression for invoking [whatIf] when the [Set] is not null and not empty.
- * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
- */
-@WhatIfInlineOnly
-inline fun <T> Set<T>?.whatIfNotNullOrEmpty(
-  whatIf: () -> Unit,
-  whatIfNot: () -> Unit
-) {
-  if (!this.isNullOrEmpty()) {
-    whatIf()
-  } else {
-    whatIfNot()
-  }
-}
