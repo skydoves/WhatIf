@@ -188,4 +188,22 @@ class WhatIfUnitTest {
     )
     assertThat(testInteger, `is`(0))
   }
+
+  @Test
+  fun whatIfNotNullTypeCastingTest() {
+    var nullableInt: MutableList<Int>? = null
+
+    nullableInt.whatIfNotNullAs<String>(
+      whatIf = { nullableInt = arrayListOf(it.length) },
+      whatIfNot = { nullableInt = arrayListOf(123) }
+    )
+
+    assertThat(nullableInt?.get(0), `is`(123))
+
+    nullableInt.whatIfNotNullAs<List<String>> {
+      nullableInt = arrayListOf(it.size)
+    }
+
+    assertThat(nullableInt?.get(0), `is`(1))
+  }
 }
