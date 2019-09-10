@@ -189,6 +189,38 @@ inline fun <T> T?.whatIfNotNull(
 }
 
 /**
+ * An expression for invoking [whatIf] when the target object is not null.
+ * If the target is not null, the receiver will get a casted [R] type.
+ */
+@WhatIfInlineOnly
+inline fun <reified R> Any?.whatIfNotNullAs(
+  whatIf: (R) -> Unit
+) {
+
+  if (this != null) {
+    whatIf(this as R)
+  }
+}
+
+/**
+ * An expression for invoking [whatIf] when the target object is not null.
+ * If the target is not null, the receiver will get a casted [R] type.
+ * If the target is null, [whatIfNot] will be invoked instead of the [whatIf] without casting.
+ */
+@WhatIfInlineOnly
+inline fun <reified R> Any?.whatIfNotNullAs(
+  whatIf: (R) -> Unit,
+  whatIfNot: () -> Unit
+) {
+
+  if (this != null) {
+    whatIf(this as R)
+  } else {
+    whatIfNot()
+  }
+}
+
+/**
  * An expression for invoking [whatIf] when the [T] target object is not null.
  * If the [T] target is null, [whatIfNot] will be invoked instead of the [whatIf].
  * It is useful when the receiver [T] and the result [R] should be different.

@@ -21,6 +21,7 @@ package com.skydoves.whatif
 inline fun <T> Collection<T>?.whatIfNotNullOrEmpty(
   whatIf: () -> Unit
 ) {
+
   if (!this.isNullOrEmpty()) {
     whatIf()
   }
@@ -35,6 +36,7 @@ inline fun <T> Collection<T>?.whatIfNotNullOrEmpty(
   whatIf: () -> Unit,
   whatIfNot: () -> Unit
 ) {
+
   if (!this.isNullOrEmpty()) {
     whatIf()
   } else {
@@ -47,6 +49,7 @@ inline fun <T> Collection<T>?.whatIfNotNullOrEmpty(
 inline fun <T, R> Map<T, R>?.whatIfNotNullOrEmpty(
   whatIf: () -> Unit
 ) {
+
   if (!this.isNullOrEmpty()) {
     whatIf()
   }
@@ -61,6 +64,7 @@ inline fun <T, R> Map<T, R>?.whatIfNotNullOrEmpty(
   whatIf: () -> Unit,
   whatIfNot: () -> Unit
 ) {
+
   if (!this.isNullOrEmpty()) {
     whatIf()
   } else {

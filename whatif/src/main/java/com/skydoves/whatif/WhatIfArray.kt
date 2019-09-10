@@ -21,6 +21,7 @@ package com.skydoves.whatif
 inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
   whatIf: () -> Unit
 ) {
+
   if (!this.isNullOrEmpty()) {
     whatIf()
   }
@@ -35,6 +36,7 @@ inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
   whatIf: () -> Unit,
   whatIfNot: () -> Unit
 ) {
+
   if (!this.isNullOrEmpty()) {
     whatIf()
   } else {
@@ -47,6 +49,7 @@ inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
 inline fun ByteArray?.whatIfNotNullOrEmpty(
   whatIf: () -> Unit
 ) {
+
   if (this != null && this.isNotEmpty()) {
     whatIf()
   }
@@ -61,6 +64,7 @@ inline fun ByteArray?.whatIfNotNullOrEmpty(
   whatIf: () -> Unit,
   whatIfNot: () -> Unit
 ) {
+
   if (this != null && this.isNotEmpty()) {
     whatIf()
   } else {
@@ -73,6 +77,7 @@ inline fun ByteArray?.whatIfNotNullOrEmpty(
 inline fun ShortArray?.whatIfNotNullOrEmpty(
   whatIf: () -> Unit
 ) {
+
   if (this != null && this.isNotEmpty()) {
     whatIf()
   }
@@ -87,6 +92,7 @@ inline fun ShortArray?.whatIfNotNullOrEmpty(
   whatIf: () -> Unit,
   whatIfNot: () -> Unit
 ) {
+
   if (this != null && this.isNotEmpty()) {
     whatIf()
   } else {
@@ -99,6 +105,7 @@ inline fun ShortArray?.whatIfNotNullOrEmpty(
 inline fun IntArray?.whatIfNotNullOrEmpty(
   whatIf: () -> Unit
 ) {
+
   if (this != null && this.isNotEmpty()) {
     whatIf()
   }
@@ -113,6 +120,7 @@ inline fun IntArray?.whatIfNotNullOrEmpty(
   whatIf: () -> Unit,
   whatIfNot: () -> Unit
 ) {
+
   if (this != null && this.isNotEmpty()) {
     whatIf()
   } else {
@@ -125,6 +133,7 @@ inline fun IntArray?.whatIfNotNullOrEmpty(
 inline fun LongArray?.whatIfNotNullOrEmpty(
   whatIf: () -> Unit
 ) {
+
   if (this != null && this.isNotEmpty()) {
     whatIf()
   }
@@ -139,6 +148,7 @@ inline fun LongArray?.whatIfNotNullOrEmpty(
   whatIf: () -> Unit,
   whatIfNot: () -> Unit
 ) {
+
   if (this != null && this.isNotEmpty()) {
     whatIf()
   } else {
@@ -151,6 +161,7 @@ inline fun LongArray?.whatIfNotNullOrEmpty(
 inline fun FloatArray?.whatIfNotNullOrEmpty(
   whatIf: () -> Unit
 ) {
+
   if (this != null && this.isNotEmpty()) {
     whatIf()
   }
@@ -165,6 +176,7 @@ inline fun FloatArray?.whatIfNotNullOrEmpty(
   whatIf: () -> Unit,
   whatIfNot: () -> Unit
 ) {
+
   if (this != null && this.isNotEmpty()) {
     whatIf()
   } else {
@@ -177,6 +189,7 @@ inline fun FloatArray?.whatIfNotNullOrEmpty(
 inline fun DoubleArray?.whatIfNotNullOrEmpty(
   whatIf: () -> Unit
 ) {
+
   if (this != null && this.isNotEmpty()) {
     whatIf()
   }
@@ -191,6 +204,7 @@ inline fun DoubleArray?.whatIfNotNullOrEmpty(
   whatIf: () -> Unit,
   whatIfNot: () -> Unit
 ) {
+
   if (this != null && this.isNotEmpty()) {
     whatIf()
   } else {
@@ -203,6 +217,7 @@ inline fun DoubleArray?.whatIfNotNullOrEmpty(
 inline fun BooleanArray?.whatIfNotNullOrEmpty(
   whatIf: () -> Unit
 ) {
+
   if (this != null && this.isNotEmpty()) {
     whatIf()
   }
@@ -217,6 +232,7 @@ inline fun BooleanArray?.whatIfNotNullOrEmpty(
   whatIf: () -> Unit,
   whatIfNot: () -> Unit
 ) {
+
   if (this != null && this.isNotEmpty()) {
     whatIf()
   } else {
@@ -229,6 +245,7 @@ inline fun BooleanArray?.whatIfNotNullOrEmpty(
 inline fun CharArray?.whatIfNotNullOrEmpty(
   whatIf: () -> Unit
 ) {
+
   if (this != null && this.isNotEmpty()) {
     whatIf()
   }
@@ -243,6 +260,7 @@ inline fun CharArray?.whatIfNotNullOrEmpty(
   whatIf: () -> Unit,
   whatIfNot: () -> Unit
 ) {
+
   if (this != null && this.isNotEmpty()) {
     whatIf()
   } else {
