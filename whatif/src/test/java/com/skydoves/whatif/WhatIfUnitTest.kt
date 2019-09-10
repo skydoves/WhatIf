@@ -193,8 +193,8 @@ class WhatIfUnitTest {
   fun whatIfNotNullTypeCastingTest() {
     var nullableInt: MutableList<Int>? = null
 
-    nullableInt.whatIfNotNullAs<String>(
-      whatIf = { nullableInt = arrayListOf(it.length) },
+    nullableInt.whatIfNotNullAs<List<String>>(
+      whatIf = { nullableInt = arrayListOf(it.size) },
       whatIfNot = { nullableInt = arrayListOf(123) }
     )
 
