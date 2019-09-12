@@ -22,7 +22,7 @@
 Add a dependency code to your **module**'s `build.gradle` file.
 ```gradle
 dependencies {
-    implementation "com.github.skydoves:whatif:1.0.2"
+    implementation "com.github.skydoves:whatif:1.0.3"
 }
 ```
 
@@ -92,24 +92,32 @@ nullableObject.whatIfNotNull(
 ```
 
 ### WhatIfNotNullOrEmpty
-An expression for invoking `whatIf` lambda when the __collections__ or __array type__ is not null and not empty.<br>
+An expression for invoking `whatIf` lambda when the __string__, __collections__ and __array type__ is not null and not empty.<br>
 If the collections or array type target is null or empty, `whatIfNot` will be invoked instead of the `whatIf`.
+
+```kotlin
+val nullableString: String? = "NotNullOrEmpty"
+nullableString.whatIfNotNullOrEmpty { 
+  log("$it is not null or empty")
+}
+```
+Here is an example for collections.
 ```kotlin
 nullableList.whatIfNotNullOrEmpty {
-  log("list is not null and not empty : $it")
+  log("list $it is not null and not empty")
 }
 ```
 And we can handle the null or empty case.
 ```kotlin
 nullableList.whatIfNotNullOrEmpty(
-  whatIf = { log("list is not null and not empty : $it") },
+  whatIf = { log("list $it is not null and not empty") },
   whatIfNot = { log("list is null or empty") }
 )
 ```
 Here is the same example for the array.
 ```kotlin
 nullableArray.whatIfNotNullOrEmpty {
-  log("array is not null and not empty")
+  log("$it is not null and not empty")
 }
 ```
 #### Array
