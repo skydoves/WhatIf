@@ -32,17 +32,17 @@ class WhatIfArrayUnitTest {
     var array: Array<String>? = null
 
     array.whatIfNotNullOrEmpty(
-      whatIf = { },
-      whatIfNot = { array = arrayOf("NotNullOrEmpty") }
+      whatIf = { array = arrayOf("NotNullOrEmpty") },
+      whatIfNot = { array = arrayOf("NullOrEmpty") }
     )
 
-    assertThat(array?.get(0), `is`("NotNullOrEmpty"))
+    assertThat(array?.get(0), `is`("NullOrEmpty"))
 
     array.whatIfNotNullOrEmpty {
-      array = arrayOf("NotNullOrEmpty2")
+      array = arrayOf("Not${it[0]}")
     }
 
-    assertThat(array?.get(0), `is`("NotNullOrEmpty2"))
+    assertThat(array?.get(0), `is`("NotNullOrEmpty"))
   }
 
   @Test
@@ -50,7 +50,7 @@ class WhatIfArrayUnitTest {
     var array: ByteArray? = null
 
     array.whatIfNotNullOrEmpty(
-      whatIf = { },
+      whatIf = { array = byteArrayOf(0) },
       whatIfNot = { array = byteArrayOf(11) }
     )
 
@@ -165,7 +165,7 @@ class WhatIfArrayUnitTest {
     assertThat(array!!, `is`(booleanArrayOf(true)))
 
     array.whatIfNotNullOrEmpty {
-      array = booleanArrayOf(false)
+      array = booleanArrayOf(!it[0])
     }
 
     assertThat(array!!, `is`(booleanArrayOf(false)))
