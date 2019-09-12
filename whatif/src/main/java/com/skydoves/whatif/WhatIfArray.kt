@@ -19,11 +19,11 @@ package com.skydoves.whatif
 /** An expression for invoking [whatIf] when the [Array] is not null and not empty. */
 @WhatIfInlineOnly
 inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
-  whatIf: () -> Unit
+  whatIf: (Array<out T>) -> Unit
 ) {
 
   if (!this.isNullOrEmpty()) {
-    whatIf()
+    whatIf(this)
   }
 }
 
@@ -33,12 +33,12 @@ inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
  */
 @WhatIfInlineOnly
 inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
-  whatIf: () -> Unit,
+  whatIf: (Array<out T>) -> Unit,
   whatIfNot: () -> Unit
 ) {
 
   if (!this.isNullOrEmpty()) {
-    whatIf()
+    whatIf(this)
   } else {
     whatIfNot()
   }
@@ -47,11 +47,11 @@ inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
 /** An expression for invoking [whatIf] when the [ByteArray] is not null and not empty. */
 @WhatIfInlineOnly
 inline fun ByteArray?.whatIfNotNullOrEmpty(
-  whatIf: () -> Unit
+  whatIf: (ByteArray) -> Unit
 ) {
 
   if (this != null && this.isNotEmpty()) {
-    whatIf()
+    whatIf(this)
   }
 }
 
@@ -61,12 +61,12 @@ inline fun ByteArray?.whatIfNotNullOrEmpty(
  */
 @WhatIfInlineOnly
 inline fun ByteArray?.whatIfNotNullOrEmpty(
-  whatIf: () -> Unit,
+  whatIf: (ByteArray) -> Unit,
   whatIfNot: () -> Unit
 ) {
 
   if (this != null && this.isNotEmpty()) {
-    whatIf()
+    whatIf(this)
   } else {
     whatIfNot()
   }
@@ -75,11 +75,11 @@ inline fun ByteArray?.whatIfNotNullOrEmpty(
 /** An expression for invoking [whatIf] when the [ShortArray] is not null and not empty. */
 @WhatIfInlineOnly
 inline fun ShortArray?.whatIfNotNullOrEmpty(
-  whatIf: () -> Unit
+  whatIf: (ShortArray) -> Unit
 ) {
 
   if (this != null && this.isNotEmpty()) {
-    whatIf()
+    whatIf(this)
   }
 }
 
@@ -89,12 +89,12 @@ inline fun ShortArray?.whatIfNotNullOrEmpty(
  */
 @WhatIfInlineOnly
 inline fun ShortArray?.whatIfNotNullOrEmpty(
-  whatIf: () -> Unit,
+  whatIf: (ShortArray) -> Unit,
   whatIfNot: () -> Unit
 ) {
 
   if (this != null && this.isNotEmpty()) {
-    whatIf()
+    whatIf(this)
   } else {
     whatIfNot()
   }
@@ -103,11 +103,11 @@ inline fun ShortArray?.whatIfNotNullOrEmpty(
 /** An expression for invoking [whatIf] when the [IntArray] is not null and not empty. */
 @WhatIfInlineOnly
 inline fun IntArray?.whatIfNotNullOrEmpty(
-  whatIf: () -> Unit
+  whatIf: (IntArray) -> Unit
 ) {
 
   if (this != null && this.isNotEmpty()) {
-    whatIf()
+    whatIf(this)
   }
 }
 
@@ -117,12 +117,12 @@ inline fun IntArray?.whatIfNotNullOrEmpty(
  */
 @WhatIfInlineOnly
 inline fun IntArray?.whatIfNotNullOrEmpty(
-  whatIf: () -> Unit,
+  whatIf: (IntArray) -> Unit,
   whatIfNot: () -> Unit
 ) {
 
   if (this != null && this.isNotEmpty()) {
-    whatIf()
+    whatIf(this)
   } else {
     whatIfNot()
   }
@@ -131,11 +131,11 @@ inline fun IntArray?.whatIfNotNullOrEmpty(
 /** An expression for invoking [whatIf] when the [LongArray] is not null and not empty. */
 @WhatIfInlineOnly
 inline fun LongArray?.whatIfNotNullOrEmpty(
-  whatIf: () -> Unit
+  whatIf: (LongArray) -> Unit
 ) {
 
   if (this != null && this.isNotEmpty()) {
-    whatIf()
+    whatIf(this)
   }
 }
 
@@ -145,12 +145,12 @@ inline fun LongArray?.whatIfNotNullOrEmpty(
  */
 @WhatIfInlineOnly
 inline fun LongArray?.whatIfNotNullOrEmpty(
-  whatIf: () -> Unit,
+  whatIf: (LongArray) -> Unit,
   whatIfNot: () -> Unit
 ) {
 
   if (this != null && this.isNotEmpty()) {
-    whatIf()
+    whatIf(this)
   } else {
     whatIfNot()
   }
@@ -159,11 +159,11 @@ inline fun LongArray?.whatIfNotNullOrEmpty(
 /** An expression for invoking [whatIf] when the [FloatArray] is not null and not empty. */
 @WhatIfInlineOnly
 inline fun FloatArray?.whatIfNotNullOrEmpty(
-  whatIf: () -> Unit
+  whatIf: (FloatArray) -> Unit
 ) {
 
   if (this != null && this.isNotEmpty()) {
-    whatIf()
+    whatIf(this)
   }
 }
 
@@ -173,12 +173,12 @@ inline fun FloatArray?.whatIfNotNullOrEmpty(
  */
 @WhatIfInlineOnly
 inline fun FloatArray?.whatIfNotNullOrEmpty(
-  whatIf: () -> Unit,
+  whatIf: (FloatArray) -> Unit,
   whatIfNot: () -> Unit
 ) {
 
   if (this != null && this.isNotEmpty()) {
-    whatIf()
+    whatIf(this)
   } else {
     whatIfNot()
   }
@@ -187,11 +187,11 @@ inline fun FloatArray?.whatIfNotNullOrEmpty(
 /** An expression for invoking [whatIf] when the [DoubleArray] is not null and not empty. */
 @WhatIfInlineOnly
 inline fun DoubleArray?.whatIfNotNullOrEmpty(
-  whatIf: () -> Unit
+  whatIf: (DoubleArray) -> Unit
 ) {
 
   if (this != null && this.isNotEmpty()) {
-    whatIf()
+    whatIf(this)
   }
 }
 
@@ -201,12 +201,12 @@ inline fun DoubleArray?.whatIfNotNullOrEmpty(
  */
 @WhatIfInlineOnly
 inline fun DoubleArray?.whatIfNotNullOrEmpty(
-  whatIf: () -> Unit,
+  whatIf: (DoubleArray) -> Unit,
   whatIfNot: () -> Unit
 ) {
 
   if (this != null && this.isNotEmpty()) {
-    whatIf()
+    whatIf(this)
   } else {
     whatIfNot()
   }
@@ -215,11 +215,11 @@ inline fun DoubleArray?.whatIfNotNullOrEmpty(
 /** An expression for invoking [whatIf] when the [BooleanArray] is not null and not empty. */
 @WhatIfInlineOnly
 inline fun BooleanArray?.whatIfNotNullOrEmpty(
-  whatIf: () -> Unit
+  whatIf: (BooleanArray) -> Unit
 ) {
 
   if (this != null && this.isNotEmpty()) {
-    whatIf()
+    whatIf(this)
   }
 }
 
@@ -229,12 +229,12 @@ inline fun BooleanArray?.whatIfNotNullOrEmpty(
  */
 @WhatIfInlineOnly
 inline fun BooleanArray?.whatIfNotNullOrEmpty(
-  whatIf: () -> Unit,
+  whatIf: (BooleanArray) -> Unit,
   whatIfNot: () -> Unit
 ) {
 
   if (this != null && this.isNotEmpty()) {
-    whatIf()
+    whatIf(this)
   } else {
     whatIfNot()
   }
@@ -243,11 +243,11 @@ inline fun BooleanArray?.whatIfNotNullOrEmpty(
 /** An expression for invoking [whatIf] when the [CharArray] is not null and not empty. */
 @WhatIfInlineOnly
 inline fun CharArray?.whatIfNotNullOrEmpty(
-  whatIf: () -> Unit
+  whatIf: (CharArray) -> Unit
 ) {
 
   if (this != null && this.isNotEmpty()) {
-    whatIf()
+    whatIf(this)
   }
 }
 
@@ -257,12 +257,12 @@ inline fun CharArray?.whatIfNotNullOrEmpty(
  */
 @WhatIfInlineOnly
 inline fun CharArray?.whatIfNotNullOrEmpty(
-  whatIf: () -> Unit,
+  whatIf: (CharArray) -> Unit,
   whatIfNot: () -> Unit
 ) {
 
   if (this != null && this.isNotEmpty()) {
-    whatIf()
+    whatIf(this)
   } else {
     whatIfNot()
   }
