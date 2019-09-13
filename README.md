@@ -98,7 +98,7 @@ If the collections or array type target is null or empty, `whatIfNot` will be in
 ```kotlin
 val nullableString: String? = "NotNullOrEmpty"
 nullableString.whatIfNotNullOrEmpty { 
-  log("$it is not null or empty")
+  log("$it is not null and not empty")
 }
 ```
 Here is an example for collections.
