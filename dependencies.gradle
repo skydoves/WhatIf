@@ -18,7 +18,5 @@ ext.versions = [
 
     // unit test
     junit              : '4.12',
-    runner             : '1.2.0',
-    junitExt           : '1.1.1',
     robolectric        : '4.3'
 ]
