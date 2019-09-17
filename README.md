@@ -22,7 +22,7 @@
 Add a dependency code to your **module**'s `build.gradle` file.
 ```gradle
 dependencies {
-    implementation "com.github.skydoves:whatif:1.0.3"
+    implementation "com.github.skydoves:whatif:1.0.4"
 }
 ```
 
@@ -146,6 +146,22 @@ val length = nullableString?.whatIfLet(
   log("$it, length can not over than 5.")
   5
 }
+```
+
+### WhatIfHasExtras
+An expression for invoking `whatIf` lambda when the Activity's intent extras is not null and not empty.
+```kotlin
+var foo: String? = null
+this@MainActivity.whatIfHasExtras {
+  foo = "${it.getString("foo")}"
+}
+```
+And we can handle the null case.<br>
+```kotlin
+this@MainActivity.whatIfHasExtras(
+   whatIf = { foo = "${it.getString("foo")}" },
+   whatIfNot = { log("intent extras is null or empty.") }
+)
 ```
 
 ## Find this library useful? :heart:
