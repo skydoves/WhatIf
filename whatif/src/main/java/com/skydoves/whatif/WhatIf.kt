@@ -98,10 +98,11 @@ inline fun <T> T.whatIf(
   whatIfDo: T.() -> Unit
 ): T {
 
-  if (given() == true) {
-    this.apply { whatIfDo() }
-  }
-  return this
+  return this.whatIf(
+    given = given,
+    whatIfDo = { whatIfDo() },
+    whatIfNot = { }
+  )
 }
 
 /**
@@ -136,10 +137,11 @@ inline fun <T, R> T.whatIfLet(
   whatIf: (T) -> R
 ): R {
 
-  if (given == true) {
-    return whatIf(this)
-  }
-  return default
+  return this.whatIfLet(
+    given = given,
+    whatIf = { whatIf(it) },
+    whatIfNot = { default }
+  )
 }
 
 /**
@@ -166,9 +168,10 @@ inline fun <T> T?.whatIfNotNull(
   whatIf: (T) -> Unit
 ) {
 
-  if (this != null) {
-    whatIf(this)
-  }
+  this.whatIfNotNull(
+    whatIf = { whatIf(it) },
+    whatIfNot = { }
+  )
 }
 
 /**
@@ -243,9 +246,10 @@ inline fun Boolean?.whatIf(
   whatIf: () -> Unit
 ) {
 
-  if (this == true) {
-    whatIf()
-  }
+  this.whatIf(
+    whatIf = { whatIf() },
+    whatIfNot = { }
+  )
 }
 
 /**

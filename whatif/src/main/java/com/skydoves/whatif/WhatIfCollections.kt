@@ -22,9 +22,10 @@ inline fun <T> List<T>?.whatIfNotNullOrEmpty(
   whatIf: (List<T>) -> Unit
 ) {
 
-  if (!this.isNullOrEmpty()) {
-    whatIf(this)
-  }
+  this.whatIfNotNullOrEmpty(
+    whatIf = { whatIf(it) },
+    whatIfNot = { }
+  )
 }
 
 /**
@@ -50,9 +51,10 @@ inline fun <T> Set<T>?.whatIfNotNullOrEmpty(
   whatIf: (Set<T>) -> Unit
 ) {
 
-  if (!this.isNullOrEmpty()) {
-    whatIf(this)
-  }
+  this.whatIfNotNullOrEmpty(
+    whatIf = { whatIf(it) },
+    whatIfNot = { }
+  )
 }
 
 /**
@@ -78,9 +80,10 @@ inline fun <T, R> Map<T, R>?.whatIfNotNullOrEmpty(
   whatIf: (Map<T, R>) -> Unit
 ) {
 
-  if (!this.isNullOrEmpty()) {
-    whatIf(this)
-  }
+  this.whatIfNotNullOrEmpty(
+    whatIf = { whatIf(it) },
+    whatIfNot = { }
+  )
 }
 
 /**

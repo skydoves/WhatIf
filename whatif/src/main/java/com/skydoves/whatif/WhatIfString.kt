@@ -22,9 +22,10 @@ inline fun String?.whatIfNotNullOrEmpty(
   whatIf: (String) -> Unit
 ) {
 
-  if (!this.isNullOrEmpty()) {
-    whatIf(this)
-  }
+  this.whatIfNotNullOrEmpty(
+    whatIf = { whatIf(it) },
+    whatIfNot = { }
+  )
 }
 
 /**
