@@ -3,7 +3,8 @@
 <p align="center">
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
   <a href="https://android-arsenal.com/api?level=15"><img alt="API" src="https://img.shields.io/badge/API-15%2B-brightgreen.svg?style=flat"/></a>
-  <a href="https://travis-ci.org/skydoves/WhatIf"><img alt="BuildStatus" src="https://travis-ci.org/skydoves/WhatIf.svg?branch=master"/></a>
+  <a href="https://androidsweets.ongoodbits.com/2019/09/13/find-out-how-to-start-with-feature-flags"><img alt="AndroidSweets" src="https://travis-ci.org/skydoves/WhatIf.svg?branch=master"/></a>
+  <a href="https://travis-ci.org/skydoves/WhatIf"><img alt="BuildStatus" src="https://img.shields.io/badge/Android%20Sweets-WhatIf-EC407A"/></a>
   <a href="https://skydoves.github.io/libraries/whatif/javadoc/whatif/com.skydoves.whatif/index.html"><img alt="Javadoc" src="https://img.shields.io/badge/Javadoc-WhatIf-yellow"/></a>
 </p>
 
