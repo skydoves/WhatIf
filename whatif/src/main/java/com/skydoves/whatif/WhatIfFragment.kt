@@ -17,40 +17,36 @@
 package com.skydoves.whatif
 
 import android.app.Activity
-import android.os.Bundle
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 
 /**
- * An expression for invoking [whatIf] when the
- * [Activity]'s intent extras is not null and not empty.
+ * An expression for invoking [whatIf] when the [Activity] is not null.
  */
 @WhatIfInlineOnly
-inline fun Activity.whatIfHasExtras(
-  whatIf: (Bundle) -> Unit
+inline fun Fragment.whatIfNotNullActivity(
+  whatIf: (FragmentActivity) -> Unit
 ) {
 
-  this.whatIfHasExtras(
-    whatIf = whatIf,
-    whatIfNot = { }
-  )
+  this.activity.whatIfNotNull {
+    whatIf(it)
+  }
 }
 
 /**
- * An expression for invoking [whatIf] when the
- * [Activity]'s intent extras is not null and not empty.
+ * An expression for invoking [whatIf] when the [Activity] is not null.
  *
- * If the intent extras is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
+ * If the activity is null, [whatIfNot] will be invoked instead of the [whatIf].
  */
 @WhatIfInlineOnly
-inline fun Activity.whatIfHasExtras(
-  whatIf: (Bundle) -> Unit,
+inline fun Fragment.whatIfNotNullActivity(
+  whatIf: (FragmentActivity) -> Unit,
   whatIfNot: () -> Unit
 ) {
 
-  this.intent.extras.whatIfNotNull(
+  this.activity.whatIfNotNull(
     whatIf = {
-      if (!it.isEmpty) {
-        whatIf(it)
-      }
+      whatIf(it)
     },
     whatIfNot = { whatIfNot() }
   )
