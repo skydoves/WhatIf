@@ -1,15 +1,17 @@
-# WhatIf
+<h1 align="center">WhatIf</h1></br>
+
+<p align="center">
+☔ WhatIf is kotlin extensions for expressing a single if-else statement, nullable and boolean.
+</p>
+<br>
 
 <p align="center">
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
   <a href="https://android-arsenal.com/api?level=15"><img alt="API" src="https://img.shields.io/badge/API-15%2B-brightgreen.svg?style=flat"/></a>
-  <a href="https://travis-ci.org/skydoves/WhatIf"><img alt="BuildStatus" src="https://travis-ci.org/skydoves/WhatIf.svg?branch=master"/></a>
-  <a href="https://androidsweets.ongoodbits.com/2019/09/13/find-out-how-to-start-with-feature-flags"><img alt="BuildStatus" src="https://img.shields.io/badge/Android%20Sweets-WhatIf-EC407A"/></a>
-  <a href="https://skydoves.github.io/libraries/whatif/javadoc/whatif/com.skydoves.whatif/index.html"><img alt="Javadoc" src="https://img.shields.io/badge/Javadoc-WhatIf-yellow"/></a>
-</p>
-
-<p align="center">
-☔ WhatIf is kotlin extensions for expressing a single if-else statement, nullable and boolean.
+  <a href="https://github.com/skydoves/WhatIf/actions"><img alt="Build Status" src="https://github.com/skydoves/WhatIf/workflows/Android%20CI/badge.svg"/></a>
+  <a href="https://androidweekly.net/issues/issue-406"><img alt="Android Weekly" src="https://skydoves.github.io/badges/android-weekly.svg"/></a>
+  <a href="https://github.com/skydoves"><img alt="Profile" src="https://skydoves.github.io/badges/skydoves.svg"/></a>
+  <a href="https://skydoves.github.io/libraries/whatif/javadoc/whatif/com.skydoves.whatif/index.html"><img alt="Javadoc" src="https://skydoves.github.io/badges/javadoc-whatif.svg"/></a>
 </p>
 
 <p align="center">
