@@ -268,3 +268,14 @@ inline fun Boolean?.whatIf(
     whatIfNot()
   }
 }
+
+/** An expression for invoking [whatIf] when the target object is not null and false. */
+@WhatIfInlineOnly
+inline fun Boolean?.whatIfElse(
+  whatIf: () -> Unit
+) {
+
+  if (this == false) {
+    whatIf()
+  }
+}

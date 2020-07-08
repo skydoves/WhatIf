@@ -190,6 +190,20 @@ class WhatIfUnitTest {
   }
 
   @Test
+  fun nullableBooleanWhatIfElseTest() {
+    var nullableBoolean: Boolean? = null
+    var testInteger = 0
+
+    nullableBoolean.whatIf { testInteger = 1 }
+    assertThat(testInteger, `is`(0))
+
+    nullableBoolean = false
+
+    nullableBoolean.whatIfElse { testInteger = 1 }
+    assertThat(testInteger, `is`(1))
+  }
+
+  @Test
   fun whatIfNotNullTypeCastingTest() {
     var nullableInt: MutableList<Int>? = null
 
