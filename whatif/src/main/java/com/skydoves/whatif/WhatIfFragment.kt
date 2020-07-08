@@ -14,11 +14,47 @@
  * limitations under the License.
  */
 
+@file:Suppress("unused")
+
 package com.skydoves.whatif
 
 import android.app.Activity
+import android.content.Context
+import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+
+/**
+ * An expression for invoking [whatIf] when the [Context] is not null.
+ */
+@WhatIfInlineOnly
+inline fun Fragment.whatIfNotNullContext(
+  whatIf: (Context) -> Unit
+) {
+
+  this.context.whatIfNotNull {
+    whatIf(it)
+  }
+}
+
+/**
+ * An expression for invoking [whatIf] when the [Context] is not null.
+ *
+ * If the activity is null, [whatIfNot] will be invoked instead of the [whatIf].
+ */
+@WhatIfInlineOnly
+inline fun Fragment.whatIfNotNullContext(
+  whatIf: (Context) -> Unit,
+  whatIfNot: () -> Unit
+) {
+
+  this.context.whatIfNotNull(
+    whatIf = {
+      whatIf(it)
+    },
+    whatIfNot = { whatIfNot() }
+  )
+}
 
 /**
  * An expression for invoking [whatIf] when the [Activity] is not null.
@@ -50,4 +86,17 @@ inline fun Fragment.whatIfNotNullActivity(
     },
     whatIfNot = { whatIfNot() }
   )
+}
+
+/**
+ * An expression for invoking [whatIf] when the [Fragment.getArguments] is not null.
+ */
+@WhatIfInlineOnly
+inline fun Fragment.whatIfNotNullArguments(
+  whatIf: (Bundle) -> Unit
+) {
+
+  this.arguments.whatIfNotNull {
+    whatIf(it)
+  }
 }
