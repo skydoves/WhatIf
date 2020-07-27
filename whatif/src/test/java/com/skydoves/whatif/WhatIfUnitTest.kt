@@ -220,4 +220,35 @@ class WhatIfUnitTest {
 
     assertThat(nullableInt?.get(0), `is`(1))
   }
+
+  @Test
+  fun nullableBooleanWhatIfAndTest() {
+    var nullableBoolean: Boolean? = null
+    var predicate: Boolean? = null
+    var testInteger = 0
+
+    nullableBoolean.whatIfAnd(predicate) { testInteger = 1 }
+    assertThat(testInteger, `is`(0))
+
+    nullableBoolean = true
+    predicate = true
+
+    nullableBoolean.whatIfAnd(predicate) { testInteger = 1 }
+    assertThat(testInteger, `is`(1))
+  }
+
+  @Test
+  fun nullableBooleanWhatIfOrTest() {
+    var nullableBoolean: Boolean? = null
+    val predicate: Boolean? = null
+    var testInteger = 0
+
+    nullableBoolean.whatIfOr(predicate) { testInteger = 1 }
+    assertThat(testInteger, `is`(0))
+
+    nullableBoolean = true
+
+    nullableBoolean.whatIfOr(predicate) { testInteger = 1 }
+    assertThat(testInteger, `is`(1))
+  }
 }
