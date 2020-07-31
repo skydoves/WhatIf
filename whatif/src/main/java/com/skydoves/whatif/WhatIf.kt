@@ -280,7 +280,7 @@ inline fun Boolean?.whatIfElse(
   }
 }
 
-/** An expression for invoking [whatIf] when the target object is not true [predicate] is also true. */
+/** An expression for invoking [whatIf] when the target Boolean is true and the [predicate] is also true. */
 @WhatIfInlineOnly
 inline fun Boolean?.whatIfAnd(
   predicate: Boolean?,
@@ -292,7 +292,7 @@ inline fun Boolean?.whatIfAnd(
   }
 }
 
-/** An expression for invoking [whatIf] when the target object is not true or [predicate] is true. */
+/** An expression for invoking [whatIf] when the target Boolean is true or the [predicate] is true. */
 @WhatIfInlineOnly
 inline fun Boolean?.whatIfOr(
   predicate: Boolean?,
