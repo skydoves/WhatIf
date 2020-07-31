@@ -25,7 +25,7 @@
 Add a dependency code to your **module**'s `build.gradle` file.
 ```gradle
 dependencies {
-    implementation "com.github.skydoves:whatif:1.0.4"
+    implementation "com.github.skydoves:whatif:1.0.5"
 }
 ```
 
@@ -151,6 +151,26 @@ val length = nullableString?.whatIfLet(
 }
 ```
 
+### whatIfElse
+An expression for invoking `whatIf` lambda when the target boolean is not null and false.
+```kotlin
+nullableBoolean.whatIfElse {
+  log("nullableBoolean is not null and false")
+}
+```
+
+### WhatIfAnd, WhatIfOr
+An expression for invoking `whatIf` lambda when the target boolean is true and/or a predicate receiver is true.<br>
+```kotlin
+nullableBoolean.whatIfAnd(predicate) {
+  log("nullableBoolean is true and the predicate is also true")
+}
+
+nullableBoolean.whatIfOr(predicate) {
+  log("nullableBoolean is true or the predicate is true")
+}
+```
+
 ### WhatIfHasExtras
 An expression for invoking `whatIf` lambda when the Activity's intent extras is not null and not empty.
 ```kotlin
@@ -165,6 +185,42 @@ this@MainActivity.whatIfHasExtras(
    whatIf = { foo = "${it.getString("foo")}" },
    whatIfNot = { log("intent extras is null or empty.") }
 )
+```
+
+### WhatIf for Android fragment
+#### whatIfNotNullContext
+An expression for invoking `whatIf` lambda  when the Context is not null.
+```kotlin
+class WhatIfFragment : Fragment() {
+
+  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    super.onViewCreated(view, savedInstanceState)
+
+    whatIfNotNullContext {
+      Toast.makeText(it, "context is not null!", Toast.LENGTH_SHORT).show()
+    }
+  }
+}
+```
+
+#### whatIfNotNullArguments
+An expression for invoking `whatIf` when the `Fragment.getArguments` is not null.
+```kotlin
+whatIfNotNullArguments {
+  it.getString("name").whatIfNotNull {
+    log("my name is $it")
+  }
+}
+```
+
+#### whatIfNotNullActivity
+An expression for invoking `whatIf` lambda when the Activity is not null.
+```kotlin
+whatIfNotNullActivity { activity ->
+  activity.supportFragmentManager.addOnBackStackChangedListener {
+    // .. //
+  }
+}
 ```
 
 ## Find this library useful? :heart:
