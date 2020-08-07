@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.skydoves.whatif
+package com.skydoves.whatif_android
 
 import android.app.Activity
 

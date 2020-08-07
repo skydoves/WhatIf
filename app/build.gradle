@@ -19,6 +19,7 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$versions.androidxAppcompat"
     implementation "com.github.skydoves:balloon:$versions.balloon"
     implementation project(":whatif")
+    implementation project(":whatif-android")
 }
 
 apply from: '../spotless.gradle'

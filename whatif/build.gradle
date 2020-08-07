@@ -1,30 +1,24 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
 apply plugin: 'org.jetbrains.dokka'
 apply from: '../dependencies.gradle'
 apply from: '../publish.gradle'
 
-android {
-    compileSdkVersion versions.compileSdk
-    defaultConfig {
-        minSdkVersion versions.minSdkLib
-        targetSdkVersion versions.compileSdk
-        versionCode versions.versionCode
-        versionName versions.versionName
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-    testOptions {
-        unitTests {
-            includeAndroidResources = true
-        }
-    }
+publish {
+    artifactId = 'whatif'
+    userOrg = metadata.userOrg
+    groupId = metadata.groupId
+    publishVersion = metadata.publishVersion
+    desc = metadata.desc
+    website = metadata.website
+    issueTracker = metadata.issueTracker
+    repository = metadata.repository
+    licences = metadata.licences
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
-    implementation "androidx.appcompat:appcompat:$versions.androidxAppcompat"
     testImplementation "junit:junit:$versions.junit"
-    testImplementation "org.robolectric:robolectric:$versions.robolectric"
 }
 
 dokka {
