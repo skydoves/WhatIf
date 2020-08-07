@@ -1,0 +1,59 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'org.jetbrains.dokka'
+apply from: '../dependencies.gradle'
+apply from: '../publish.gradle'
+
+android {
+  compileSdkVersion versions.compileSdk
+  defaultConfig {
+    minSdkVersion versions.minSdkLib
+    targetSdkVersion versions.compileSdk
+    versionCode versions.versionCode
+    versionName versions.versionName
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+  }
+  testOptions {
+    unitTests {
+      includeAndroidResources = true
+    }
+  }
+}
+
+publish {
+  artifactId = 'whatif-android'
+  userOrg = metadata.userOrg
+  groupId = metadata.groupId
+  publishVersion = metadata.publishVersion
+  desc = metadata.desc
+  website = metadata.website
+  issueTracker = metadata.issueTracker
+  repository = metadata.repository
+  licences = metadata.licences
+}
+
+
+dependencies {
+  api project(":whatif")
+
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+  implementation "androidx.appcompat:appcompat:$versions.androidxAppcompat"
+
+  testImplementation "junit:junit:$versions.junit"
+  testImplementation "org.robolectric:robolectric:$versions.robolectric"
+}
+
+dokka {
+  outputFormat = 'html'
+  outputDirectory = "$buildDir/javadoc"
+  configuration {
+    moduleName = 'whatif'
+  }
+}
+
+tasks.withType(Javadoc) {
+  excludes = ['**/*.kt']
+  options.addBooleanOption('Xdoclint:none', true)
+}
+
+apply from: '../spotless.gradle'

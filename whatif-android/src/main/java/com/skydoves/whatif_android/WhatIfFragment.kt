@@ -16,13 +16,15 @@
 
 @file:Suppress("unused")
 
-package com.skydoves.whatif
+package com.skydoves.whatif_android
 
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import com.skydoves.whatif.WhatIfInlineOnly
+import com.skydoves.whatif.whatIfNotNull
 
 /**
  * An expression for invoking [whatIf] when the [Context] is not null.

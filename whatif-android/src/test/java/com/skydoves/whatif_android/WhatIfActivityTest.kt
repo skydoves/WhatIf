@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.skydoves.whatif
+package com.skydoves.whatif_android
 
 import android.content.Intent
 import org.hamcrest.CoreMatchers.`is`
@@ -38,7 +38,8 @@ class WhatIfActivityTest {
   fun createActivity() {
     val intent = Intent()
     intent.putExtra("foo", "bar")
-    this.controller = Robolectric.buildActivity(MainTestActivity::class.java, intent).create().start()
+    this.controller = Robolectric.buildActivity(
+      MainTestActivity::class.java, intent).create().start()
     this.mainTestActivity = controller.get()
   }
 

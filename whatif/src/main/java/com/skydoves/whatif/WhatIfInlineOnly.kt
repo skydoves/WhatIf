@@ -23,4 +23,4 @@ package com.skydoves.whatif
 )
 @DslMarker
 @Retention(AnnotationRetention.BINARY)
-internal annotation class WhatIfInlineOnly
+annotation class WhatIfInlineOnly

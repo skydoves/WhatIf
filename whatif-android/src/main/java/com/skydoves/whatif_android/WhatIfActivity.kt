@@ -14,10 +14,12 @@
  * limitations under the License.
  */
 
-package com.skydoves.whatif
+package com.skydoves.whatif_android
 
 import android.app.Activity
 import android.os.Bundle
+import com.skydoves.whatif.WhatIfInlineOnly
+import com.skydoves.whatif.whatIfNotNull
 
 /**
  * An expression for invoking [whatIf] when the
