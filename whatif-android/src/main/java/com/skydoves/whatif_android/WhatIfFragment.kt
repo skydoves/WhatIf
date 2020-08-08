@@ -94,7 +94,7 @@ inline fun Fragment.whatIfNotNullActivity(
  * An expression for invoking [whatIf] when the [Fragment.getArguments] is not null.
  */
 @WhatIfInlineOnly
-inline fun Fragment.whatIfNotNullArguments(
+inline fun Fragment.whatIfHasArguments(
   whatIf: (Bundle) -> Unit
 ) {
 
