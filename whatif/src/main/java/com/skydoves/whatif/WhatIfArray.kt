@@ -18,7 +18,7 @@ package com.skydoves.whatif
 
 /** An expression for invoking [whatIf] when the [Array] is not null and not empty. */
 @WhatIfInlineOnly
-inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
+public inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
   whatIf: (Array<out T>) -> Unit
 ) {
 
@@ -33,7 +33,7 @@ inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
 @WhatIfInlineOnly
-inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
+public inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
   whatIf: (Array<out T>) -> Unit,
   whatIfNot: () -> Unit
 ) {
@@ -47,7 +47,7 @@ inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
 
 /** An expression for invoking [whatIf] when the [ByteArray] is not null and not empty. */
 @WhatIfInlineOnly
-inline fun ByteArray?.whatIfNotNullOrEmpty(
+public inline fun ByteArray?.whatIfNotNullOrEmpty(
   whatIf: (ByteArray) -> Unit
 ) {
 
@@ -62,7 +62,7 @@ inline fun ByteArray?.whatIfNotNullOrEmpty(
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
 @WhatIfInlineOnly
-inline fun ByteArray?.whatIfNotNullOrEmpty(
+public inline fun ByteArray?.whatIfNotNullOrEmpty(
   whatIf: (ByteArray) -> Unit,
   whatIfNot: () -> Unit
 ) {
@@ -76,7 +76,7 @@ inline fun ByteArray?.whatIfNotNullOrEmpty(
 
 /** An expression for invoking [whatIf] when the [ShortArray] is not null and not empty. */
 @WhatIfInlineOnly
-inline fun ShortArray?.whatIfNotNullOrEmpty(
+public inline fun ShortArray?.whatIfNotNullOrEmpty(
   whatIf: (ShortArray) -> Unit
 ) {
 
@@ -91,7 +91,7 @@ inline fun ShortArray?.whatIfNotNullOrEmpty(
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
 @WhatIfInlineOnly
-inline fun ShortArray?.whatIfNotNullOrEmpty(
+public inline fun ShortArray?.whatIfNotNullOrEmpty(
   whatIf: (ShortArray) -> Unit,
   whatIfNot: () -> Unit
 ) {
@@ -105,7 +105,7 @@ inline fun ShortArray?.whatIfNotNullOrEmpty(
 
 /** An expression for invoking [whatIf] when the [IntArray] is not null and not empty. */
 @WhatIfInlineOnly
-inline fun IntArray?.whatIfNotNullOrEmpty(
+public inline fun IntArray?.whatIfNotNullOrEmpty(
   whatIf: (IntArray) -> Unit
 ) {
 
@@ -120,7 +120,7 @@ inline fun IntArray?.whatIfNotNullOrEmpty(
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
 @WhatIfInlineOnly
-inline fun IntArray?.whatIfNotNullOrEmpty(
+public inline fun IntArray?.whatIfNotNullOrEmpty(
   whatIf: (IntArray) -> Unit,
   whatIfNot: () -> Unit
 ) {
@@ -134,7 +134,7 @@ inline fun IntArray?.whatIfNotNullOrEmpty(
 
 /** An expression for invoking [whatIf] when the [LongArray] is not null and not empty. */
 @WhatIfInlineOnly
-inline fun LongArray?.whatIfNotNullOrEmpty(
+public inline fun LongArray?.whatIfNotNullOrEmpty(
   whatIf: (LongArray) -> Unit
 ) {
 
@@ -149,7 +149,7 @@ inline fun LongArray?.whatIfNotNullOrEmpty(
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
 @WhatIfInlineOnly
-inline fun LongArray?.whatIfNotNullOrEmpty(
+public inline fun LongArray?.whatIfNotNullOrEmpty(
   whatIf: (LongArray) -> Unit,
   whatIfNot: () -> Unit
 ) {
@@ -163,7 +163,7 @@ inline fun LongArray?.whatIfNotNullOrEmpty(
 
 /** An expression for invoking [whatIf] when the [FloatArray] is not null and not empty. */
 @WhatIfInlineOnly
-inline fun FloatArray?.whatIfNotNullOrEmpty(
+public inline fun FloatArray?.whatIfNotNullOrEmpty(
   whatIf: (FloatArray) -> Unit
 ) {
 
@@ -178,7 +178,7 @@ inline fun FloatArray?.whatIfNotNullOrEmpty(
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
 @WhatIfInlineOnly
-inline fun FloatArray?.whatIfNotNullOrEmpty(
+public inline fun FloatArray?.whatIfNotNullOrEmpty(
   whatIf: (FloatArray) -> Unit,
   whatIfNot: () -> Unit
 ) {
@@ -192,7 +192,7 @@ inline fun FloatArray?.whatIfNotNullOrEmpty(
 
 /** An expression for invoking [whatIf] when the [DoubleArray] is not null and not empty. */
 @WhatIfInlineOnly
-inline fun DoubleArray?.whatIfNotNullOrEmpty(
+public inline fun DoubleArray?.whatIfNotNullOrEmpty(
   whatIf: (DoubleArray) -> Unit
 ) {
 
@@ -207,7 +207,7 @@ inline fun DoubleArray?.whatIfNotNullOrEmpty(
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
 @WhatIfInlineOnly
-inline fun DoubleArray?.whatIfNotNullOrEmpty(
+public inline fun DoubleArray?.whatIfNotNullOrEmpty(
   whatIf: (DoubleArray) -> Unit,
   whatIfNot: () -> Unit
 ) {
@@ -221,7 +221,7 @@ inline fun DoubleArray?.whatIfNotNullOrEmpty(
 
 /** An expression for invoking [whatIf] when the [BooleanArray] is not null and not empty. */
 @WhatIfInlineOnly
-inline fun BooleanArray?.whatIfNotNullOrEmpty(
+public inline fun BooleanArray?.whatIfNotNullOrEmpty(
   whatIf: (BooleanArray) -> Unit
 ) {
 
@@ -236,7 +236,7 @@ inline fun BooleanArray?.whatIfNotNullOrEmpty(
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
 @WhatIfInlineOnly
-inline fun BooleanArray?.whatIfNotNullOrEmpty(
+public inline fun BooleanArray?.whatIfNotNullOrEmpty(
   whatIf: (BooleanArray) -> Unit,
   whatIfNot: () -> Unit
 ) {
@@ -250,7 +250,7 @@ inline fun BooleanArray?.whatIfNotNullOrEmpty(
 
 /** An expression for invoking [whatIf] when the [CharArray] is not null and not empty. */
 @WhatIfInlineOnly
-inline fun CharArray?.whatIfNotNullOrEmpty(
+public inline fun CharArray?.whatIfNotNullOrEmpty(
   whatIf: (CharArray) -> Unit
 ) {
 
@@ -265,7 +265,7 @@ inline fun CharArray?.whatIfNotNullOrEmpty(
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
 @WhatIfInlineOnly
-inline fun CharArray?.whatIfNotNullOrEmpty(
+public inline fun CharArray?.whatIfNotNullOrEmpty(
   whatIf: (CharArray) -> Unit,
   whatIfNot: () -> Unit
 ) {

@@ -24,7 +24,7 @@ package com.skydoves.whatif
 
 /** An expression for invoking [whatIf] when the [given] boolean is true. */
 @WhatIfInlineOnly
-inline fun <T> T.whatIf(
+public inline fun <T> T.whatIf(
   given: (T) -> Boolean?,
   whatIf: () -> Unit
 ) {
@@ -39,7 +39,7 @@ inline fun <T> T.whatIf(
  * If the [given] boolean is false, [whatIfNotNull] will be invoked instead of the [whatIf].
  */
 @WhatIfInlineOnly
-inline fun <T> T.whatIf(
+public inline fun <T> T.whatIf(
   given: (T) -> Boolean?,
   whatIf: () -> Unit,
   whatIfNot: () -> Unit
@@ -57,7 +57,7 @@ inline fun <T> T.whatIf(
  * So it is useful when using with a chaining function like builder pattern or [apply] expression in kotlin.
  */
 @WhatIfInlineOnly
-inline fun <T> T.whatIf(
+public inline fun <T> T.whatIf(
   given: Boolean?,
   whatIf: T.() -> Unit
 ): T {
@@ -74,7 +74,7 @@ inline fun <T> T.whatIf(
  * So it is useful when using with a chaining function like builder pattern or [apply] expression in kotlin.
  */
 @WhatIfInlineOnly
-inline fun <T> T.whatIf(
+public inline fun <T> T.whatIf(
   given: Boolean?,
   whatIf: T.() -> Unit,
   whatIfNot: T.() -> Unit
@@ -93,7 +93,7 @@ inline fun <T> T.whatIf(
  * So it is useful when using with a chaining function like builder pattern or [apply] expression in kotlin.
  */
 @WhatIfInlineOnly
-inline fun <T> T.whatIf(
+public inline fun <T> T.whatIf(
   given: () -> Boolean?,
   whatIfDo: T.() -> Unit
 ): T {
@@ -111,7 +111,7 @@ inline fun <T> T.whatIf(
  * So it is useful when using with a chaining function like builder pattern or [apply] expression in kotlin.
  */
 @WhatIfInlineOnly
-inline fun <T> T.whatIf(
+public inline fun <T> T.whatIf(
   given: () -> Boolean?,
   whatIfDo: T.() -> Unit,
   whatIfNot: T.() -> Unit
@@ -131,7 +131,7 @@ inline fun <T> T.whatIf(
  * It is useful when the receiver [T] and the result [R] should be different.
  */
 @WhatIfInlineOnly
-inline fun <T, R> T.whatIfLet(
+public inline fun <T, R> T.whatIfLet(
   given: Boolean?,
   default: R,
   whatIf: (T) -> R
@@ -150,7 +150,7 @@ inline fun <T, R> T.whatIfLet(
  * It is useful when the receiver [T] and the result [R] should be different.
  */
 @WhatIfInlineOnly
-inline fun <T, R> T.whatIfLet(
+public inline fun <T, R> T.whatIfLet(
   given: Boolean?,
   whatIf: (T) -> R,
   whatIfNot: (T) -> R
@@ -164,7 +164,7 @@ inline fun <T, R> T.whatIfLet(
 
 /** An expression for invoking [whatIf] when the [T] target object is not null. */
 @WhatIfInlineOnly
-inline fun <T> T?.whatIfNotNull(
+public inline fun <T> T?.whatIfNotNull(
   whatIf: (T) -> Unit
 ) {
 
@@ -179,7 +179,7 @@ inline fun <T> T?.whatIfNotNull(
  * If the [T] target is null, [whatIfNot] will be invoked instead of the [whatIf].
  */
 @WhatIfInlineOnly
-inline fun <T> T?.whatIfNotNull(
+public inline fun <T> T?.whatIfNotNull(
   whatIf: (T) -> Unit,
   whatIfNot: (T?) -> Unit
 ) {
@@ -196,7 +196,7 @@ inline fun <T> T?.whatIfNotNull(
  * If the target is not null, the receiver will get a casted [R] type.
  */
 @WhatIfInlineOnly
-inline fun <reified R> Any?.whatIfNotNullAs(
+public inline fun <reified R> Any?.whatIfNotNullAs(
   whatIf: (R) -> Unit
 ) {
 
@@ -211,7 +211,7 @@ inline fun <reified R> Any?.whatIfNotNullAs(
  * If the target is null, [whatIfNot] will be invoked instead of the [whatIf] without casting.
  */
 @WhatIfInlineOnly
-inline fun <reified R> Any?.whatIfNotNullAs(
+public inline fun <reified R> Any?.whatIfNotNullAs(
   whatIf: (R) -> Unit,
   whatIfNot: () -> Unit
 ) {
@@ -229,7 +229,7 @@ inline fun <reified R> Any?.whatIfNotNullAs(
  * It is useful when the receiver [T] and the result [R] should be different.
  */
 @WhatIfInlineOnly
-inline fun <T, R> T?.whatIfNotNullWith(
+public inline fun <T, R> T?.whatIfNotNullWith(
   whatIf: (T) -> R,
   whatIfNot: (T?) -> R
 ): R {
@@ -242,7 +242,7 @@ inline fun <T, R> T?.whatIfNotNullWith(
 
 /** An expression for invoking [whatIf] when the target object is not null and true. */
 @WhatIfInlineOnly
-inline fun Boolean?.whatIf(
+public inline fun Boolean?.whatIf(
   whatIf: () -> Unit
 ) {
 
@@ -257,7 +257,7 @@ inline fun Boolean?.whatIf(
  * If the target is null or false, [whatIfNot] will be invoked instead of the [whatIf].
  */
 @WhatIfInlineOnly
-inline fun Boolean?.whatIf(
+public inline fun Boolean?.whatIf(
   whatIf: () -> Unit,
   whatIfNot: () -> Unit
 ) {
@@ -271,7 +271,7 @@ inline fun Boolean?.whatIf(
 
 /** An expression for invoking [whatIf] when the target object is not null and false. */
 @WhatIfInlineOnly
-inline fun Boolean?.whatIfElse(
+public inline fun Boolean?.whatIfElse(
   whatIf: () -> Unit
 ) {
 
@@ -282,7 +282,7 @@ inline fun Boolean?.whatIfElse(
 
 /** An expression for invoking [whatIf] when the target Boolean is true and the [predicate] is also true. */
 @WhatIfInlineOnly
-inline fun Boolean?.whatIfAnd(
+public inline fun Boolean?.whatIfAnd(
   predicate: Boolean?,
   whatIf: () -> Unit
 ) {
@@ -294,7 +294,7 @@ inline fun Boolean?.whatIfAnd(
 
 /** An expression for invoking [whatIf] when the target Boolean is true or the [predicate] is true. */
 @WhatIfInlineOnly
-inline fun Boolean?.whatIfOr(
+public inline fun Boolean?.whatIfOr(
   predicate: Boolean?,
   whatIf: () -> Unit
 ) {

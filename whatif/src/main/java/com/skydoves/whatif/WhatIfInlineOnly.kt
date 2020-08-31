@@ -25,4 +25,4 @@ package com.skydoves.whatif
 )
 @DslMarker
 @Retention(AnnotationRetention.BINARY)
-annotation class WhatIfInlineOnly
+public annotation class WhatIfInlineOnly

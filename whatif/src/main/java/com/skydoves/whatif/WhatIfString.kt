@@ -18,7 +18,7 @@ package com.skydoves.whatif
 
 /** An expression for invoking [whatIf] when the [String] is not null and not empty. */
 @WhatIfInlineOnly
-inline fun String?.whatIfNotNullOrEmpty(
+public inline fun String?.whatIfNotNullOrEmpty(
   whatIf: (String) -> Unit
 ) {
 
@@ -33,7 +33,7 @@ inline fun String?.whatIfNotNullOrEmpty(
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
 @WhatIfInlineOnly
-inline fun String?.whatIfNotNullOrEmpty(
+public inline fun String?.whatIfNotNullOrEmpty(
   whatIf: (String) -> Unit,
   whatIfNot: () -> Unit
 ) {

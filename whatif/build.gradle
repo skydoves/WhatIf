@@ -16,6 +16,10 @@ publish {
     licences = metadata.licences
 }
 
+kotlin {
+    explicitApiWarning()
+}
+
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
     testImplementation "junit:junit:$versions.junit"
