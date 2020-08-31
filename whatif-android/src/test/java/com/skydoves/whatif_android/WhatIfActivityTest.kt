@@ -39,7 +39,9 @@ class WhatIfActivityTest {
     val intent = Intent()
     intent.putExtra("foo", "bar")
     this.controller = Robolectric.buildActivity(
-      MainTestActivity::class.java, intent).create().start()
+      MainTestActivity::class.java,
+      intent
+    ).create().start()
     this.mainTestActivity = controller.get()
   }
 
