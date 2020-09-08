@@ -87,7 +87,8 @@ class MainActivity : AppCompatActivity() {
       .whatIf(nullableBoolean) { setTextColor(Color.YELLOW) }
       .whatIf(nullableBoolean, { setText("Hello, whatIf") }, { setText("Good-Bye whatIf") })
       .setWidthRatio(1.0f)
-      .setHeight(65)
+      .setMargin(12)
+      .setPadding(12)
       .setTextSize(15f)
       .setArrowPosition(0.5f)
       .setCornerRadius(4f)
