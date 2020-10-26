@@ -11,67 +11,77 @@ ext.repository = [
 ]
 
 afterEvaluate {
-    publishing {
-        publications {
-            releaseWhatIf(MavenPublication) {
-                from components.java
+  publishing {
+    publications {
+      releaseWhatIf(MavenPublication) {
+        from components.java
 
-                group = "com.github.skydoves"
-                artifactId = repository.name
-                version = versions.versionName
+        group = "com.github.skydoves"
+        artifactId = repository.name
+        version = versions.versionName
 
-                artifact sourceJar
+        artifact javadocsJar
+        artifact(sourceJar)
 
-                pom {
-                    name = repository.name
-                    description = repository.description
-                    url = repository.websiteUrl
-                    licenses {
-                        license {
-                            name = "The Apache License, Version 2.0"
-                            url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
-                        }
-                    }
-                    developers {
-                        developer {
-                            id = "skydoves"
-                            name = "Jaewoong Eum"
-                        }
-                    }
-                    scm {
-                        connection = repository.scm
-                        developerConnection = repository.scm
-                        url = repository.websiteUrl
-                    }
-                }
+        pom {
+          name = repository.name
+          description = repository.description
+          url = repository.websiteUrl
+          licenses {
+            license {
+              name = "The Apache License, Version 2.0"
+              url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
             }
+          }
+          developers {
+            developer {
+              id = "skydoves"
+              name = "Jaewoong Eum"
+            }
+          }
+          scm {
+            connection = repository.scm
+            developerConnection = repository.scm
+            url = repository.websiteUrl
+          }
         }
+      }
     }
+  }
 }
 
 kotlin {
-    explicitApiWarning()
+  explicitApiWarning()
 }
 
 dependencies {
-    testImplementation "junit:junit:$versions.junit"
+  testImplementation "junit:junit:$versions.junit"
 }
 
 dokka {
-    outputFormat = 'html'
-    outputDirectory = "$buildDir/javadoc"
-    configuration {
-        moduleName = 'whatif'
-    }
-}
-
-task sourceJar(type: Jar) {
-    archiveClassifier = "sources"
+  outputFormat = 'html'
+  outputDirectory = "$buildDir/javadoc"
+  configuration {
+    moduleName = 'whatif'
+  }
 }
 
 tasks.withType(Javadoc) {
-    excludes = ['**/*.kt']
-    options.addBooleanOption('Xdoclint:none', true)
+  excludes = ['**/*.kt']
+  options.addBooleanOption('Xdoclint:none', true)
+}
+
+task sourceJar(type: Jar) {
+  archiveClassifier = "sources"
+}
+
+task javadocs(type: Javadoc) {
+  source = sourceSets.main.java.srcDirs
+}
+
+task javadocsJar(type: Jar, dependsOn: javadocs) {
+  archiveClassifier.set('javadoc')
+  from javadocs.destinationDir
 }
 
 apply from: '../spotless.gradle'
