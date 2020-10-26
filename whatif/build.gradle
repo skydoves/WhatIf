@@ -2,18 +2,51 @@ apply plugin: 'java-library'
 apply plugin: 'kotlin'
 apply plugin: 'org.jetbrains.dokka'
 apply from: '../dependencies.gradle'
-apply from: '../publish.gradle'
 
-publish {
-    artifactId = 'whatif'
-    userOrg = metadata.userOrg
-    groupId = metadata.groupId
-    publishVersion = metadata.publishVersion
-    desc = metadata.desc
-    website = metadata.website
-    issueTracker = metadata.issueTracker
-    repository = metadata.repository
-    licences = metadata.licences
+ext.repository = [
+    name       : "whatif",
+    description: "WhatIf is kotlin extensions for expressing a single if-else statement, nullable and boolean.",
+    websiteUrl : "https://github.com/skydoves/WhatIf",
+    scm        : 'scm:git@github.com/skydoves/WhatIf.git'
+]
+
+afterEvaluate {
+    publishing {
+        publications {
+            releaseWhatIf(MavenPublication) {
+                from components.java
+
+                group = "com.github.skydoves"
+                artifactId = repository.name
+                version = versions.versionName
+
+                artifact sourceJar
+
+                pom {
+                    name = repository.name
+                    description = repository.description
+                    url = repository.websiteUrl
+                    licenses {
+                        license {
+                            name = "The Apache License, Version 2.0"
+                            url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = "skydoves"
+                            name = "Jaewoong Eum"
+                        }
+                    }
+                    scm {
+                        connection = repository.scm
+                        developerConnection = repository.scm
+                        url = repository.websiteUrl
+                    }
+                }
+            }
+        }
+    }
 }
 
 kotlin {
@@ -32,9 +65,14 @@ dokka {
     }
 }
 
+task sourceJar(type: Jar) {
+    archiveClassifier = "sources"
+}
+
 tasks.withType(Javadoc) {
     excludes = ['**/*.kt']
     options.addBooleanOption('Xdoclint:none', true)
 }
 
 apply from: '../spotless.gradle'
+apply from: '../publish.gradle'
