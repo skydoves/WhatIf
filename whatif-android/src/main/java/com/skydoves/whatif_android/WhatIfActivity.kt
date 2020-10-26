@@ -23,6 +23,7 @@ import android.os.Bundle
 import android.os.Parcelable
 import com.skydoves.whatif.WhatIfInlineOnly
 import com.skydoves.whatif.whatIfNotNull
+import java.io.Serializable
 
 /**
  * An expression for invoking [whatIf] when the
@@ -158,6 +159,39 @@ inline fun Activity.whatIfHasCharSequenceExtra(
   whatIfNot: () -> Unit
 ) {
   this.intent.getCharSequenceExtra(name).whatIfNotNull(
+    whatIf = { whatIf(it) },
+    whatIfNot = { whatIfNot() }
+  )
+}
+
+/**
+ * An expression for invoking [whatIf] when the
+ * [Activity]'s intent extras is has a Serializable extra by name.
+ */
+@WhatIfInlineOnly
+inline fun Activity.whatIfHasSerializableExtra(
+  name: String,
+  whatIf: (Serializable) -> Unit
+) {
+  this.intent.getSerializableExtra(name).whatIfNotNull(
+    whatIf = { whatIf(it) },
+    whatIfNot = { }
+  )
+}
+
+/**
+ * An expression for invoking [whatIf] when the
+ * [Activity]'s intent extras is has a Serializable extra by name.
+ *
+ * If the intent extras is null, [whatIfNot] will be invoked instead of the [whatIf].
+ */
+@WhatIfInlineOnly
+inline fun Activity.whatIfHasSerializableExtra(
+  name: String,
+  whatIf: (Serializable) -> Unit,
+  whatIfNot: () -> Unit
+) {
+  this.intent.getSerializableExtra(name).whatIfNotNull(
     whatIf = { whatIf(it) },
     whatIfNot = { whatIfNot() }
   )
