@@ -23,6 +23,7 @@ package com.skydoves.whatif
  */
 
 /** An expression for invoking [whatIf] when the [given] boolean is true. */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T> T.whatIf(
   given: (T) -> Boolean?,
@@ -38,6 +39,7 @@ public inline fun <T> T.whatIf(
  * An expression for invoking [whatIf] when the [given] boolean is true.
  * If the [given] boolean is false, [whatIfNotNull] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T> T.whatIf(
   given: (T) -> Boolean?,
@@ -56,6 +58,7 @@ public inline fun <T> T.whatIf(
  * An expression for invoking [whatIf] when the [given] boolean is true.
  * So it is useful when using with a chaining function like builder pattern or [apply] expression in kotlin.
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T> T.whatIf(
   given: Boolean?,
@@ -73,6 +76,7 @@ public inline fun <T> T.whatIf(
  * If the [given] boolean is false, [whatIfNotNull] will be invoked instead of the [whatIf].
  * So it is useful when using with a chaining function like builder pattern or [apply] expression in kotlin.
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T> T.whatIf(
   given: Boolean?,
@@ -92,6 +96,7 @@ public inline fun <T> T.whatIf(
  * An expression for invoking [whatIf] when the [given] lambda's return value is true.
  * So it is useful when using with a chaining function like builder pattern or [apply] expression in kotlin.
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T> T.whatIf(
   given: () -> Boolean?,
@@ -110,6 +115,7 @@ public inline fun <T> T.whatIf(
  * If the [given] boolean is false, [whatIfNotNull] will be invoked instead of the [whatIf].
  * So it is useful when using with a chaining function like builder pattern or [apply] expression in kotlin.
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T> T.whatIf(
   given: () -> Boolean?,
@@ -130,6 +136,7 @@ public inline fun <T> T.whatIf(
  * If the [given] boolean value is false, the result value is the [default].
  * It is useful when the receiver [T] and the result [R] should be different.
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T, R> T.whatIfLet(
   given: Boolean?,
@@ -149,6 +156,7 @@ public inline fun <T, R> T.whatIfLet(
  * If the [given] boolean is false, [whatIfNotNull] will be invoked instead of the [whatIf].
  * It is useful when the receiver [T] and the result [R] should be different.
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T, R> T.whatIfLet(
   given: Boolean?,
@@ -163,6 +171,7 @@ public inline fun <T, R> T.whatIfLet(
 }
 
 /** An expression for invoking [whatIf] when the [T] target object is not null. */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T> T?.whatIfNotNull(
   whatIf: (T) -> Unit
@@ -178,6 +187,7 @@ public inline fun <T> T?.whatIfNotNull(
  * An expression for invoking [whatIf] when the [T] target object is not null.
  * If the [T] target is null, [whatIfNot] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T> T?.whatIfNotNull(
   whatIf: (T) -> Unit,
@@ -195,6 +205,7 @@ public inline fun <T> T?.whatIfNotNull(
  * An expression for invoking [whatIf] when the target object is not null.
  * If the target is not null, the receiver will get a casted [R] type.
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <reified R> Any?.whatIfNotNullAs(
   whatIf: (R) -> Unit
@@ -210,6 +221,7 @@ public inline fun <reified R> Any?.whatIfNotNullAs(
  * If the target is not null, the receiver will get a casted [R] type.
  * If the target is null, [whatIfNot] will be invoked instead of the [whatIf] without casting.
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <reified R> Any?.whatIfNotNullAs(
   whatIf: (R) -> Unit,
@@ -228,6 +240,7 @@ public inline fun <reified R> Any?.whatIfNotNullAs(
  * If the [T] target is null, [whatIfNot] will be invoked instead of the [whatIf].
  * It is useful when the receiver [T] and the result [R] should be different.
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T, R> T?.whatIfNotNullWith(
   whatIf: (T) -> R,
@@ -241,6 +254,7 @@ public inline fun <T, R> T?.whatIfNotNullWith(
 }
 
 /** An expression for invoking [whatIf] when the target object is not null and true. */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun Boolean?.whatIf(
   whatIf: () -> Unit
@@ -256,6 +270,7 @@ public inline fun Boolean?.whatIf(
  * An expression for invoking [whatIf] when the target object is not null and true.
  * If the target is null or false, [whatIfNot] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun Boolean?.whatIf(
   whatIf: () -> Unit,
@@ -270,6 +285,7 @@ public inline fun Boolean?.whatIf(
 }
 
 /** An expression for invoking [whatIf] when the target object is not null and false. */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun Boolean?.whatIfElse(
   whatIf: () -> Unit
@@ -281,6 +297,7 @@ public inline fun Boolean?.whatIfElse(
 }
 
 /** An expression for invoking [whatIf] when the target Boolean is true and the [predicate] is also true. */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun Boolean?.whatIfAnd(
   predicate: Boolean?,
@@ -293,6 +310,7 @@ public inline fun Boolean?.whatIfAnd(
 }
 
 /** An expression for invoking [whatIf] when the target Boolean is true or the [predicate] is true. */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun Boolean?.whatIfOr(
   predicate: Boolean?,

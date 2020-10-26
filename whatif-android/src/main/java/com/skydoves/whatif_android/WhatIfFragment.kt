@@ -29,6 +29,7 @@ import com.skydoves.whatif.whatIfNotNull
 /**
  * An expression for invoking [whatIf] when the [Context] is not null.
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 inline fun Fragment.whatIfNotNullContext(
   whatIf: (Context) -> Unit
@@ -44,6 +45,7 @@ inline fun Fragment.whatIfNotNullContext(
  *
  * If the activity is null, [whatIfNot] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 inline fun Fragment.whatIfNotNullContext(
   whatIf: (Context) -> Unit,
@@ -61,6 +63,7 @@ inline fun Fragment.whatIfNotNullContext(
 /**
  * An expression for invoking [whatIf] when the [Activity] is not null.
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 inline fun Fragment.whatIfNotNullActivity(
   whatIf: (FragmentActivity) -> Unit
@@ -76,6 +79,7 @@ inline fun Fragment.whatIfNotNullActivity(
  *
  * If the activity is null, [whatIfNot] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 inline fun Fragment.whatIfNotNullActivity(
   whatIf: (FragmentActivity) -> Unit,
@@ -93,6 +97,7 @@ inline fun Fragment.whatIfNotNullActivity(
 /**
  * An expression for invoking [whatIf] when the [Fragment.getArguments] is not null.
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 inline fun Fragment.whatIfHasArguments(
   whatIf: (Bundle) -> Unit

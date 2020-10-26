@@ -17,6 +17,7 @@
 package com.skydoves.whatif
 
 /** An expression for invoking [whatIf] when the [List] is not null and not empty. */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T> List<T>?.whatIfNotNullOrEmpty(
   whatIf: (List<T>) -> Unit
@@ -32,6 +33,7 @@ public inline fun <T> List<T>?.whatIfNotNullOrEmpty(
  * An expression for invoking [whatIf] when the [List] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T> List<T>?.whatIfNotNullOrEmpty(
   whatIf: (List<T>) -> Unit,
@@ -46,6 +48,7 @@ public inline fun <T> List<T>?.whatIfNotNullOrEmpty(
 }
 
 /** An expression for invoking [whatIf] when the [Set] is not null and not empty. */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T> Set<T>?.whatIfNotNullOrEmpty(
   whatIf: (Set<T>) -> Unit
@@ -61,6 +64,7 @@ public inline fun <T> Set<T>?.whatIfNotNullOrEmpty(
  * An expression for invoking [whatIf] when the [Set] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T> Set<T>?.whatIfNotNullOrEmpty(
   whatIf: (Set<T>) -> Unit,
@@ -75,6 +79,7 @@ public inline fun <T> Set<T>?.whatIfNotNullOrEmpty(
 }
 
 /** An expression for invoking [whatIf] when the [Map] is not null and not empty. */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T, R> Map<T, R>?.whatIfNotNullOrEmpty(
   whatIf: (Map<T, R>) -> Unit
@@ -90,6 +95,7 @@ public inline fun <T, R> Map<T, R>?.whatIfNotNullOrEmpty(
  * An expression for invoking [whatIf] when the [Map] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T, R> Map<T, R>?.whatIfNotNullOrEmpty(
   whatIf: (Map<T, R>) -> Unit,

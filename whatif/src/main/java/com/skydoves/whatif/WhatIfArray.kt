@@ -17,6 +17,7 @@
 package com.skydoves.whatif
 
 /** An expression for invoking [whatIf] when the [Array] is not null and not empty. */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
   whatIf: (Array<out T>) -> Unit
@@ -32,6 +33,7 @@ public inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
  * An expression for invoking [whatIf] when the [Array] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
   whatIf: (Array<out T>) -> Unit,
@@ -46,6 +48,7 @@ public inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
 }
 
 /** An expression for invoking [whatIf] when the [ByteArray] is not null and not empty. */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun ByteArray?.whatIfNotNullOrEmpty(
   whatIf: (ByteArray) -> Unit
@@ -61,6 +64,7 @@ public inline fun ByteArray?.whatIfNotNullOrEmpty(
  * An expression for invoking [whatIf] when the [ByteArray] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun ByteArray?.whatIfNotNullOrEmpty(
   whatIf: (ByteArray) -> Unit,
@@ -75,6 +79,7 @@ public inline fun ByteArray?.whatIfNotNullOrEmpty(
 }
 
 /** An expression for invoking [whatIf] when the [ShortArray] is not null and not empty. */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun ShortArray?.whatIfNotNullOrEmpty(
   whatIf: (ShortArray) -> Unit
@@ -90,6 +95,7 @@ public inline fun ShortArray?.whatIfNotNullOrEmpty(
  * An expression for invoking [whatIf] when the [ShortArray] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun ShortArray?.whatIfNotNullOrEmpty(
   whatIf: (ShortArray) -> Unit,
@@ -104,6 +110,7 @@ public inline fun ShortArray?.whatIfNotNullOrEmpty(
 }
 
 /** An expression for invoking [whatIf] when the [IntArray] is not null and not empty. */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun IntArray?.whatIfNotNullOrEmpty(
   whatIf: (IntArray) -> Unit
@@ -119,6 +126,7 @@ public inline fun IntArray?.whatIfNotNullOrEmpty(
  * An expression for invoking [whatIf] when the [IntArray] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun IntArray?.whatIfNotNullOrEmpty(
   whatIf: (IntArray) -> Unit,
@@ -133,6 +141,7 @@ public inline fun IntArray?.whatIfNotNullOrEmpty(
 }
 
 /** An expression for invoking [whatIf] when the [LongArray] is not null and not empty. */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun LongArray?.whatIfNotNullOrEmpty(
   whatIf: (LongArray) -> Unit
@@ -148,6 +157,7 @@ public inline fun LongArray?.whatIfNotNullOrEmpty(
  * An expression for invoking [whatIf] when the [LongArray] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun LongArray?.whatIfNotNullOrEmpty(
   whatIf: (LongArray) -> Unit,
@@ -162,6 +172,7 @@ public inline fun LongArray?.whatIfNotNullOrEmpty(
 }
 
 /** An expression for invoking [whatIf] when the [FloatArray] is not null and not empty. */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun FloatArray?.whatIfNotNullOrEmpty(
   whatIf: (FloatArray) -> Unit
@@ -177,6 +188,7 @@ public inline fun FloatArray?.whatIfNotNullOrEmpty(
  * An expression for invoking [whatIf] when the [FloatArray] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun FloatArray?.whatIfNotNullOrEmpty(
   whatIf: (FloatArray) -> Unit,
@@ -191,6 +203,7 @@ public inline fun FloatArray?.whatIfNotNullOrEmpty(
 }
 
 /** An expression for invoking [whatIf] when the [DoubleArray] is not null and not empty. */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun DoubleArray?.whatIfNotNullOrEmpty(
   whatIf: (DoubleArray) -> Unit
@@ -206,6 +219,7 @@ public inline fun DoubleArray?.whatIfNotNullOrEmpty(
  * An expression for invoking [whatIf] when the [DoubleArray] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun DoubleArray?.whatIfNotNullOrEmpty(
   whatIf: (DoubleArray) -> Unit,
@@ -220,6 +234,7 @@ public inline fun DoubleArray?.whatIfNotNullOrEmpty(
 }
 
 /** An expression for invoking [whatIf] when the [BooleanArray] is not null and not empty. */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun BooleanArray?.whatIfNotNullOrEmpty(
   whatIf: (BooleanArray) -> Unit
@@ -235,6 +250,7 @@ public inline fun BooleanArray?.whatIfNotNullOrEmpty(
  * An expression for invoking [whatIf] when the [BooleanArray] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun BooleanArray?.whatIfNotNullOrEmpty(
   whatIf: (BooleanArray) -> Unit,
@@ -249,6 +265,7 @@ public inline fun BooleanArray?.whatIfNotNullOrEmpty(
 }
 
 /** An expression for invoking [whatIf] when the [CharArray] is not null and not empty. */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun CharArray?.whatIfNotNullOrEmpty(
   whatIf: (CharArray) -> Unit
@@ -264,6 +281,7 @@ public inline fun CharArray?.whatIfNotNullOrEmpty(
  * An expression for invoking [whatIf] when the [CharArray] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun CharArray?.whatIfNotNullOrEmpty(
   whatIf: (CharArray) -> Unit,

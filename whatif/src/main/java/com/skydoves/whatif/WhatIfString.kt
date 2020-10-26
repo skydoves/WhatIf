@@ -17,6 +17,7 @@
 package com.skydoves.whatif
 
 /** An expression for invoking [whatIf] when the [String] is not null and not empty. */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun String?.whatIfNotNullOrEmpty(
   whatIf: (String) -> Unit
@@ -32,6 +33,7 @@ public inline fun String?.whatIfNotNullOrEmpty(
  * An expression for invoking [whatIf] when the [String] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 public inline fun String?.whatIfNotNullOrEmpty(
   whatIf: (String) -> Unit,

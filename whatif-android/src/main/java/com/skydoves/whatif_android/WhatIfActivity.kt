@@ -29,6 +29,7 @@ import java.io.Serializable
  * An expression for invoking [whatIf] when the
  * [Activity]'s intent extras is not null and not empty.
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 inline fun Activity.whatIfHasExtras(
   whatIf: (Bundle) -> Unit
@@ -46,6 +47,7 @@ inline fun Activity.whatIfHasExtras(
  *
  * If the intent extras is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 inline fun Activity.whatIfHasExtras(
   whatIf: (Bundle) -> Unit,
@@ -66,6 +68,7 @@ inline fun Activity.whatIfHasExtras(
  * An expression for invoking [whatIf] when the
  * [Activity]'s intent extras is not null and not empty.
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 inline fun Activity.whatIfHasExtras(
   name: String,
@@ -84,6 +87,7 @@ inline fun Activity.whatIfHasExtras(
  *
  * If the intent extras is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 inline fun Activity.whatIfHasExtras(
   name: String,
@@ -102,6 +106,7 @@ inline fun Activity.whatIfHasExtras(
  * An expression for invoking [whatIf] when the
  * [Activity]'s intent extras is has a string extra by name.
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 inline fun Activity.whatIfHasStringExtra(
   name: String,
@@ -119,6 +124,7 @@ inline fun Activity.whatIfHasStringExtra(
  *
  * If the intent extras is null, [whatIfNot] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 inline fun Activity.whatIfHasStringExtra(
   name: String,
@@ -135,6 +141,7 @@ inline fun Activity.whatIfHasStringExtra(
  * An expression for invoking [whatIf] when the
  * [Activity]'s intent extras is has a CharSequence extra by name.
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 inline fun Activity.whatIfHasCharSequenceExtra(
   name: String,
@@ -152,6 +159,7 @@ inline fun Activity.whatIfHasCharSequenceExtra(
  *
  * If the intent extras is null, [whatIfNot] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 inline fun Activity.whatIfHasCharSequenceExtra(
   name: String,
@@ -168,6 +176,7 @@ inline fun Activity.whatIfHasCharSequenceExtra(
  * An expression for invoking [whatIf] when the
  * [Activity]'s intent extras is has a Serializable extra by name.
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 inline fun Activity.whatIfHasSerializableExtra(
   name: String,
@@ -185,6 +194,7 @@ inline fun Activity.whatIfHasSerializableExtra(
  *
  * If the intent extras is null, [whatIfNot] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 inline fun Activity.whatIfHasSerializableExtra(
   name: String,
@@ -201,6 +211,7 @@ inline fun Activity.whatIfHasSerializableExtra(
  * An expression for invoking [whatIf] when the
  * [Activity]'s intent extras is has an object extra by name.
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 inline fun <reified T : Parcelable> Activity.whatIfHasParcelableExtra(
   name: String,
@@ -218,6 +229,7 @@ inline fun <reified T : Parcelable> Activity.whatIfHasParcelableExtra(
  *
  * If the intent extras is null, [whatIfNot] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 inline fun <reified T : Parcelable> Activity.whatIfHasParcelableExtra(
   name: String,
@@ -234,6 +246,7 @@ inline fun <reified T : Parcelable> Activity.whatIfHasParcelableExtra(
  * An expression for invoking [whatIf] when the
  * [Activity]'s intent extras is has an ArrayList of object extra by name.
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 inline fun <reified T : Parcelable> Activity.whatIfHasParcelableArrayListExtra(
   name: String,
@@ -251,6 +264,7 @@ inline fun <reified T : Parcelable> Activity.whatIfHasParcelableArrayListExtra(
  *
  * If the intent extras is null, [whatIfNot] will be invoked instead of the [whatIf].
  */
+@JvmSynthetic
 @WhatIfInlineOnly
 inline fun <reified T : Parcelable> Activity.whatIfHasParcelableArrayListExtra(
   name: String,
