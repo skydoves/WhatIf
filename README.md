@@ -25,8 +25,8 @@
 Add a dependency code to your **module**'s `build.gradle` file.
 ```gradle
 dependencies {
-    implementation "com.github.skydoves:whatif:1.0.6"
-    implementation "com.github.skydoves:whatif-android:1.0.6" // for android extensions
+    implementation "com.github.skydoves:whatif:1.0.7"
+    implementation "com.github.skydoves:whatif-android:1.0.7" // for android extensions
 }
 ```
 
