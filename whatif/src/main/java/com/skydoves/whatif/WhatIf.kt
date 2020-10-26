@@ -15,6 +15,8 @@
  */
 
 @file:Suppress("unused")
+@file:JvmName("WhatIf")
+@file:JvmMultifileClass
 
 package com.skydoves.whatif
 

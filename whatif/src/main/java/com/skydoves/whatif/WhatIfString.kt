@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+@file:JvmName("WhatIfString")
+@file:JvmMultifileClass
+
 package com.skydoves.whatif
 
 /** An expression for invoking [whatIf] when the [String] is not null and not empty. */

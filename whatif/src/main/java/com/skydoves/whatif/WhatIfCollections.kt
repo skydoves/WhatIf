@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+@file:JvmName("WhatIfCollections")
+@file:JvmMultifileClass
+
 package com.skydoves.whatif
 
 /** An expression for invoking [whatIf] when the [List] is not null and not empty. */

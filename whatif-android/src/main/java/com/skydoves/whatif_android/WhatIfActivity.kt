@@ -15,6 +15,8 @@
  */
 
 @file:Suppress("unused")
+@file:JvmName("WhatIfActivity")
+@file:JvmMultifileClass
 
 package com.skydoves.whatif_android
 

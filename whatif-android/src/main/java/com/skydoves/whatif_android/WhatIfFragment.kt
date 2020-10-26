@@ -15,6 +15,8 @@
  */
 
 @file:Suppress("unused")
+@file:JvmName("WhatIfFragment")
+@file:JvmMultifileClass
 
 package com.skydoves.whatif_android
 
