@@ -19,11 +19,14 @@ package com.skydoves.whatif
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.Is.`is`
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.junit.runners.JUnit4
 
-class WhatIfCollectionsUnitTest {
+@RunWith(JUnit4::class)
+public class WhatIfCollectionsUnitTest {
 
   @Test
-  fun whatIfNotNullOrEmptyListTest() {
+  public fun whatIfNotNullOrEmptyListTest() {
     var list: List<String>? = null
 
     list.whatIfNotNullOrEmpty(
@@ -41,7 +44,7 @@ class WhatIfCollectionsUnitTest {
   }
 
   @Test
-  fun whatIfNotNullOrEmptySetTest() {
+  public fun whatIfNotNullOrEmptySetTest() {
     var set: Set<String>? = null
 
     set.whatIfNotNullOrEmpty(
@@ -59,7 +62,7 @@ class WhatIfCollectionsUnitTest {
   }
 
   @Test
-  fun whatIfNotNullOrEmptyMapTest() {
+  public fun whatIfNotNullOrEmptyMapTest() {
     var map: Map<Int, String>? = null
 
     map.whatIfNotNullOrEmpty(

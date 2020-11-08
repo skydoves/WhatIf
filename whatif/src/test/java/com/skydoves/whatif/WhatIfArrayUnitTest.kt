@@ -19,11 +19,14 @@ package com.skydoves.whatif
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.Is.`is`
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.junit.runners.JUnit4
 
-class WhatIfArrayUnitTest {
+@RunWith(JUnit4::class)
+public class WhatIfArrayUnitTest {
 
   @Test
-  fun whatIfNotNullOrEmptyArrayTest() {
+  public fun whatIfNotNullOrEmptyArrayTest() {
     var array: Array<String>? = null
 
     array.whatIfNotNullOrEmpty(
@@ -41,7 +44,7 @@ class WhatIfArrayUnitTest {
   }
 
   @Test
-  fun whatIfNotNullOrEmptyByteArrayTest() {
+  public fun whatIfNotNullOrEmptyByteArrayTest() {
     var array: ByteArray? = null
 
     array.whatIfNotNullOrEmpty(
@@ -59,7 +62,7 @@ class WhatIfArrayUnitTest {
   }
 
   @Test
-  fun whatIfNotNullOrEmptyShortArrayTest() {
+  public fun whatIfNotNullOrEmptyShortArrayTest() {
     var array: ShortArray? = null
 
     array.whatIfNotNullOrEmpty(
@@ -77,7 +80,7 @@ class WhatIfArrayUnitTest {
   }
 
   @Test
-  fun whatIfNotNullOrEmptyIntArrayTest() {
+  public fun whatIfNotNullOrEmptyIntArrayTest() {
     var array: IntArray? = null
 
     array.whatIfNotNullOrEmpty(
@@ -95,7 +98,7 @@ class WhatIfArrayUnitTest {
   }
 
   @Test
-  fun whatIfNotNullOrEmptyLongArrayTest() {
+  public fun whatIfNotNullOrEmptyLongArrayTest() {
     var array: LongArray? = null
 
     array.whatIfNotNullOrEmpty(
@@ -113,7 +116,7 @@ class WhatIfArrayUnitTest {
   }
 
   @Test
-  fun whatIfNotNullOrEmptyFloatArrayTest() {
+  public fun whatIfNotNullOrEmptyFloatArrayTest() {
     var array: FloatArray? = null
 
     array.whatIfNotNullOrEmpty(
@@ -131,7 +134,7 @@ class WhatIfArrayUnitTest {
   }
 
   @Test
-  fun whatIfNotNullOrEmptyDoubleArrayTest() {
+  public fun whatIfNotNullOrEmptyDoubleArrayTest() {
     var array: DoubleArray? = null
 
     array.whatIfNotNullOrEmpty(
@@ -149,7 +152,7 @@ class WhatIfArrayUnitTest {
   }
 
   @Test
-  fun whatIfNotNullOrEmptyBooleanArrayTest() {
+  public fun whatIfNotNullOrEmptyBooleanArrayTest() {
     var array: BooleanArray? = null
 
     array.whatIfNotNullOrEmpty(
@@ -167,7 +170,7 @@ class WhatIfArrayUnitTest {
   }
 
   @Test
-  fun whatIfNotNullOrEmptyCharArrayTest() {
+  public fun whatIfNotNullOrEmptyCharArrayTest() {
     var array: CharArray? = null
 
     array.whatIfNotNullOrEmpty(

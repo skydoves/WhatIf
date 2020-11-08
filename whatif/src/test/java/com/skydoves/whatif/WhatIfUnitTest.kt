@@ -19,11 +19,14 @@ package com.skydoves.whatif
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.Is.`is`
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.junit.runners.JUnit4
 
-class WhatIfUnitTest {
+@RunWith(JUnit4::class)
+public class WhatIfUnitTest {
 
   @Test
-  fun whatIfSingleLambdaTest() {
+  public fun whatIfSingleLambdaTest() {
     var nullableBoolean: Boolean? = true
 
     whatIf(nullableBoolean) {
@@ -34,7 +37,7 @@ class WhatIfUnitTest {
   }
 
   @Test
-  fun whatIfNotSingleLambdaTest() {
+  public fun whatIfNotSingleLambdaTest() {
     var nullableString: String? = null
 
     whatIf(
@@ -55,7 +58,7 @@ class WhatIfUnitTest {
   }
 
   @Test
-  fun whatIfDoSingleLambdaTest() {
+  public fun whatIfDoSingleLambdaTest() {
     var nullableString: String? = null
 
     whatIf(
@@ -67,7 +70,7 @@ class WhatIfUnitTest {
   }
 
   @Test
-  fun whatIfDoNotSingleLambdaTest() {
+  public fun whatIfDoNotSingleLambdaTest() {
     var nullableString: String? = null
 
     whatIf(
@@ -87,7 +90,7 @@ class WhatIfUnitTest {
   }
 
   @Test
-  fun whatIfLetTest() {
+  public fun whatIfLetTest() {
     var nullableString: String? = null
 
     nullableString = nullableString.whatIfLet(
@@ -108,7 +111,7 @@ class WhatIfUnitTest {
   }
 
   @Test
-  fun whatIfNotNullTest() {
+  public fun whatIfNotNullTest() {
     var nullableString: String? = "notNull"
 
     nullableString.whatIfNotNull {
@@ -119,7 +122,7 @@ class WhatIfUnitTest {
   }
 
   @Test
-  fun whatIfNotNullWhatIfNotTest() {
+  public fun whatIfNotNullWhatIfNotTest() {
     var nullableString: String? = null
 
     nullableString.whatIfNotNull(
@@ -138,7 +141,7 @@ class WhatIfUnitTest {
   }
 
   @Test
-  fun whatIfNotNullWithDifferentTypeReturnTest() {
+  public fun whatIfNotNullWithDifferentTypeReturnTest() {
     val nullableString: String? = "notNull"
     val length: Int
 
@@ -151,7 +154,7 @@ class WhatIfUnitTest {
   }
 
   @Test
-  fun nullableBooleanWhatIfTest() {
+  public fun nullableBooleanWhatIfTest() {
     var nullableBoolean: Boolean? = null
     var testInteger = 0
 
@@ -165,7 +168,7 @@ class WhatIfUnitTest {
   }
 
   @Test
-  fun nullableBooleanWhatIfNotTest() {
+  public fun nullableBooleanWhatIfNotTest() {
     var nullableBoolean: Boolean? = null
     var testInteger = 0
 
@@ -185,7 +188,7 @@ class WhatIfUnitTest {
   }
 
   @Test
-  fun nullableBooleanWhatIfElseTest() {
+  public fun nullableBooleanWhatIfElseTest() {
     var nullableBoolean: Boolean? = null
     var testInteger = 0
 
@@ -199,7 +202,7 @@ class WhatIfUnitTest {
   }
 
   @Test
-  fun whatIfNotNullTypeCastingTest() {
+  public fun whatIfNotNullTypeCastingTest() {
     var nullableInt: MutableList<Int>? = null
 
     nullableInt.whatIfNotNullAs<List<String>>(
@@ -217,7 +220,7 @@ class WhatIfUnitTest {
   }
 
   @Test
-  fun nullableBooleanWhatIfAndTest() {
+  public fun nullableBooleanWhatIfAndTest() {
     var nullableBoolean: Boolean? = null
     var predicate: Boolean? = null
     var testInteger = 0
@@ -233,7 +236,7 @@ class WhatIfUnitTest {
   }
 
   @Test
-  fun nullableBooleanWhatIfOrTest() {
+  public fun nullableBooleanWhatIfOrTest() {
     var nullableBoolean: Boolean? = null
     val predicate: Boolean? = null
     var testInteger = 0
