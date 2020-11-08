@@ -78,11 +78,17 @@ dependencies {
   testImplementation "org.robolectric:robolectric:$versions.robolectric"
 }
 
-dokka {
-  outputFormat = 'html'
-  outputDirectory = "$buildDir/javadoc"
-  configuration {
-    moduleName = 'whatif'
+afterEvaluate {
+  tasks.withType(org.jetbrains.dokka.gradle.DokkaTask).configureEach {
+    outputDirectory.set(rootProject.file('docs/api'))
+  }
+}
+
+dokkaHtml.configure {
+  dokkaSourceSets {
+    named("main") {
+      noAndroidSdkLink.set(false)
+    }
   }
 }
 
