@@ -67,7 +67,7 @@ afterEvaluate {
 }
 
 kotlin {
-  explicitApiWarning()
+  explicitApi()
 }
 
 dependencies {
