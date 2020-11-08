@@ -127,4 +127,23 @@ class WhatIfActivityTest {
 
     assertNull(poster)
   }
+
+  @Test
+  fun whatIfHasSerializableExtraTest() {
+    var poster: PosterSerializable? = null
+
+    this.mainTestActivity.whatIfHasSerializableExtra<PosterSerializable>("serializable") {
+      poster = it
+    }
+
+    assertThat(poster, `is`(PosterSerializable.create()))
+
+    this.mainTestActivity.whatIfHasSerializableExtra<PosterSerializable>(
+      name = "null",
+      whatIf = { poster = it },
+      whatIfNot = { poster = null }
+    )
+
+    assertNull(poster)
+  }
 }

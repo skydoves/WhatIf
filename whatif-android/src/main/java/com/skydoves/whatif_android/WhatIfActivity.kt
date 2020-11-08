@@ -25,6 +25,7 @@ import android.os.Bundle
 import android.os.Parcelable
 import com.skydoves.whatif.WhatIfInlineOnly
 import com.skydoves.whatif.whatIfNotNull
+import com.skydoves.whatif.whatIfNotNullAs
 import java.io.Serializable
 
 /**
@@ -180,11 +181,11 @@ inline fun Activity.whatIfHasCharSequenceExtra(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun Activity.whatIfHasSerializableExtra(
+inline fun <reified T : Serializable> Activity.whatIfHasSerializableExtra(
   name: String,
-  whatIf: (Serializable) -> Unit
+  whatIf: (T) -> Unit
 ) {
-  this.intent.getSerializableExtra(name).whatIfNotNull(
+  this.intent.getSerializableExtra(name).whatIfNotNullAs<T>(
     whatIf = { whatIf(it) },
     whatIfNot = { }
   )
@@ -198,12 +199,12 @@ inline fun Activity.whatIfHasSerializableExtra(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun Activity.whatIfHasSerializableExtra(
+inline fun <reified T : Serializable> Activity.whatIfHasSerializableExtra(
   name: String,
-  whatIf: (Serializable) -> Unit,
+  whatIf: (T) -> Unit,
   whatIfNot: () -> Unit
 ) {
-  this.intent.getSerializableExtra(name).whatIfNotNull(
+  this.intent.getSerializableExtra(name).whatIfNotNullAs<T>(
     whatIf = { whatIf(it) },
     whatIfNot = { whatIfNot() }
   )
