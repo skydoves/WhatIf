@@ -27,7 +27,7 @@ import com.skydoves.balloon.showAlignTop
 import com.skydoves.whatif.whatIf
 import com.skydoves.whatif.whatIfLet
 import com.skydoves.whatif.whatIfNotNull
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.button
 
 class MainActivity : AppCompatActivity() {
 
@@ -55,12 +55,11 @@ class MainActivity : AppCompatActivity() {
     )
 
     // example3 : nullable String true-false check extension with default value.
-    nullableString = nullableBoolean?.whatIfLet(nullableBoolean, "null") {
+    nullableString = nullableBoolean.whatIfLet(nullableBoolean, "null") {
       "notNull"
     }
-    if (nullableString != null) {
-      log(nullableString)
-    }
+
+    log(nullableString)
 
     // example4 : nullable any type null check extension.
     nullableString.whatIfNotNull {
@@ -68,7 +67,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // example5 : nullable any type null check extension.
-    val newString = nullableString?.whatIfLet(
+    val newString = nullableString.whatIfLet(
       given = nullableString.length > 3,
       whatIf = {
         log("$it is long.")

@@ -24,7 +24,7 @@ package com.skydoves.whatif
 @WhatIfInlineOnly
 public inline fun <T> List<T>?.whatIfNotNullOrEmpty(
   whatIf: (List<T>) -> Unit
-) {
+): List<T>? = apply {
 
   this.whatIfNotNullOrEmpty(
     whatIf = { whatIf(it) },
@@ -41,7 +41,7 @@ public inline fun <T> List<T>?.whatIfNotNullOrEmpty(
 public inline fun <T> List<T>?.whatIfNotNullOrEmpty(
   whatIf: (List<T>) -> Unit,
   whatIfNot: () -> Unit
-) {
+): List<T>? = apply {
 
   if (!this.isNullOrEmpty()) {
     whatIf(this)
@@ -55,7 +55,7 @@ public inline fun <T> List<T>?.whatIfNotNullOrEmpty(
 @WhatIfInlineOnly
 public inline fun <T> Set<T>?.whatIfNotNullOrEmpty(
   whatIf: (Set<T>) -> Unit
-) {
+): Set<T>? = apply {
 
   this.whatIfNotNullOrEmpty(
     whatIf = { whatIf(it) },
@@ -72,7 +72,7 @@ public inline fun <T> Set<T>?.whatIfNotNullOrEmpty(
 public inline fun <T> Set<T>?.whatIfNotNullOrEmpty(
   whatIf: (Set<T>) -> Unit,
   whatIfNot: () -> Unit
-) {
+): Set<T>? = apply {
 
   if (!this.isNullOrEmpty()) {
     whatIf(this)
@@ -86,7 +86,7 @@ public inline fun <T> Set<T>?.whatIfNotNullOrEmpty(
 @WhatIfInlineOnly
 public inline fun <T, R> Map<T, R>?.whatIfNotNullOrEmpty(
   whatIf: (Map<T, R>) -> Unit
-) {
+): Map<T, R>? = apply {
 
   this.whatIfNotNullOrEmpty(
     whatIf = { whatIf(it) },
@@ -103,7 +103,7 @@ public inline fun <T, R> Map<T, R>?.whatIfNotNullOrEmpty(
 public inline fun <T, R> Map<T, R>?.whatIfNotNullOrEmpty(
   whatIf: (Map<T, R>) -> Unit,
   whatIfNot: () -> Unit
-) {
+): Map<T, R>? = apply {
 
   if (!this.isNullOrEmpty()) {
     whatIf(this)

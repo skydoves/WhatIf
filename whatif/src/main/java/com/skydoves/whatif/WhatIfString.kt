@@ -24,7 +24,7 @@ package com.skydoves.whatif
 @WhatIfInlineOnly
 public inline fun String?.whatIfNotNullOrEmpty(
   whatIf: (String) -> Unit
-) {
+): String? = apply {
 
   this.whatIfNotNullOrEmpty(
     whatIf = { whatIf(it) },
@@ -41,7 +41,7 @@ public inline fun String?.whatIfNotNullOrEmpty(
 public inline fun String?.whatIfNotNullOrEmpty(
   whatIf: (String) -> Unit,
   whatIfNot: () -> Unit
-) {
+): String? = apply {
 
   if (!this.isNullOrEmpty()) {
     whatIf(this)

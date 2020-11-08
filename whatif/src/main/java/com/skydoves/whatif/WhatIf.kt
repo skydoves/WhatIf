@@ -30,11 +30,12 @@ package com.skydoves.whatif
 public inline fun <T> T.whatIf(
   given: (T) -> Boolean?,
   whatIf: () -> Unit
-) {
+): T {
 
   if (given(this) == true) {
     whatIf()
   }
+  return this
 }
 
 /**
@@ -47,13 +48,14 @@ public inline fun <T> T.whatIf(
   given: (T) -> Boolean?,
   whatIf: () -> Unit,
   whatIfNot: () -> Unit
-) {
+): T {
 
   if (given(this) == true) {
     whatIf()
   } else {
     whatIfNot()
   }
+  return this
 }
 
 /**
@@ -177,9 +179,9 @@ public inline fun <T, R> T.whatIfLet(
 @WhatIfInlineOnly
 public inline fun <T> T?.whatIfNotNull(
   whatIf: (T) -> Unit
-) {
+): T? {
 
-  this.whatIfNotNull(
+  return this.whatIfNotNull(
     whatIf = { whatIf(it) },
     whatIfNot = { }
   )
@@ -194,13 +196,14 @@ public inline fun <T> T?.whatIfNotNull(
 public inline fun <T> T?.whatIfNotNull(
   whatIf: (T) -> Unit,
   whatIfNot: (T?) -> Unit
-) {
+): T? {
 
   if (this != null) {
     whatIf(this)
   } else {
     whatIfNot(this)
   }
+  return this
 }
 
 /**
@@ -211,11 +214,13 @@ public inline fun <T> T?.whatIfNotNull(
 @WhatIfInlineOnly
 public inline fun <reified R> Any?.whatIfNotNullAs(
   whatIf: (R) -> Unit
-) {
+): Any? {
 
   if (this != null) {
     whatIf(this as R)
+    return this
   }
+  return this
 }
 
 /**
@@ -228,13 +233,14 @@ public inline fun <reified R> Any?.whatIfNotNullAs(
 public inline fun <reified R> Any?.whatIfNotNullAs(
   whatIf: (R) -> Unit,
   whatIfNot: () -> Unit
-) {
+): Any? {
 
   if (this != null) {
     whatIf(this as R)
-  } else {
-    whatIfNot()
+    return this
   }
+  whatIfNot()
+  return this
 }
 
 /**
@@ -260,9 +266,9 @@ public inline fun <T, R> T?.whatIfNotNullWith(
 @WhatIfInlineOnly
 public inline fun Boolean?.whatIf(
   whatIf: () -> Unit
-) {
+): Boolean? {
 
-  this.whatIf(
+  return this.whatIf(
     whatIf = { whatIf() },
     whatIfNot = { }
   )
@@ -277,13 +283,14 @@ public inline fun Boolean?.whatIf(
 public inline fun Boolean?.whatIf(
   whatIf: () -> Unit,
   whatIfNot: () -> Unit
-) {
+): Boolean? {
 
   if (this == true) {
     whatIf()
   } else {
     whatIfNot()
   }
+  return this
 }
 
 /** An expression for invoking [whatIf] when the target object is not null and false. */
@@ -291,11 +298,12 @@ public inline fun Boolean?.whatIf(
 @WhatIfInlineOnly
 public inline fun Boolean?.whatIfElse(
   whatIf: () -> Unit
-) {
+): Boolean? {
 
   if (this == false) {
     whatIf()
   }
+  return this
 }
 
 /** An expression for invoking [whatIf] when the target Boolean is true and the [predicate] is also true. */
@@ -304,11 +312,12 @@ public inline fun Boolean?.whatIfElse(
 public inline fun Boolean?.whatIfAnd(
   predicate: Boolean?,
   whatIf: () -> Unit
-) {
+): Boolean? {
 
   if (this == true && predicate == true) {
     whatIf()
   }
+  return this
 }
 
 /** An expression for invoking [whatIf] when the target Boolean is true or the [predicate] is true. */
@@ -317,9 +326,10 @@ public inline fun Boolean?.whatIfAnd(
 public inline fun Boolean?.whatIfOr(
   predicate: Boolean?,
   whatIf: () -> Unit
-) {
+): Boolean? {
 
   if (this == true || predicate == true) {
     whatIf()
   }
+  return this
 }
