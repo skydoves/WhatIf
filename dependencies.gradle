@@ -5,7 +5,7 @@ ext.versions = [
     versionCode      : 8,
     versionName      : '1.0.7',
 
-    gradleBuildTool  : '4.0.1',
+    gradleBuildTool  : '4.1.0',
     spotlessGradle   : '5.8.0',
     ktlintGradle     : '0.39.0',
     dokkaGradle      : '1.4.10.2',
@@ -15,7 +15,7 @@ ext.versions = [
     androidxAppcompat: '1.2.0',
 
     // for demo
-    balloon          : '1.2.4',
+    balloon          : '1.2.5',
 
     // unit test
     junit            : '4.13.1',

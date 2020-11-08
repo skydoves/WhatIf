@@ -17,8 +17,11 @@
 package com.skydoves.whatif_android
 
 import android.content.Intent
+import com.skydoves.whatif_android.data.Poster
+import com.skydoves.whatif_android.data.PosterSerializable
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
+import org.junit.Assert.assertNull
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -36,8 +39,13 @@ class WhatIfActivityTest {
 
   @Before
   fun createActivity() {
-    val intent = Intent()
-    intent.putExtra("foo", "bar")
+    val intent = Intent().apply {
+      putExtra("foo", "bar")
+      putExtra("string", "string")
+      putExtra("charSequence", "charSequence")
+      putExtra("parcelable", Poster.create())
+      putExtra("serializable", PosterSerializable.create())
+    }
     this.controller = Robolectric.buildActivity(
       MainTestActivity::class.java,
       intent
@@ -61,5 +69,62 @@ class WhatIfActivityTest {
     }
 
     assertThat(foo, `is`("bar single"))
+  }
+
+  @Test
+  fun whatIfHasStringExtraTest() {
+    var string: String? = null
+
+    this.mainTestActivity.whatIfHasStringExtra("string") {
+      string = it
+    }
+
+    assertThat(string, `is`("string"))
+
+    this.mainTestActivity.whatIfHasStringExtra(
+      name = "null",
+      whatIf = { string = it },
+      whatIfNot = { string = null }
+    )
+
+    assertNull(string)
+  }
+
+  @Test
+  fun whatIfHasCharSequenceExtraTest() {
+    var charSequence: CharSequence? = null
+
+    this.mainTestActivity.whatIfHasCharSequenceExtra("charSequence") {
+      charSequence = it
+    }
+
+    assertThat(charSequence, `is`("charSequence"))
+
+    this.mainTestActivity.whatIfHasCharSequenceExtra(
+      name = "null",
+      whatIf = { charSequence = it },
+      whatIfNot = { charSequence = null }
+    )
+
+    assertNull(charSequence)
+  }
+
+  @Test
+  fun whatIfHasParcelableExtraTest() {
+    var poster: Poster? = null
+
+    this.mainTestActivity.whatIfHasParcelableExtra<Poster>("parcelable") {
+      poster = it
+    }
+
+    assertThat(poster, `is`(Poster.create()))
+
+    this.mainTestActivity.whatIfHasParcelableExtra<Poster>(
+      name = "null",
+      whatIf = { poster = it },
+      whatIfNot = { poster = null }
+    )
+
+    assertNull(poster)
   }
 }
