@@ -17,6 +17,9 @@ android {
       includeAndroidResources = true
     }
   }
+  buildFeatures {
+    buildConfig false
+  }
 }
 
 ext.repository = [
