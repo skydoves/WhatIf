@@ -203,20 +203,22 @@ public class WhatIfUnitTest {
 
   @Test
   public fun whatIfNotNullTypeCastingTest() {
-    var nullableInt: MutableList<Int>? = null
+    var nullableIntList: MutableList<Int>? = null
 
-    nullableInt.whatIfNotNullAs<List<String>>(
-      whatIf = { nullableInt = arrayListOf(it.size) },
-      whatIfNot = { nullableInt = arrayListOf(123) }
+    nullableIntList.whatIfNotNullAs<List<String>>(
+      whatIf = { nullableIntList = arrayListOf(it.size) },
+      whatIfNot = { nullableIntList = arrayListOf(123) }
     )
 
-    assertThat(nullableInt?.get(0), `is`(123))
+    assertThat(nullableIntList?.get(0), `is`(123))
 
-    nullableInt.whatIfNotNullAs<List<String>> {
-      nullableInt = arrayListOf(it.size)
+    var nullableString: String? = "foo"
+
+    nullableString.whatIfNotNullAs<CharSequence> {
+      nullableString = it.toString() + "bar"
     }
 
-    assertThat(nullableInt?.get(0), `is`(1))
+    assertThat(nullableString, `is`("foobar"))
   }
 
   @Test
