@@ -173,6 +173,7 @@ nullableBoolean.whatIfOr(predicate) {
 }
 ```
 
+### WhatIf for Android Activity
 ### WhatIfHasExtras
 An expression for invoking `whatIf` lambda when the Activity's intent extras is not null and not empty.
 ```kotlin
@@ -187,6 +188,15 @@ this@MainActivity.whatIfHasExtras(
    whatIf = { foo = "${it.getString("foo")}" },
    whatIfNot = { log("intent extras is null or empty.") }
 )
+```
+We can null-check and typecast simultaneously when we getting intent extra data.
+```kotlin
+whatIfHasSerializableExtra<Poster>("poster") { poster ->
+ ...
+}
+whatIfHasParcelableExtra<Poster>("poster") { poster ->
+ ...
+}
 ```
 
 ### WhatIf for Android fragment
