@@ -3,6 +3,7 @@ apply plugin: 'maven-publish'
 apply from: '../dependencies.gradle'
 
 def (property_user, property_key) = getBintrayProperties()
+def (oss_user, oss_key) = getOSSProperties()
 bintray {
   user = property_user
   key = property_key
@@ -33,7 +34,28 @@ bintray {
       vcsTag = versions.versionName
       released = new Date()
       gpg { sign = true }
+      mavenCentralSync {
+        sync = true
+        user = oss_user
+        password = oss_key
+      }
     }
+  }
+}
+
+def getOSSProperties() {
+  def filename = "local.properties"
+  def propsFile = rootProject.file(filename)
+  if (propsFile.exists()) {
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file(filename).newDataInputStream())
+    return [
+        properties.getProperty("oss.user"),
+        properties.getProperty("oss.key")
+    ]
+  } else {
+    print(filename + " does not exist!")
+    return ["", ""]
   }
 }
 
