@@ -19,7 +19,11 @@
 
 package com.skydoves.whatif
 
-/** An expression for invoking [whatIf] when the [String] is not null and not empty. */
+/**
+ * An expression for invoking [whatIf] when the [String] is not null and not empty.
+ *
+ * @param whatIf An executable lambda function if the [String] it not null or empty.
+ */
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun String?.whatIfNotNullOrEmpty(
@@ -35,6 +39,9 @@ public inline fun String?.whatIfNotNullOrEmpty(
 /**
  * An expression for invoking [whatIf] when the [String] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
+ *
+ * @param whatIf An executable lambda function if the [String] it not null or empty.
+ * @param whatIfNot An executable lambda function if the [String] it null or empty.
  */
 @JvmSynthetic
 @WhatIfInlineOnly

@@ -27,13 +27,15 @@ import com.skydoves.balloon.showAlignTop
 import com.skydoves.whatif.whatIf
 import com.skydoves.whatif.whatIfLet
 import com.skydoves.whatif.whatIfNotNull
-import kotlinx.android.synthetic.main.activity_main.button
+import com.skydoves.whatifdemo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
+
+    val binding = ActivityMainBinding.inflate(layoutInflater)
+    setContentView(binding.root)
 
     val nullableBoolean: Boolean? = true
     var nullableString: String? = null
@@ -97,7 +99,7 @@ class MainActivity : AppCompatActivity() {
       .setLifecycleOwner(this@MainActivity)
       .build()
 
-    button.showAlignTop(balloon)
+    binding.button.showAlignTop(balloon)
   }
 
   private fun log(log: String) {

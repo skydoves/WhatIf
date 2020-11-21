@@ -19,7 +19,11 @@
 
 package com.skydoves.whatif
 
-/** An expression for invoking [whatIf] when the [List] is not null and not empty. */
+/**
+ * An expression for invoking [whatIf] when the [List] is not null and not empty.
+ *
+ * @param whatIf An executable lambda function if the [List] it not null or empty.
+ */
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T> List<T>?.whatIfNotNullOrEmpty(
@@ -34,7 +38,10 @@ public inline fun <T> List<T>?.whatIfNotNullOrEmpty(
 
 /**
  * An expression for invoking [whatIf] when the [List] is not null and not empty.
- * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
+ * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf]
+ *
+ * @param whatIf An executable lambda function if the [List] it not null or empty.
+ * @param whatIfNot An executable lambda function if the [List] it null or empty.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -50,7 +57,11 @@ public inline fun <T> List<T>?.whatIfNotNullOrEmpty(
   }
 }
 
-/** An expression for invoking [whatIf] when the [Set] is not null and not empty. */
+/**
+ * An expression for invoking [whatIf] when the [Set] is not null and not empty.
+ *
+ * @param whatIf An executable lambda function if the [Set] it not null or empty.
+ */
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T> Set<T>?.whatIfNotNullOrEmpty(
@@ -66,6 +77,9 @@ public inline fun <T> Set<T>?.whatIfNotNullOrEmpty(
 /**
  * An expression for invoking [whatIf] when the [Set] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
+ *
+ * @param whatIf An executable lambda function if the [Set] it not null or empty.
+ * @param whatIfNot An executable lambda function if the [Set] it null or empty.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -81,7 +95,11 @@ public inline fun <T> Set<T>?.whatIfNotNullOrEmpty(
   }
 }
 
-/** An expression for invoking [whatIf] when the [Map] is not null and not empty. */
+/**
+ * An expression for invoking [whatIf] when the [Map] is not null and not empty.
+ *
+ * @param whatIf An executable lambda function if the [Map] it not null or empty.
+ */
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T, R> Map<T, R>?.whatIfNotNullOrEmpty(
@@ -97,6 +115,9 @@ public inline fun <T, R> Map<T, R>?.whatIfNotNullOrEmpty(
 /**
  * An expression for invoking [whatIf] when the [Map] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
+ *
+ * @param whatIf An executable lambda function if the [Map] it not null or empty.
+ * @param whatIfNot An executable lambda function if the [Map] it null or empty.
  */
 @JvmSynthetic
 @WhatIfInlineOnly

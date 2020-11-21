@@ -19,7 +19,11 @@
 
 package com.skydoves.whatif
 
-/** An expression for invoking [whatIf] when the [Array] is not null and not empty. */
+/**
+ * An expression for invoking [whatIf] when the [Array] is not null and not empty.
+ *
+ * @param whatIf An executable lambda function if the [Array] it not null or empty.
+ */
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
@@ -35,6 +39,9 @@ public inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
 /**
  * An expression for invoking [whatIf] when the [Array] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
+ *
+ * @param whatIf An executable lambda function if the [Array] it not null or empty.
+ * @param whatIfNot An executable lambda function if the [Array] it null or empty.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -49,7 +56,11 @@ public inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
   }
 }
 
-/** An expression for invoking [whatIf] when the [ByteArray] is not null and not empty. */
+/**
+ * An expression for invoking [whatIf] when the [ByteArray] is not null and not empty.
+ *
+ * @param whatIf An executable lambda function if the [ByteArray] it not null or empty.
+ */
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun ByteArray?.whatIfNotNullOrEmpty(
@@ -65,6 +76,9 @@ public inline fun ByteArray?.whatIfNotNullOrEmpty(
 /**
  * An expression for invoking [whatIf] when the [ByteArray] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
+ *
+ * @param whatIf An executable lambda function if the [ByteArray] it not null or empty.
+ * @param whatIfNot An executable lambda function if the [ByteArray] it null or empty.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -80,7 +94,11 @@ public inline fun ByteArray?.whatIfNotNullOrEmpty(
   }
 }
 
-/** An expression for invoking [whatIf] when the [ShortArray] is not null and not empty. */
+/**
+ * An expression for invoking [whatIf] when the [ShortArray] is not null and not empty.
+ *
+ * @param whatIf An executable lambda function if the [ShortArray] it not null or empty.
+ */
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun ShortArray?.whatIfNotNullOrEmpty(
@@ -96,6 +114,9 @@ public inline fun ShortArray?.whatIfNotNullOrEmpty(
 /**
  * An expression for invoking [whatIf] when the [ShortArray] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
+ *
+ * @param whatIf An executable lambda function if the [ShortArray] it not null or empty.
+ * @param whatIfNot An executable lambda function if the [ShortArray] it null or empty.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -111,7 +132,11 @@ public inline fun ShortArray?.whatIfNotNullOrEmpty(
   }
 }
 
-/** An expression for invoking [whatIf] when the [IntArray] is not null and not empty. */
+/**
+ * An expression for invoking [whatIf] when the [IntArray] is not null and not empty.
+ *
+ * @param whatIf An executable lambda function if the [IntArray] it not null or empty.
+ */
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun IntArray?.whatIfNotNullOrEmpty(
@@ -127,6 +152,9 @@ public inline fun IntArray?.whatIfNotNullOrEmpty(
 /**
  * An expression for invoking [whatIf] when the [IntArray] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
+ *
+ * @param whatIf An executable lambda function if the [IntArray] it not null or empty.
+ * @param whatIfNot An executable lambda function if the [IntArray] it null or empty.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -142,7 +170,11 @@ public inline fun IntArray?.whatIfNotNullOrEmpty(
   }
 }
 
-/** An expression for invoking [whatIf] when the [LongArray] is not null and not empty. */
+/**
+ * An expression for invoking [whatIf] when the [LongArray] is not null and not empty.
+ *
+ * @param whatIf An executable lambda function if the [LongArray] it not null or empty.
+ */
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun LongArray?.whatIfNotNullOrEmpty(
@@ -158,6 +190,9 @@ public inline fun LongArray?.whatIfNotNullOrEmpty(
 /**
  * An expression for invoking [whatIf] when the [LongArray] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
+ *
+ * @param whatIf An executable lambda function if the [LongArray] it not null or empty.
+ * @param whatIfNot An executable lambda function if the [LongArray] it null or empty.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -173,7 +208,11 @@ public inline fun LongArray?.whatIfNotNullOrEmpty(
   }
 }
 
-/** An expression for invoking [whatIf] when the [FloatArray] is not null and not empty. */
+/**
+ * An expression for invoking [whatIf] when the [FloatArray] is not null and not empty.
+ *
+ * @param whatIf An executable lambda function if the [FloatArray] it not null or empty.
+ */
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun FloatArray?.whatIfNotNullOrEmpty(
@@ -189,6 +228,9 @@ public inline fun FloatArray?.whatIfNotNullOrEmpty(
 /**
  * An expression for invoking [whatIf] when the [FloatArray] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
+ *
+ * @param whatIf An executable lambda function if the [FloatArray] it not null or empty.
+ * @param whatIfNot An executable lambda function if the [FloatArray] it null or empty.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -204,7 +246,11 @@ public inline fun FloatArray?.whatIfNotNullOrEmpty(
   }
 }
 
-/** An expression for invoking [whatIf] when the [DoubleArray] is not null and not empty. */
+/**
+ * An expression for invoking [whatIf] when the [DoubleArray] is not null and not empty.
+ *
+ * @param whatIf An executable lambda function if the [DoubleArray] it not null or empty.
+ */
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun DoubleArray?.whatIfNotNullOrEmpty(
@@ -220,6 +266,9 @@ public inline fun DoubleArray?.whatIfNotNullOrEmpty(
 /**
  * An expression for invoking [whatIf] when the [DoubleArray] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
+ *
+ * @param whatIf An executable lambda function if the [DoubleArray] it not null or empty.
+ * @param whatIfNot An executable lambda function if the [DoubleArray] it null or empty.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -235,7 +284,11 @@ public inline fun DoubleArray?.whatIfNotNullOrEmpty(
   }
 }
 
-/** An expression for invoking [whatIf] when the [BooleanArray] is not null and not empty. */
+/**
+ * An expression for invoking [whatIf] when the [BooleanArray] is not null and not empty.
+ *
+ * @param whatIf An executable lambda function if the [BooleanArray] it not null or empty.
+ */
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun BooleanArray?.whatIfNotNullOrEmpty(
@@ -251,6 +304,9 @@ public inline fun BooleanArray?.whatIfNotNullOrEmpty(
 /**
  * An expression for invoking [whatIf] when the [BooleanArray] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
+ *
+ * @param whatIf An executable lambda function if the [BooleanArray] it not null or empty.
+ * @param whatIfNot An executable lambda function if the [BooleanArray] it null or empty.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -266,7 +322,11 @@ public inline fun BooleanArray?.whatIfNotNullOrEmpty(
   }
 }
 
-/** An expression for invoking [whatIf] when the [CharArray] is not null and not empty. */
+/**
+ * An expression for invoking [whatIf] when the [CharArray] is not null and not empty.
+ *
+ * @param whatIf An executable lambda function if the [CharArray] it not null or empty.
+ */
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun CharArray?.whatIfNotNullOrEmpty(
@@ -282,6 +342,9 @@ public inline fun CharArray?.whatIfNotNullOrEmpty(
 /**
  * An expression for invoking [whatIf] when the [CharArray] is not null and not empty.
  * If the array is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
+ *
+ * @param whatIf An executable lambda function if the [CharArray] it not null or empty.
+ * @param whatIfNot An executable lambda function if the [CharArray] it null or empty.
  */
 @JvmSynthetic
 @WhatIfInlineOnly

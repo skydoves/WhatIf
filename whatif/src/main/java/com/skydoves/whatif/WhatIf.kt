@@ -24,7 +24,12 @@ package com.skydoves.whatif
  * WhatIf is kotlin extensions for expressing a single if-else statement, nullable and boolean.
  */
 
-/** An expression for invoking [whatIf] when the [given] boolean is true. */
+/**
+ * An expression for invoking [whatIf] when the [given] boolean is true.
+ *
+ * @param given A given condition for executing the [whatIf] lambda.
+ * @param whatIf An executable lambda function if the [given] condition pass.
+ */
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T> T.whatIf(
@@ -40,7 +45,11 @@ public inline fun <T> T.whatIf(
 
 /**
  * An expression for invoking [whatIf] when the [given] boolean is true.
- * If the [given] boolean is false, [whatIfNotNull] will be invoked instead of the [whatIf].
+ * If the [given] boolean is false, [whatIfNot] will be invoked instead of the [whatIf].
+ *
+ * @param given A given condition for executing the [whatIf] or [whatIfNot] lambda.
+ * @param whatIf An executable lambda if the [given] condition pass.
+ * @param whatIfNot An executable lambda function if the [given] condition would not pass.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -61,6 +70,9 @@ public inline fun <T> T.whatIf(
 /**
  * An expression for invoking [whatIf] when the [given] boolean is true.
  * So it is useful when using with a chaining function like builder pattern or [apply] expression in kotlin.
+ *
+ * @param given A given condition for executing the [whatIf] lambda.
+ * @param whatIf An executable lambda if the [given] condition pass.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -77,8 +89,12 @@ public inline fun <T> T.whatIf(
 
 /**
  * An expression for invoking [whatIf] when the [given] boolean is true.
- * If the [given] boolean is false, [whatIfNotNull] will be invoked instead of the [whatIf].
+ * If the [given] boolean is false, [whatIfNot] will be invoked instead of the [whatIf].
  * So it is useful when using with a chaining function like builder pattern or [apply] expression in kotlin.
+ *
+ * @param given A given condition for executing the [whatIf] or [whatIfNot] lambda.
+ * @param whatIf An executable lambda if the [given] condition pass.
+ * @param whatIfNot An executable lambda function if the [given] condition would not pass.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -99,6 +115,9 @@ public inline fun <T> T.whatIf(
 /**
  * An expression for invoking [whatIf] when the [given] lambda's return value is true.
  * So it is useful when using with a chaining function like builder pattern or [apply] expression in kotlin.
+ *
+ * @param given A given condition for executing the [whatIfDo] lambda.
+ * @param whatIfDo An executable lambda if the [given] condition pass.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -116,8 +135,12 @@ public inline fun <T> T.whatIf(
 
 /**
  * An expression for invoking [whatIf] when the [given] lambda's return value is true.
- * If the [given] boolean is false, [whatIfNotNull] will be invoked instead of the [whatIf].
+ * If the [given] boolean is false, [whatIfNot] will be invoked instead of the [whatIfDo].
  * So it is useful when using with a chaining function like builder pattern or [apply] expression in kotlin.
+ *
+ * @param given A given condition for executing the [whatIfDo] or [whatIfNot] lambda.
+ * @param whatIfDo An executable lambda if the [given] condition pass.
+ * @param whatIfNot An executable lambda function if the [given] condition would not pass.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -139,6 +162,10 @@ public inline fun <T> T.whatIf(
  * An expression for invoking [whatIf] when the [given] boolean value.
  * If the [given] boolean value is false, the result value is the [default].
  * It is useful when the receiver [T] and the result [R] should be different.
+ *
+ * @param given A given condition for executing the [whatIf] lambda.
+ * @param default An executable default value if the [given] condition would not pass.
+ * @param whatIf An executable lambda if the [given] condition pass.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -157,8 +184,12 @@ public inline fun <T, R> T.whatIfLet(
 
 /**
  * An expression for invoking [whatIf] when the [given] boolean value.
- * If the [given] boolean is false, [whatIfNotNull] will be invoked instead of the [whatIf].
+ * If the [given] boolean is false, [whatIfNot] will be invoked instead of the [whatIf].
  * It is useful when the receiver [T] and the result [R] should be different.
+ *
+ * @param given A given condition for executing the [whatIf] lambda.
+ * @param whatIf An executable lambda if the [given] condition pass.
+ * @param whatIfNot An executable lambda function if the [given] condition would not pass.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -174,7 +205,11 @@ public inline fun <T, R> T.whatIfLet(
   return whatIfNot(this)
 }
 
-/** An expression for invoking [whatIf] when the [T] target object is not null. */
+/**
+ * An expression for invoking [whatIf] when the [T] target object is not null.
+ *
+ * @param whatIf An executable lambda if a target object is not null.
+ */
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T> T?.whatIfNotNull(
@@ -190,25 +225,30 @@ public inline fun <T> T?.whatIfNotNull(
 /**
  * An expression for invoking [whatIf] when the [T] target object is not null.
  * If the [T] target is null, [whatIfNot] will be invoked instead of the [whatIf].
+ *
+ * @param whatIf An executable lambda if a target object is not null.
+ * @param whatIfNot An executable lambda if a target object is null.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T> T?.whatIfNotNull(
   whatIf: (T) -> Unit,
-  whatIfNot: (T?) -> Unit
+  whatIfNot: () -> Unit
 ): T? {
 
   if (this != null) {
     whatIf(this)
-  } else {
-    whatIfNot(this)
+    return this
   }
+  whatIfNot()
   return this
 }
 
 /**
  * An expression for invoking [whatIf] when the target object is not null.
  * If the target is not null, the receiver will get a casted [R] type.
+ *
+ * @param whatIf An executable lambda if a target object is not null and it will receive a casted [R].
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -227,6 +267,9 @@ public inline fun <reified R> Any?.whatIfNotNullAs(
  * An expression for invoking [whatIf] when the target object is not null.
  * If the target is not null, the receiver will get a casted [R] type.
  * If the target is null, [whatIfNot] will be invoked instead of the [whatIf] without casting.
+ *
+ * @param whatIf An executable lambda if a target object is not null and it will receive a casted [R].
+ * @param whatIfNot An executable lambda if a target object is null.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -247,6 +290,9 @@ public inline fun <reified R> Any?.whatIfNotNullAs(
  * An expression for invoking [whatIf] when the [T] target object is not null.
  * If the [T] target is null, [whatIfNot] will be invoked instead of the [whatIf].
  * It is useful when the receiver [T] and the result [R] should be different.
+ *
+ * @param whatIf An executable lambda if a target object is not null and returns a different type [R].
+ * @param whatIfNot An executable lambda if a target object is null and returns a different type [R].
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -261,7 +307,11 @@ public inline fun <T, R> T?.whatIfNotNullWith(
   return whatIfNot(this)
 }
 
-/** An expression for invoking [whatIf] when the target object is not null and true. */
+/**
+ * An expression for invoking [whatIf] when the target [Boolean] is not null and true.
+ *
+ * @param whatIf An executable lambda function if the [Boolean] is not null and true.
+ */
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun Boolean?.whatIf(
@@ -276,7 +326,10 @@ public inline fun Boolean?.whatIf(
 
 /**
  * An expression for invoking [whatIf] when the target object is not null and true.
- * If the target is null or false, [whatIfNot] will be invoked instead of the [whatIf].
+ * If the target is null or false, [whatIfNot] will be invoked instead of the [whatIf].\
+ *
+ * @param whatIf An executable lambda function if the [Boolean] is not null and true.
+ * @param whatIfNot An executable lambda function if the [Boolean] is null or false.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -293,7 +346,11 @@ public inline fun Boolean?.whatIf(
   return this
 }
 
-/** An expression for invoking [whatIf] when the target object is not null and false. */
+/**
+ * An expression for invoking [whatIf] when the target object is not null and false.
+ *
+ * @param whatIf An executable lambda function if the [Boolean] is null or false.
+ */
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun Boolean?.whatIfElse(
@@ -306,7 +363,12 @@ public inline fun Boolean?.whatIfElse(
   return this
 }
 
-/** An expression for invoking [whatIf] when the target Boolean is true and the [predicate] is also true. */
+/**
+ * An expression for invoking [whatIf] when the target Boolean is true and the [predicate] is also true.
+ *
+ * @param predicate A predicate value
+ * @param whatIf An executable lambda function if the [Boolean] and predicate are both not null and true.
+ */
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun Boolean?.whatIfAnd(
@@ -320,7 +382,12 @@ public inline fun Boolean?.whatIfAnd(
   return this
 }
 
-/** An expression for invoking [whatIf] when the target Boolean is true or the [predicate] is true. */
+/**
+ * An expression for invoking [whatIf] when the target Boolean is true or the [predicate] is true.
+ *
+ * @param predicate A predicate value.
+ * @param whatIf An executable lambda function if the [Boolean] or predicate is not null and true.
+ */
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun Boolean?.whatIfOr(
