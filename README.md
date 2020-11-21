@@ -26,8 +26,7 @@
 Add a dependency code to your **module**'s `build.gradle` file.
 ```gradle
 dependencies {
-    implementation "com.github.skydoves:whatif:1.0.7"
-    implementation "com.github.skydoves:whatif-android:1.0.7" // for android extensions
+    implementation "com.github.skydoves:whatif:1.0.8"
 }
 ```
 
@@ -170,6 +169,19 @@ nullableBoolean.whatIfAnd(predicate) {
 
 nullableBoolean.whatIfOr(predicate) {
   log("nullableBoolean is true or the predicate is true")
+}
+```
+
+## WhatIf for Android Extension
+We can use the whatIf extensions related to the Android project.<br>
+
+[![Download](https://api.bintray.com/packages/devmagician/maven/whatif-android/images/download.svg) ](https://bintray.com/devmagician/maven/whatif-android/_latestVersion)
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.skydoves/whatif-android.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.skydoves%22%20AND%20a:%22whatif-android%22)
+### Gradle
+Add a dependency code to your **module**'s `build.gradle` file.
+```gradle
+dependencies {
+    implementation "com.github.skydoves:whatif-android:version"
 }
 ```
 
