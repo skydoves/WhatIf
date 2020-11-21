@@ -29,8 +29,9 @@ import com.skydoves.whatif.whatIfNotNullAs
 import java.io.Serializable
 
 /**
- * An expression for invoking [whatIf] when the
- * [Activity]'s intent extras is not null and not empty.
+ * An expression for invoking [whatIf] when the [Activity]'s intent extras is not null and not empty.
+ *
+ * @param whatIf An executable lambda function if the [Activity]'s extra data is not null.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -45,10 +46,11 @@ inline fun Activity.whatIfHasExtras(
 }
 
 /**
- * An expression for invoking [whatIf] when the
- * [Activity]'s intent extras is not null and not empty.
- *
+ * An expression for invoking [whatIf] when the [Activity]'s intent extras is not null and not empty.
  * If the intent extras is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
+ *
+ * @param whatIf An executable lambda function if the [Activity]'s extra data is not null.
+ * @param whatIfNot An executable lambda function if the [Activity]'s extra data is null.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -68,8 +70,10 @@ inline fun Activity.whatIfHasExtras(
 }
 
 /**
- * An expression for invoking [whatIf] when the
- * [Activity]'s intent extras is not null and not empty.
+ * An expression for invoking [whatIf] when the [Activity]'s intent extras is not null and not empty.
+ *
+ * @param name A given key related to an extra data.
+ * @param whatIf An executable lambda function if the [Activity] has an extra data.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -85,10 +89,12 @@ inline fun Activity.whatIfHasExtras(
 }
 
 /**
- * An expression for invoking [whatIf] when the
- * [Activity]'s intent extras is not null and not empty.
- *
+ * An expression for invoking [whatIf] when the [Activity]'s intent extras is not null and not empty.
  * If the intent extras is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
+ *
+ * @param name A given key related to an extra data.
+ * @param whatIf An executable lambda function if the [Activity] has an extra data.
+ * @param whatIfNot An executable lambda function if the [Activity] has not an extra data.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -106,8 +112,10 @@ inline fun Activity.whatIfHasExtras(
 }
 
 /**
- * An expression for invoking [whatIf] when the
- * [Activity]'s intent extras is has a string extra by name.
+ * An expression for invoking [whatIf] when the [Activity]'s intent extras is has a string extra by name.
+ *
+ * @param name A given key related to an extra data.
+ * @param whatIf An executable lambda function if the [Activity] has an string extra data.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -122,10 +130,12 @@ inline fun Activity.whatIfHasStringExtra(
 }
 
 /**
- * An expression for invoking [whatIf] when the
- * [Activity]'s intent extras is has a string extra by name.
- *
+ * An expression for invoking [whatIf] when the [Activity]'s intent extras is has a string extra by name.
  * If the intent extras is null, [whatIfNot] will be invoked instead of the [whatIf].
+ *
+ * @param name A given key related to an extra data.
+ * @param whatIf An executable lambda function if the [Activity] has an string extra data.
+ * @param whatIfNot An executable lambda function if the [Activity] has not an string extra data.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -141,8 +151,10 @@ inline fun Activity.whatIfHasStringExtra(
 }
 
 /**
- * An expression for invoking [whatIf] when the
- * [Activity]'s intent extras is has a CharSequence extra by name.
+ * An expression for invoking [whatIf] when the [Activity]'s intent extras is has a CharSequence extra by name.
+ *
+ * @param name A given key related to an extra data.
+ * @param whatIf An executable lambda function if the [Activity] has an charSequence extra data.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -157,10 +169,12 @@ inline fun Activity.whatIfHasCharSequenceExtra(
 }
 
 /**
- * An expression for invoking [whatIf] when the
- * [Activity]'s intent extras is has a CharSequence extra by name.
- *
+ * An expression for invoking [whatIf] when the[Activity]'s intent extras is has a CharSequence extra by name.
  * If the intent extras is null, [whatIfNot] will be invoked instead of the [whatIf].
+ *
+ * @param name A given key related to an extra data.
+ * @param whatIf An executable lambda function if the [Activity] has an charSequence extra data.
+ * @param whatIfNot An executable lambda function if the [Activity] has not an charSequence extra data.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -176,8 +190,10 @@ inline fun Activity.whatIfHasCharSequenceExtra(
 }
 
 /**
- * An expression for invoking [whatIf] when the
- * [Activity]'s intent extras is has a Serializable extra by name.
+ * An expression for invoking [whatIf] when the [Activity]'s intent extras is has a Serializable extra by name.
+ *
+ * @param name A given key related to an extra data.
+ * @param whatIf An executable lambda function if the [Activity] has a serializable extra data.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -192,10 +208,12 @@ inline fun <reified T : Serializable> Activity.whatIfHasSerializableExtra(
 }
 
 /**
- * An expression for invoking [whatIf] when the
- * [Activity]'s intent extras is has a Serializable extra by name.
- *
+ * An expression for invoking [whatIf] when the[Activity]'s intent extras is has a Serializable extra by name.
  * If the intent extras is null, [whatIfNot] will be invoked instead of the [whatIf].
+ *
+ * @param name A given key related to an extra data.
+ * @param whatIf An executable lambda function if the [Activity] has a serializable extra data.
+ * @param whatIfNot An executable lambda function if the [Activity] has not a serializable extra data.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -211,8 +229,10 @@ inline fun <reified T : Serializable> Activity.whatIfHasSerializableExtra(
 }
 
 /**
- * An expression for invoking [whatIf] when the
- * [Activity]'s intent extras is has an object extra by name.
+ * An expression for invoking [whatIf] when the [Activity]'s intent extras is has an object extra by name.
+ *
+ * @param name A given key related to an extra data.
+ * @param whatIf An executable lambda function if the [Activity] has a parcelable extra data.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -227,10 +247,12 @@ inline fun <reified T : Parcelable> Activity.whatIfHasParcelableExtra(
 }
 
 /**
- * An expression for invoking [whatIf] when the
- * [Activity]'s intent extras is has an object extra by name.
- *
+ * An expression for invoking [whatIf] when the[Activity]'s intent extras is has an object extra by name.
  * If the intent extras is null, [whatIfNot] will be invoked instead of the [whatIf].
+ *
+ * @param name A given key related to an extra data.
+ * @param whatIf An executable lambda function if the [Activity] has a parcelable extra data.
+ * @param whatIfNot An executable lambda function if the [Activity] has not a parcelable extra data.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -246,8 +268,10 @@ inline fun <reified T : Parcelable> Activity.whatIfHasParcelableExtra(
 }
 
 /**
- * An expression for invoking [whatIf] when the
- * [Activity]'s intent extras is has an ArrayList of object extra by name.
+ * An expression for invoking [whatIf] when the [Activity]'s intent extras is has an ArrayList of object extra by name.
+ *
+ * @param name A given key related to an extra data.
+ * @param whatIf An executable lambda function if the [Activity] has a parcelable array list extra data.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -262,10 +286,12 @@ inline fun <reified T : Parcelable> Activity.whatIfHasParcelableArrayListExtra(
 }
 
 /**
- * An expression for invoking [whatIf] when the
- * [Activity]'s intent extras is has an ArrayList of object extra by name.
- *
+ * An expression for invoking [whatIf] when the [Activity]'s intent extras is has an ArrayList of object extra by name.
  * If the intent extras is null, [whatIfNot] will be invoked instead of the [whatIf].
+ *
+ * @param name A given key related to an extra data.
+ * @param whatIf An executable lambda function if the [Activity] has a parcelable array list extra data.
+ * @param whatIfNot An executable lambda function if the [Activity] has not a parcelable array list extra data.
  */
 @JvmSynthetic
 @WhatIfInlineOnly

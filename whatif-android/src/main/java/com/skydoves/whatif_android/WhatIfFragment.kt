@@ -30,6 +30,8 @@ import com.skydoves.whatif.whatIfNotNull
 
 /**
  * An expression for invoking [whatIf] when the [Context] is not null.
+ *
+ * @param whatIf AwhatIf An executable lambda function if the [Fragment]'s context is not null.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -44,8 +46,10 @@ inline fun Fragment.whatIfNotNullContext(
 
 /**
  * An expression for invoking [whatIf] when the [Context] is not null.
- *
  * If the activity is null, [whatIfNot] will be invoked instead of the [whatIf].
+ *
+ * @param whatIf An executable lambda function if the [Fragment]'s context is not null.
+ * @param whatIfNot An executable lambda function if the [Fragment]'s context is null.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -64,6 +68,8 @@ inline fun Fragment.whatIfNotNullContext(
 
 /**
  * An expression for invoking [whatIf] when the [Activity] is not null.
+ *
+ * @param whatIf An executable lambda function if the [Fragment]'s parent Activity is not null.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -78,8 +84,10 @@ inline fun Fragment.whatIfNotNullActivity(
 
 /**
  * An expression for invoking [whatIf] when the [Activity] is not null.
- *
  * If the activity is null, [whatIfNot] will be invoked instead of the [whatIf].
+ *
+ * @param whatIf An executable lambda function if the [Fragment]'s parent Activity is not null.
+ * @param whatIfNot An executable lambda function if the [Fragment]'s parent Activity is null.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -98,6 +106,8 @@ inline fun Fragment.whatIfNotNullActivity(
 
 /**
  * An expression for invoking [whatIf] when the [Fragment.getArguments] is not null.
+ *
+ * @param whatIf An executable lambda function if the [Fragment]'s arguments are not null.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
