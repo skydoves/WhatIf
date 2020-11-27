@@ -120,4 +120,23 @@ public class WhatIfCollectionsUnitTest {
     assertThat(posters.size, `is`(4))
     assertNull(poster)
   }
+
+  @Test
+  public fun removeWhatIfNotNullTest() {
+    val posters: MutableList<Poster> = mutableListOf(Poster.create(), Poster.create())
+    var poster: Poster? = Poster.create()
+
+    posters.removeWhatIfNotNull(poster) {
+      poster = null
+    }
+
+    assertThat(posters.size, `is`(1))
+
+    posters.removeWhatIfNotNull(poster) {
+      poster = null
+    }
+
+    assertThat(posters.size, `is`(1))
+    assertNull(poster)
+  }
 }
