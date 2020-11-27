@@ -18,6 +18,7 @@ package com.skydoves.whatif
 
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.Is.`is`
+import org.junit.Assert.assertNull
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
@@ -77,5 +78,26 @@ public class WhatIfCollectionsUnitTest {
     }
 
     assertThat(map?.get(1), `is`("NotNullOrEmpty"))
+  }
+
+  @Test
+  public fun addWhatIfNotNullTest() {
+    var poster: Poster? = Poster.create()
+    val posters: MutableList<Poster> = mutableListOf(Poster.create())
+
+    posters.addWhatIfNotNull(poster) {
+      poster = Poster.create()
+    }
+
+    assertThat(posters.size, `is`(2))
+    assertThat(poster, `is`(Poster.create()))
+
+    poster = null
+    posters.addWhatIfNotNull(poster) {
+      poster = Poster.create()
+    }
+
+    assertThat(posters.size, `is`(2))
+    assertNull(poster)
   }
 }

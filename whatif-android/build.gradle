@@ -77,6 +77,7 @@ dependencies {
   api project(":whatif")
 
   implementation "androidx.appcompat:appcompat:$versions.androidxAppcompat"
+
   testImplementation "junit:junit:$versions.junit"
   testImplementation "org.robolectric:robolectric:$versions.robolectric"
 }

@@ -132,3 +132,49 @@ public inline fun <T, R> Map<T, R>?.whatIfNotNullOrEmpty(
     whatIfNot()
   }
 }
+
+/**
+ * An expression for adding an [element] and invoking [whatIf] when the [element] is not null.
+ *
+ * @param element An element should be added into the target.
+ * @param whatIf An executable lambda function if the [element] it not null.
+ */
+@JvmSynthetic
+@WhatIfInlineOnly
+public inline fun <reified T : MutableCollection<E>, reified E> T.addWhatIfNotNull(
+  element: E?,
+  whatIf: (T) -> Unit
+): T = apply {
+
+  this.addWhatIfNotNull(
+    element = element,
+    whatIf = whatIf,
+    whatIfNot = { }
+  )
+}
+
+/**
+ * An expression for adding an [element] and invoking [whatIf] when the [element] is not null.
+ *
+ * @param element An element should be added into the target.
+ * @param whatIf An executable lambda function if the [element] it not null.
+ * @param whatIfNot An executable lambda function if the [element] it null or empty.
+ */
+@JvmSynthetic
+@WhatIfInlineOnly
+public inline fun <reified T : MutableCollection<E>, reified E> T.addWhatIfNotNull(
+  element: E?,
+  whatIf: (T) -> Unit,
+  whatIfNot: (T) -> Unit
+): T = apply {
+
+  element?.whatIfNotNullAs<E>(
+    whatIf = {
+      add(it)
+      whatIf(this)
+    },
+    whatIfNot = {
+      whatIfNot(this)
+    }
+  )
+}
