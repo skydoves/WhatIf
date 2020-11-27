@@ -204,7 +204,7 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.addAllWhatIfNo
  *
  * @param element An collection of elements should be added into the target.
  * @param whatIf An executable lambda function if the [element] it not null.
- * @param whatIfNot An executable lambda function if the [element] it null or empty.
+ * @param whatIfNot An executable lambda function if the [element] it null.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -250,7 +250,7 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.removeWhatIfNo
  *
  * @param element An element should be removed into the target.
  * @param whatIf An executable lambda function if the [element] it not null.
- * @param whatIfNot An executable lambda function if the [element] it null or empty.
+ * @param whatIfNot An executable lambda function if the [element] it null.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -263,6 +263,52 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.removeWhatIfNo
   element?.whatIfNotNullAs<E>(
     whatIf = {
       remove(it)
+      whatIf(this)
+    },
+    whatIfNot = {
+      whatIfNot(this)
+    }
+  )
+}
+
+/**
+ * An expression for removing an collection of [element] and invoking [whatIf] when the [element] is not null.
+ *
+ * @param element An collection of elements should be removed into the target.
+ * @param whatIf An executable lambda function if the [element] it not null.
+ */
+@JvmSynthetic
+@WhatIfInlineOnly
+public inline fun <reified T : MutableCollection<E>, reified E> T.removeAllWhatIfNotNull(
+  element: Collection<E>?,
+  whatIf: (T) -> Unit
+): T = apply {
+
+  this.removeAllWhatIfNotNull(
+    element = element,
+    whatIf = whatIf,
+    whatIfNot = { }
+  )
+}
+
+/**
+ * An expression for removing an [element] and invoking [whatIf] when the [element] is not null.
+ *
+ * @param element An collection of elements should be removed into the target.
+ * @param whatIf An executable lambda function if the [element] it not null.
+ * @param whatIfNot An executable lambda function if the [element] it null.
+ */
+@JvmSynthetic
+@WhatIfInlineOnly
+public inline fun <reified T : MutableCollection<E>, reified E> T.removeAllWhatIfNotNull(
+  element: Collection<E>?,
+  whatIf: (T) -> Unit,
+  whatIfNot: (T) -> Unit
+): T = apply {
+
+  element?.whatIfNotNull(
+    whatIf = {
+      removeAll(it)
       whatIf(this)
     },
     whatIfNot = {
