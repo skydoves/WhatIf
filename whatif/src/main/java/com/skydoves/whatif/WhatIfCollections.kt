@@ -178,3 +178,49 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.addWhatIfNotNu
     }
   )
 }
+
+/**
+ * An expression for adding an [element] and invoking [whatIf] when the [element] is not null.
+ *
+ * @param element An collection of elements should be added into the target.
+ * @param whatIf An executable lambda function if the [element] it not null.
+ */
+@JvmSynthetic
+@WhatIfInlineOnly
+public inline fun <reified T : MutableCollection<E>, reified E> T.addAllWhatIfNotNull(
+  element: Collection<E>?,
+  whatIf: (T) -> Unit
+): T = apply {
+
+  this.addAllWhatIfNotNull(
+    element = element,
+    whatIf = whatIf,
+    whatIfNot = { }
+  )
+}
+
+/**
+ * An expression for adding an [element] and invoking [whatIf] when the [element] is not null.
+ *
+ * @param element An collection of elements should be added into the target.
+ * @param whatIf An executable lambda function if the [element] it not null.
+ * @param whatIfNot An executable lambda function if the [element] it null or empty.
+ */
+@JvmSynthetic
+@WhatIfInlineOnly
+public inline fun <reified T : MutableCollection<E>, reified E> T.addAllWhatIfNotNull(
+  element: Collection<E>?,
+  whatIf: (T) -> Unit,
+  whatIfNot: (T) -> Unit
+): T = apply {
+
+  element?.whatIfNotNull(
+    whatIf = {
+      addAll(it)
+      whatIf(this)
+    },
+    whatIfNot = {
+      whatIfNot(this)
+    }
+  )
+}
