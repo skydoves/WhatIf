@@ -59,10 +59,8 @@ inline fun Fragment.whatIfNotNullContext(
 ) {
 
   this.context.whatIfNotNull(
-    whatIf = {
-      whatIf(it)
-    },
-    whatIfNot = { whatIfNot() }
+    whatIf = whatIf,
+    whatIfNot = whatIfNot
   )
 }
 
@@ -97,10 +95,8 @@ inline fun Fragment.whatIfNotNullActivity(
 ) {
 
   this.activity.whatIfNotNull(
-    whatIf = {
-      whatIf(it)
-    },
-    whatIfNot = { whatIfNot() }
+    whatIf = whatIf,
+    whatIfNot = whatIfNot
   )
 }
 

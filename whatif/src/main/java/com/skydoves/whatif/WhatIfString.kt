@@ -31,7 +31,7 @@ public inline fun String?.whatIfNotNullOrEmpty(
 ): String? = apply {
 
   this.whatIfNotNullOrEmpty(
-    whatIf = { whatIf(it) },
+    whatIf = whatIf,
     whatIfNot = { }
   )
 }

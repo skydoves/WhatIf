@@ -31,7 +31,7 @@ public inline fun <T> List<T>?.whatIfNotNullOrEmpty(
 ): List<T>? = apply {
 
   this.whatIfNotNullOrEmpty(
-    whatIf = { whatIf(it) },
+    whatIf = whatIf,
     whatIfNot = { }
   )
 }
@@ -69,7 +69,7 @@ public inline fun <T> Set<T>?.whatIfNotNullOrEmpty(
 ): Set<T>? = apply {
 
   this.whatIfNotNullOrEmpty(
-    whatIf = { whatIf(it) },
+    whatIf = whatIf,
     whatIfNot = { }
   )
 }
@@ -107,7 +107,7 @@ public inline fun <T, R> Map<T, R>?.whatIfNotNullOrEmpty(
 ): Map<T, R>? = apply {
 
   this.whatIfNotNullOrEmpty(
-    whatIf = { whatIf(it) },
+    whatIf = whatIf,
     whatIfNot = { }
   )
 }

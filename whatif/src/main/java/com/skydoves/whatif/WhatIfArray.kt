@@ -31,7 +31,7 @@ public inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
 ): Array<out T>? = apply {
 
   this.whatIfNotNullOrEmpty(
-    whatIf = { whatIf(it) },
+    whatIf = whatIf,
     whatIfNot = { }
   )
 }
@@ -68,7 +68,7 @@ public inline fun ByteArray?.whatIfNotNullOrEmpty(
 ): ByteArray? = apply {
 
   return this.whatIfNotNullOrEmpty(
-    whatIf = { whatIf(it) },
+    whatIf = whatIf,
     whatIfNot = { }
   )
 }
@@ -106,7 +106,7 @@ public inline fun ShortArray?.whatIfNotNullOrEmpty(
 ): ShortArray? = apply {
 
   this.whatIfNotNullOrEmpty(
-    whatIf = { whatIf(it) },
+    whatIf = whatIf,
     whatIfNot = { }
   )
 }
@@ -144,7 +144,7 @@ public inline fun IntArray?.whatIfNotNullOrEmpty(
 ): IntArray? = apply {
 
   this.whatIfNotNullOrEmpty(
-    whatIf = { whatIf(it) },
+    whatIf = whatIf,
     whatIfNot = { }
   )
 }
@@ -182,7 +182,7 @@ public inline fun LongArray?.whatIfNotNullOrEmpty(
 ): LongArray? = apply {
 
   this.whatIfNotNullOrEmpty(
-    whatIf = { whatIf(it) },
+    whatIf = whatIf,
     whatIfNot = { }
   )
 }
@@ -220,7 +220,7 @@ public inline fun FloatArray?.whatIfNotNullOrEmpty(
 ): FloatArray? = apply {
 
   this.whatIfNotNullOrEmpty(
-    whatIf = { whatIf(it) },
+    whatIf = whatIf,
     whatIfNot = { }
   )
 }
@@ -258,7 +258,7 @@ public inline fun DoubleArray?.whatIfNotNullOrEmpty(
 ): DoubleArray? = apply {
 
   this.whatIfNotNullOrEmpty(
-    whatIf = { whatIf(it) },
+    whatIf = whatIf,
     whatIfNot = { }
   )
 }
@@ -296,7 +296,7 @@ public inline fun BooleanArray?.whatIfNotNullOrEmpty(
 ): BooleanArray? = apply {
 
   this.whatIfNotNullOrEmpty(
-    whatIf = { whatIf(it) },
+    whatIf = whatIf,
     whatIfNot = { }
   )
 }
@@ -334,7 +334,7 @@ public inline fun CharArray?.whatIfNotNullOrEmpty(
 ): CharArray? = apply {
 
   this.whatIfNotNullOrEmpty(
-    whatIf = { whatIf(it) },
+    whatIf = whatIf,
     whatIfNot = { }
   )
 }

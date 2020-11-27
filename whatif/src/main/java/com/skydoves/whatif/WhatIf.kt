@@ -128,7 +128,7 @@ public inline fun <T> T.whatIf(
 
   return this.whatIf(
     given = given,
-    whatIfDo = { whatIfDo() },
+    whatIfDo = whatIfDo,
     whatIfNot = { }
   )
 }
@@ -151,9 +151,9 @@ public inline fun <T> T.whatIf(
 ): T {
 
   if (given() == true) {
-    this.apply { whatIfDo() }
+    this.whatIfDo()
   } else {
-    this.apply { whatIfNot() }
+    this.whatIfNot()
   }
   return this
 }
@@ -177,7 +177,7 @@ public inline fun <T, R> T.whatIfLet(
 
   return this.whatIfLet(
     given = given,
-    whatIf = { whatIf(it) },
+    whatIf = whatIf,
     whatIfNot = { default }
   )
 }
@@ -217,7 +217,7 @@ public inline fun <T> T?.whatIfNotNull(
 ): T? {
 
   return this.whatIfNotNull(
-    whatIf = { whatIf(it) },
+    whatIf = whatIf,
     whatIfNot = { }
   )
 }
@@ -319,7 +319,7 @@ public inline fun Boolean?.whatIf(
 ): Boolean? {
 
   return this.whatIf(
-    whatIf = { whatIf() },
+    whatIf = whatIf,
     whatIfNot = { }
   )
 }
