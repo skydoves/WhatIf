@@ -2,8 +2,8 @@ ext.versions = [
     minSdkLib        : 15,
     minSdkDemo       : 16,
     compileSdk       : 30,
-    versionCode      : 9,
-    versionName      : '1.0.8',
+    versionCode      : 10,
+    versionName      : '1.0.9',
 
     gradleBuildTool  : '4.1.1',
     spotlessGradle   : '5.8.2',
@@ -15,7 +15,7 @@ ext.versions = [
     androidxAppcompat: '1.2.0',
 
     // for demo
-    balloon          : '1.2.5',
+    balloon          : '1.2.7',
 
     // unit test
     junit            : '4.13.1',
