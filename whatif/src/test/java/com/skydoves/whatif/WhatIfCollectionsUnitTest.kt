@@ -187,4 +187,29 @@ public class WhatIfCollectionsUnitTest {
 
     assertThat(result, `is`(1))
   }
+
+  @Test
+  public fun whatIfOrTest() {
+    var predicates = listOf(false, false, false, false)
+    var result = 0
+
+    predicates.whatIfOr(
+      whatIf = {
+        result = 1
+      },
+      whatIfNot = {
+        result = -1
+      }
+    )
+
+    assertThat(result, `is`(-1))
+
+    predicates = listOf(false, false, false, true)
+
+    predicates.whatIfOr {
+      result = 1
+    }
+
+    assertThat(result, `is`(1))
+  }
 }

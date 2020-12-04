@@ -362,3 +362,49 @@ public inline fun Iterable<Boolean?>.whatIfAnd(
     whatIfNot()
   }
 }
+
+/**
+ * An expression for operating `Or` operator to a list of the nullable-Boolean.
+ *
+ * @param whatIf An executable lambda function if the result of the `Or` operation is true.
+ */
+@JvmSynthetic
+@WhatIfInlineOnly
+public inline fun Iterable<Boolean?>.whatIfOr(
+  whatIf: () -> Unit
+) {
+  this.whatIfOr(
+    whatIf = whatIf,
+    whatIfNot = { }
+  )
+}
+
+/**
+ * An expression for operating `Or` operator to a list of the nullable-Boolean.
+ *
+ * @param whatIf An executable lambda function if the result of the `Or` operation is true.
+ * @param whatIfNot An executable lambda function if the result of the `Or` operation is false.
+ */
+@JvmSynthetic
+@WhatIfInlineOnly
+public inline fun Iterable<Boolean?>.whatIfOr(
+  whatIf: () -> Unit,
+  whatIfNot: (() -> Unit)
+) {
+  var predicate: Boolean? = null
+
+  this.forEach {
+    val p = predicate
+    predicate = if (p == null) {
+      it
+    } else {
+      p or (it == true)
+    }
+  }
+
+  if (predicate == true) {
+    whatIf()
+  } else {
+    whatIfNot()
+  }
+}
