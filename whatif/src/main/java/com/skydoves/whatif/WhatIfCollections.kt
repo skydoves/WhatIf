@@ -23,6 +23,8 @@ package com.skydoves.whatif
  * An expression for invoking [whatIf] when the [List] is not null and not empty.
  *
  * @param whatIf An executable lambda function if the [List] it not null or empty.
+ *
+ * @return Returns the original target object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -42,6 +44,8 @@ public inline fun <T> List<T>?.whatIfNotNullOrEmpty(
  *
  * @param whatIf An executable lambda function if the [List] it not null or empty.
  * @param whatIfNot An executable lambda function if the [List] it null or empty.
+ *
+ * @return Returns the original target object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -61,6 +65,8 @@ public inline fun <T> List<T>?.whatIfNotNullOrEmpty(
  * An expression for invoking [whatIf] when the [Set] is not null and not empty.
  *
  * @param whatIf An executable lambda function if the [Set] it not null or empty.
+ *
+ * @return Returns the original target object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -80,6 +86,8 @@ public inline fun <T> Set<T>?.whatIfNotNullOrEmpty(
  *
  * @param whatIf An executable lambda function if the [Set] it not null or empty.
  * @param whatIfNot An executable lambda function if the [Set] it null or empty.
+ *
+ * @return Returns the original target object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -99,6 +107,8 @@ public inline fun <T> Set<T>?.whatIfNotNullOrEmpty(
  * An expression for invoking [whatIf] when the [Map] is not null and not empty.
  *
  * @param whatIf An executable lambda function if the [Map] it not null or empty.
+ *
+ * @return Returns the original target object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -118,6 +128,8 @@ public inline fun <T, R> Map<T, R>?.whatIfNotNullOrEmpty(
  *
  * @param whatIf An executable lambda function if the [Map] it not null or empty.
  * @param whatIfNot An executable lambda function if the [Map] it null or empty.
+ *
+ * @return Returns the original target object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -138,6 +150,8 @@ public inline fun <T, R> Map<T, R>?.whatIfNotNullOrEmpty(
  *
  * @param element An element should be added into the target.
  * @param whatIf An executable lambda function if the [element] it not null.
+ *
+ * @return Returns the original target object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -159,6 +173,8 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.addWhatIfNotNu
  * @param element An element should be added into the target.
  * @param whatIf An executable lambda function if the [element] it not null.
  * @param whatIfNot An executable lambda function if the [element] it null or empty.
+ *
+ * @return Returns the original target object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -184,6 +200,8 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.addWhatIfNotNu
  *
  * @param element n collection of elements should be added into the target.
  * @param whatIf An executable lambda function if the [element] it not null.
+ *
+ * @return Returns the original target object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -205,6 +223,8 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.addAllWhatIfNo
  * @param element n collection of elements should be added into the target.
  * @param whatIf An executable lambda function if the [element] it not null.
  * @param whatIfNot An executable lambda function if the [element] it null.
+ *
+ * @return Returns the original target object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -230,6 +250,8 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.addAllWhatIfNo
  *
  * @param element An element should be removed into the target.
  * @param whatIf An executable lambda function if the [element] it not null.
+ *
+ * @return Returns the original target object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -251,6 +273,8 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.removeWhatIfNo
  * @param element An element should be removed into the target.
  * @param whatIf An executable lambda function if the [element] it not null.
  * @param whatIfNot An executable lambda function if the [element] it null.
+ *
+ * @return Returns the original target object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -276,6 +300,8 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.removeWhatIfNo
  *
  * @param element A collection of elements should be removed into the target.
  * @param whatIf An executable lambda function if the [element] it not null.
+ *
+ * @return Returns the original target object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -297,6 +323,8 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.removeAllWhatI
  * @param element A collection of elements should be removed into the target.
  * @param whatIf An executable lambda function if the [element] it not null.
  * @param whatIfNot An executable lambda function if the [element] it null.
+ *
+ * @return Returns the original target object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -321,13 +349,15 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.removeAllWhatI
  * An expression for operating `And` operator to a list of the nullable-Boolean.
  *
  * @param whatIf An executable lambda function if the result of the `And` operation is true.
+ *
+ * @return Returns the original target object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun Iterable<Boolean?>.whatIfAnd(
   whatIf: () -> Unit
-) {
-  this.whatIfAnd(
+): Iterable<Boolean?> {
+  return this.whatIfAnd(
     whatIf = whatIf,
     whatIfNot = { }
   )
@@ -338,13 +368,15 @@ public inline fun Iterable<Boolean?>.whatIfAnd(
  *
  * @param whatIf An executable lambda function if the result of the `And` operation is true.
  * @param whatIfNot An executable lambda function if the result of the `And` operation is false.
+ *
+ * @return Returns the original target object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun Iterable<Boolean?>.whatIfAnd(
   whatIf: () -> Unit,
   whatIfNot: (() -> Unit)
-) {
+): Iterable<Boolean?> {
   var predicate: Boolean? = null
 
   this.forEach {
@@ -361,19 +393,22 @@ public inline fun Iterable<Boolean?>.whatIfAnd(
   } else {
     whatIfNot()
   }
+  return this
 }
 
 /**
  * An expression for operating `Or` operator to a list of the nullable-Boolean.
  *
  * @param whatIf An executable lambda function if the result of the `Or` operation is true.
+ *
+ * @return Returns the original target object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun Iterable<Boolean?>.whatIfOr(
   whatIf: () -> Unit
-) {
-  this.whatIfOr(
+): Iterable<Boolean?> {
+  return this.whatIfOr(
     whatIf = whatIf,
     whatIfNot = { }
   )
@@ -384,13 +419,15 @@ public inline fun Iterable<Boolean?>.whatIfOr(
  *
  * @param whatIf An executable lambda function if the result of the `Or` operation is true.
  * @param whatIfNot An executable lambda function if the result of the `Or` operation is false.
+ *
+ * @return Returns the original target object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun Iterable<Boolean?>.whatIfOr(
   whatIf: () -> Unit,
   whatIfNot: (() -> Unit)
-) {
+): Iterable<Boolean?> {
   var predicate: Boolean? = null
 
   this.forEach {
@@ -407,4 +444,5 @@ public inline fun Iterable<Boolean?>.whatIfOr(
   } else {
     whatIfNot()
   }
+  return this
 }
