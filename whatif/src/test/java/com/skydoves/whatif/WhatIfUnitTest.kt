@@ -94,6 +94,25 @@ public class WhatIfUnitTest {
     var nullableString: String? = null
 
     nullableString = nullableString.whatIfMap(
+      default = "default",
+      whatIf = { "whatIf" }
+    )
+
+    assertThat(nullableString, `is`("default"))
+
+    nullableString = nullableString.whatIfMap(
+      whatIf = { "whatIf" },
+      whatIfNot = { "whatIfNot" }
+    )
+
+    assertThat(nullableString, `is`("whatIf"))
+  }
+
+  @Test
+  public fun whatIfMapWithGivenTest() {
+    var nullableString: String? = null
+
+    nullableString = nullableString.whatIfMap(
       given = !nullableString.isNullOrEmpty(),
       default = "default",
       whatIf = { "whatIf" }

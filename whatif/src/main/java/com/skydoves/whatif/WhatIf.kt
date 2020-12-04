@@ -171,6 +171,50 @@ public inline fun <T> T.whatIf(
 }
 
 /**
+ * An expression for invoking [whatIf] when the [T] target object is not null.
+ * It is useful when the receiver [T] and the result [R] should be different.
+ *
+ * @param default An executable default value if the [T] target object is not null.
+ * @param whatIf An executable lambda if the [T] target object is not null.
+ *
+ * @return Returns the desired type of object.
+ */
+@JvmSynthetic
+@WhatIfInlineOnly
+public inline fun <T, R> T.whatIfMap(
+  default: R,
+  whatIf: (T) -> R
+): R {
+
+  return this.whatIfMap(
+    whatIf = whatIf,
+    whatIfNot = { default }
+  )
+}
+
+/**
+ * An expression for invoking [whatIf] when the [T] target object is not null.
+ * It is useful when the receiver [T] and the result [R] should be different.
+ *
+ * @param whatIf An executable lambda if the [T] target object is not null.
+ * @param whatIfNot An executable lambda function if the [T] target object is null.
+ *
+ * @return Returns the desired type of object.
+ */
+@JvmSynthetic
+@WhatIfInlineOnly
+public inline fun <T, R> T.whatIfMap(
+  whatIf: (T) -> R,
+  whatIfNot: (T) -> R
+): R {
+
+  if (this != null) {
+    return whatIf(this)
+  }
+  return whatIfNot(this)
+}
+
+/**
  * An expression for invoking [whatIf] when the [given] boolean value.
  * If the [given] boolean value is false, the result value is the [default].
  * It is useful when the receiver [T] and the result [R] should be different.

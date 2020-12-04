@@ -130,10 +130,10 @@ Array, ByteArray, ShortArray, IntArray, LongArray, FloatArray, DoubleArray, Bool
 #### Collections 
 List, Map, Set
 
-### WhatIfLet
+### WhatIfMap
 The basic concept is the same as `whatIf` but it is useful when the receiver and the result should be different.<br>
 ```kotlin
-val length = nullableString?.whatIfLet(
+val length = nullableString.whatIfMap(
   given = nullableString.length < 5,
   whatIf = { it.length },
   whatIfNot = {
@@ -144,7 +144,7 @@ val length = nullableString?.whatIfLet(
 ```
 We can use default value instead of the `whatIfNot` and can be omitted the `whatIfNot`.
 ```kotlin
-val length = nullableString?.whatIfLet(
+val length = nullableString.whatIfMap(
   nullableString.length < 5,
   default = nullableString.length) { 
   log("$it, length can not over than 5.")
