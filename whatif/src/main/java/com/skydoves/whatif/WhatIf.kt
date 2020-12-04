@@ -29,6 +29,8 @@ package com.skydoves.whatif
  *
  * @param given A given condition for executing the [whatIf] lambda.
  * @param whatIf An executable lambda function if the [given] condition pass.
+ *
+ * @return Returns the original target object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -50,6 +52,8 @@ public inline fun <T> T.whatIf(
  * @param given A given condition for executing the [whatIf] or [whatIfNot] lambda.
  * @param whatIf An executable lambda if the [given] condition pass.
  * @param whatIfNot An executable lambda function if the [given] condition would not pass.
+ *
+ * @return Returns the original target object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -73,6 +77,8 @@ public inline fun <T> T.whatIf(
  *
  * @param given A given condition for executing the [whatIf] lambda.
  * @param whatIf An executable lambda if the [given] condition pass.
+ *
+ * @return Returns the original target object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -95,6 +101,8 @@ public inline fun <T> T.whatIf(
  * @param given A given condition for executing the [whatIf] or [whatIfNot] lambda.
  * @param whatIf An executable lambda if the [given] condition pass.
  * @param whatIfNot An executable lambda function if the [given] condition would not pass.
+ *
+ * @return Returns the original target object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -118,6 +126,8 @@ public inline fun <T> T.whatIf(
  *
  * @param given A given condition for executing the [whatIfDo] lambda.
  * @param whatIfDo An executable lambda if the [given] condition pass.
+ *
+ * @return Returns the original target object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -141,6 +151,8 @@ public inline fun <T> T.whatIf(
  * @param given A given condition for executing the [whatIfDo] or [whatIfNot] lambda.
  * @param whatIfDo An executable lambda if the [given] condition pass.
  * @param whatIfNot An executable lambda function if the [given] condition would not pass.
+ *
+ * @return Returns the original target object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -166,6 +178,8 @@ public inline fun <T> T.whatIf(
  * @param given A given condition for executing the [whatIf] lambda.
  * @param default An executable default value if the [given] condition would not pass.
  * @param whatIf An executable lambda if the [given] condition pass.
+ *
+ * @return Returns the desired type of object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -190,6 +204,8 @@ public inline fun <T, R> T.whatIfLet(
  * @param given A given condition for executing the [whatIf] lambda.
  * @param whatIf An executable lambda if the [given] condition pass.
  * @param whatIfNot An executable lambda function if the [given] condition would not pass.
+ *
+ * @return Returns the desired type of object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -209,6 +225,8 @@ public inline fun <T, R> T.whatIfLet(
  * An expression for invoking [whatIf] when the [T] target object is not null.
  *
  * @param whatIf An executable lambda if a target object is not null.
+ *
+ * @return Returns the desired type of object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -228,6 +246,8 @@ public inline fun <T> T?.whatIfNotNull(
  *
  * @param whatIf An executable lambda if a target object is not null.
  * @param whatIfNot An executable lambda if a target object is null.
+ *
+ * @return Returns the desired type of object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -249,6 +269,8 @@ public inline fun <T> T?.whatIfNotNull(
  * If the target is not null, the receiver will get a casted [R] type.
  *
  * @param whatIf An executable lambda if a target object is not null and it will receive a casted [R].
+ *
+ * @return Returns the desired type of object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -270,6 +292,8 @@ public inline fun <reified R> Any?.whatIfNotNullAs(
  *
  * @param whatIf An executable lambda if a target object is not null and it will receive a casted [R].
  * @param whatIfNot An executable lambda if a target object is null.
+ *
+ * @return Returns the desired type of object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -293,6 +317,8 @@ public inline fun <reified R> Any?.whatIfNotNullAs(
  *
  * @param whatIf An executable lambda if a target object is not null and returns a different type [R].
  * @param whatIfNot An executable lambda if a target object is null and returns a different type [R].
+ *
+ * @return Returns the desired type of object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -311,6 +337,8 @@ public inline fun <T, R> T?.whatIfNotNullWith(
  * An expression for invoking [whatIf] when the target [Boolean] is not null and true.
  *
  * @param whatIf An executable lambda function if the [Boolean] is not null and true.
+ *
+ * @return Returns the desired type of object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -330,6 +358,8 @@ public inline fun Boolean?.whatIf(
  *
  * @param whatIf An executable lambda function if the [Boolean] is not null and true.
  * @param whatIfNot An executable lambda function if the [Boolean] is null or false.
+ *
+ * @return Returns the desired type of object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -350,6 +380,8 @@ public inline fun Boolean?.whatIf(
  * An expression for invoking [whatIf] when the target object is not null and false.
  *
  * @param whatIf An executable lambda function if the [Boolean] is null or false.
+ *
+ * @return Returns the desired type of object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -368,6 +400,8 @@ public inline fun Boolean?.whatIfElse(
  *
  * @param predicate A predicate value
  * @param whatIf An executable lambda function if the [Boolean] and predicate are both not null and true.
+ *
+ * @return Returns the desired type of object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -387,6 +421,8 @@ public inline fun Boolean?.whatIfAnd(
  *
  * @param predicate A predicate value.
  * @param whatIf An executable lambda function if the [Boolean] or predicate is not null and true.
+ *
+ * @return Returns the desired type of object.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
