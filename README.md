@@ -95,6 +95,25 @@ nullableObject.whatIfNotNull(
 )
 ```
 
+### WhatIfNotNullAs
+`WhatIfNotNullAs` is an expression for invoking `whatIf` lambda when the target object is not null. If the target is not null, the receiver will get a desired casted type.
+
+```kotlin
+parcelable.whatIfNotNullAs<Poster> { poster ->
+  log(poster.name)
+}
+```
+And we can also handle the null case.
+
+```kotlin
+serializable.whatIfNotNullAs<Poster>(
+  whatIf = { poster -> log(poster.name) },
+  whatIfNot = { 
+    // do something
+  }
+)
+```
+
 ### WhatIfNotNullOrEmpty
 An expression for invoking `whatIf` lambda when the __string__, __collections__ and __array type__ is not null and not empty.<br>
 If the collections or array type target is null or empty, `whatIfNot` will be invoked instead of the `whatIf`.
@@ -128,25 +147,30 @@ nullableArray.whatIfNotNullOrEmpty {
 Array, ByteArray, ShortArray, IntArray, LongArray, FloatArray, DoubleArray, BooleanArray, CharArray
 
 #### Collections 
-List, Map, Set
+We can use some expressions for List, Map, and Set.
+- whatIfNotNullOrEmpty: An expression for invoking `whatIf` when the `List` is not null and not empty.
+- addWhatIfNotNull: An expression for adding an element and invoking `whatIf` when the element is not null.
+- addAllWhatIfNotNull: An expression for adding an element and invoking `whatIf` when the element is not null.
+- removeWhatIfNotNull: An expression for removing an element and invoking `whatIf` when the element is not null.
+- removeAllWhatIfNotNull: An expression for removing a collection of element and invoking `whatIf` when the element is not null.
+
 
 ### WhatIfMap
-The basic concept is the same as `whatIf` but it is useful when the receiver and the result should be different.<br>
+The basic concept is the same as `whatIf`. An expression for invoking `whatIf` when the target object is not null. It is useful when the receiver and the result should be different.<br>
 ```kotlin
 val length = nullableString.whatIfMap(
-  given = nullableString.length < 5,
   whatIf = { it.length },
   whatIfNot = {
-    log("$it, length can not over than 5.")
-    5
+    log("$it, nullableString is null.")
+    -1
   }
 )
 ```
 We can use default value instead of the `whatIfNot` and can be omitted the `whatIfNot`.
 ```kotlin
 val length = nullableString.whatIfMap(
-  nullableString.length < 5,
-  default = nullableString.length) { 
+    default = -1
+  ) { 
   log("$it, length can not over than 5.")
   5
 }
