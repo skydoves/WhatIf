@@ -182,7 +182,7 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.addWhatIfNotNu
 /**
  * An expression for adding an [element] and invoking [whatIf] when the [element] is not null.
  *
- * @param element An collection of elements should be added into the target.
+ * @param element n collection of elements should be added into the target.
  * @param whatIf An executable lambda function if the [element] it not null.
  */
 @JvmSynthetic
@@ -202,7 +202,7 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.addAllWhatIfNo
 /**
  * An expression for adding an [element] and invoking [whatIf] when the [element] is not null.
  *
- * @param element An collection of elements should be added into the target.
+ * @param element n collection of elements should be added into the target.
  * @param whatIf An executable lambda function if the [element] it not null.
  * @param whatIfNot An executable lambda function if the [element] it null.
  */
@@ -272,9 +272,9 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.removeWhatIfNo
 }
 
 /**
- * An expression for removing an collection of [element] and invoking [whatIf] when the [element] is not null.
+ * An expression for removing a collection of [element] and invoking [whatIf] when the [element] is not null.
  *
- * @param element An collection of elements should be removed into the target.
+ * @param element A collection of elements should be removed into the target.
  * @param whatIf An executable lambda function if the [element] it not null.
  */
 @JvmSynthetic
@@ -294,7 +294,7 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.removeAllWhatI
 /**
  * An expression for removing an [element] and invoking [whatIf] when the [element] is not null.
  *
- * @param element An collection of elements should be removed into the target.
+ * @param element A collection of elements should be removed into the target.
  * @param whatIf An executable lambda function if the [element] it not null.
  * @param whatIfNot An executable lambda function if the [element] it null.
  */
@@ -315,4 +315,50 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.removeAllWhatI
       whatIfNot(this)
     }
   )
+}
+
+/**
+ * An expression for operating `And` operator to a list of the nullable-Boolean.
+ *
+ * @param whatIf An executable lambda function if the result of the `And` operation is true.
+ */
+@JvmSynthetic
+@WhatIfInlineOnly
+public inline fun Iterable<Boolean?>.whatIfAnd(
+  whatIf: () -> Unit
+) {
+  this.whatIfAnd(
+    whatIf = whatIf,
+    whatIfNot = { }
+  )
+}
+
+/**
+ * An expression for operating `And` operator to a list of the nullable-Boolean.
+ *
+ * @param whatIf An executable lambda function if the result of the `And` operation is true.
+ * @param whatIfNot An executable lambda function if the result of the `And` operation is false.
+ */
+@JvmSynthetic
+@WhatIfInlineOnly
+public inline fun Iterable<Boolean?>.whatIfAnd(
+  whatIf: () -> Unit,
+  whatIfNot: (() -> Unit)
+) {
+  var predicate: Boolean? = null
+
+  this.forEach {
+    val p = predicate
+    predicate = if (p == null) {
+      it
+    } else {
+      p and (it == true)
+    }
+  }
+
+  if (predicate == true) {
+    whatIf()
+  } else {
+    whatIfNot()
+  }
 }

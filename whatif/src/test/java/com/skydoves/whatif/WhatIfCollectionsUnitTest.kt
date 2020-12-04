@@ -162,4 +162,29 @@ public class WhatIfCollectionsUnitTest {
     assertThat(posters.size, `is`(0))
     assertNull(poster)
   }
+
+  @Test
+  public fun whatIfAndTest() {
+    var predicates = listOf(true, true, true, false)
+    var result = 0
+
+    predicates.whatIfAnd(
+      whatIf = {
+        result = 1
+      },
+      whatIfNot = {
+        result = -1
+      }
+    )
+
+    assertThat(result, `is`(-1))
+
+    predicates = listOf(true, true, true, true)
+
+    predicates.whatIfAnd {
+      result = 1
+    }
+
+    assertThat(result, `is`(1))
+  }
 }
