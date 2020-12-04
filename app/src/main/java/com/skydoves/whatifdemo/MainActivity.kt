@@ -25,7 +25,7 @@ import com.skydoves.balloon.Balloon
 import com.skydoves.balloon.BalloonAnimation
 import com.skydoves.balloon.showAlignTop
 import com.skydoves.whatif.whatIf
-import com.skydoves.whatif.whatIfLet
+import com.skydoves.whatif.whatIfMap
 import com.skydoves.whatif.whatIfNotNull
 import com.skydoves.whatifdemo.databinding.ActivityMainBinding
 
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
     )
 
     // example3 : nullable String true-false check extension with default value.
-    nullableString = nullableBoolean.whatIfLet(nullableBoolean, "null") {
+    nullableString = nullableBoolean.whatIfMap(nullableBoolean, "null") {
       "notNull"
     }
 
@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // example5 : nullable any type null check extension.
-    val newString = nullableString.whatIfLet(
+    val newString = nullableString.whatIfMap(
       given = nullableString.length > 3,
       whatIf = {
         log("$it is long.")

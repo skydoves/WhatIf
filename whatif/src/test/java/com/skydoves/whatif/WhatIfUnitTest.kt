@@ -90,10 +90,10 @@ public class WhatIfUnitTest {
   }
 
   @Test
-  public fun whatIfLetTest() {
+  public fun whatIfMapTest() {
     var nullableString: String? = null
 
-    nullableString = nullableString.whatIfLet(
+    nullableString = nullableString.whatIfMap(
       given = !nullableString.isNullOrEmpty(),
       default = "default",
       whatIf = { "whatIf" }
@@ -101,7 +101,7 @@ public class WhatIfUnitTest {
 
     assertThat(nullableString, `is`("default"))
 
-    nullableString = nullableString.whatIfLet(
+    nullableString = nullableString.whatIfMap(
       given = !nullableString.isNullOrEmpty(),
       default = "default",
       whatIf = { "whatIf" }

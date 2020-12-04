@@ -183,13 +183,13 @@ public inline fun <T> T.whatIf(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-public inline fun <T, R> T.whatIfLet(
+public inline fun <T, R> T.whatIfMap(
   given: Boolean?,
   default: R,
   whatIf: (T) -> R
 ): R {
 
-  return this.whatIfLet(
+  return this.whatIfMap(
     given = given,
     whatIf = whatIf,
     whatIfNot = { default }
@@ -207,6 +207,70 @@ public inline fun <T, R> T.whatIfLet(
  *
  * @return Returns the desired type of object.
  */
+@JvmSynthetic
+@WhatIfInlineOnly
+public inline fun <T, R> T.whatIfMap(
+  given: Boolean?,
+  whatIf: (T) -> R,
+  whatIfNot: (T) -> R
+): R {
+
+  if (given == true) {
+    return whatIf(this)
+  }
+  return whatIfNot(this)
+}
+
+/**
+ * An expression for invoking [whatIf] when the [given] boolean value.
+ * If the [given] boolean value is false, the result value is the [default].
+ * It is useful when the receiver [T] and the result [R] should be different.
+ *
+ * @param given A given condition for executing the [whatIf] lambda.
+ * @param default An executable default value if the [given] condition would not pass.
+ * @param whatIf An executable lambda if the [given] condition pass.
+ *
+ * @return Returns the desired type of object.
+ */
+@Deprecated(
+  message = "use whatIfMap instead.",
+  replaceWith = ReplaceWith(
+    "whatIfMap(given, default, whatIf)",
+    imports = ["com.skydoves.whatIf.whatIfMap"]
+  )
+)
+@JvmSynthetic
+@WhatIfInlineOnly
+public inline fun <T, R> T.whatIfLet(
+  given: Boolean?,
+  default: R,
+  whatIf: (T) -> R
+): R {
+
+  if (given == true) {
+    return whatIf(this)
+  }
+  return default
+}
+
+/**
+ * An expression for invoking [whatIf] when the [given] boolean value.
+ * If the [given] boolean is false, [whatIfNot] will be invoked instead of the [whatIf].
+ * It is useful when the receiver [T] and the result [R] should be different.
+ *
+ * @param given A given condition for executing the [whatIf] lambda.
+ * @param whatIf An executable lambda if the [given] condition pass.
+ * @param whatIfNot An executable lambda function if the [given] condition would not pass.
+ *
+ * @return Returns the desired type of object.
+ */
+@Deprecated(
+  message = "use whatIfMap instead.",
+  replaceWith = ReplaceWith(
+    "whatIfMap(given, default, whatIf, whatIfNot)",
+    imports = ["com.skydoves.whatIf.whatIfMap"]
+  )
+)
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T, R> T.whatIfLet(
