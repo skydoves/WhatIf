@@ -374,9 +374,11 @@ public inline fun <T> T?.whatIfNotNull(
 
 /**
  * An expression for invoking [whatIf] when the target object is not null.
- * If the target is not null, the receiver will get a casted [R] type.
+ * If the target is not null and the target can be cast by the desired type [R],
+ * the receiver will get a casted [R] type.
  *
- * @param whatIf An executable lambda if a target object is not null and it will receive a casted [R].
+ * @param whatIf An executable lambda will receive a casted [R]
+ * if a target object is not null and the target can be cast by the desired type [R].
  *
  * @return Returns the desired type of object.
  */
@@ -394,11 +396,13 @@ public inline fun <reified R> Any?.whatIfNotNullAs(
 
 /**
  * An expression for invoking [whatIf] when the target object is not null.
- * If the target is not null, the receiver will get a casted [R] type.
+ * If the target is not null and the target can be cast by the desired type [R],
+ * the receiver will get a casted [R] type.
  * If the target is null, [whatIfNot] will be invoked instead of the [whatIf] without casting.
  *
- * @param whatIf An executable lambda if a target object is not null and it will receive a casted [R].
- * @param whatIfNot An executable lambda if a target object is null.
+ * @param whatIf @param whatIf An executable lambda will receive a casted [R]
+ * if a target object is not null and the target can be cast by the desired type [R].
+ * @param whatIfNot An executable lambda if a target object is null or can not be cast by the desired type [R].
  *
  * @return Returns the desired type of object.
  */
@@ -409,7 +413,7 @@ public inline fun <reified R> Any?.whatIfNotNullAs(
   whatIfNot: () -> Unit
 ): Any? {
 
-  if (this != null) {
+  if (this != null && this is R) {
     whatIf(this as R)
     return this
   }

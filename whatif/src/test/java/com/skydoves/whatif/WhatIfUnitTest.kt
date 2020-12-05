@@ -221,7 +221,7 @@ public class WhatIfUnitTest {
   }
 
   @Test
-  public fun whatIfNotNullTypeCastingTest() {
+  public fun whatIfNotNullAsTest() {
     var nullableIntList: MutableList<Int>? = null
 
     nullableIntList.whatIfNotNullAs<List<String>>(
@@ -238,6 +238,26 @@ public class WhatIfUnitTest {
     }
 
     assertThat(nullableString, `is`("foobar"))
+  }
+
+  @Test
+  public fun whatIfNotNullAsCannotBeCastedTest() {
+    var result = 0L
+    val nullableString = "foo"
+
+    nullableString.whatIfNotNullAs<Long>(
+      whatIf = { result = it },
+      whatIfNot = { result = -1 }
+    )
+
+    assertThat(result, `is`(-1L))
+
+    nullableString.whatIfNotNullAs<CharSequence>(
+      whatIf = { result = it.length.toLong() },
+      whatIfNot = { result = -1 }
+    )
+
+    assertThat(result, `is`(3))
   }
 
   @Test
