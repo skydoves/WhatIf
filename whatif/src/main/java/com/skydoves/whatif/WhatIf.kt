@@ -386,11 +386,10 @@ public inline fun <reified R> Any?.whatIfNotNullAs(
   whatIf: (R) -> Unit
 ): Any? {
 
-  if (this != null) {
-    whatIf(this as R)
-    return this
-  }
-  return this
+  return whatIfNotNullAs(
+    whatIf = whatIf,
+    whatIfNot = { }
+  )
 }
 
 /**
