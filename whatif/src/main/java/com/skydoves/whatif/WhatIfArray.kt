@@ -53,6 +53,7 @@ public inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
   whatIf: (Array<out T>) -> Unit,
   whatIfNot: () -> Unit
 ): Array<out T>? = apply {
+
   if (!this.isNullOrEmpty()) {
     whatIf(this)
   } else {

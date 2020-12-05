@@ -81,6 +81,7 @@ inline fun Activity.whatIfHasExtras(
   name: String,
   whatIf: () -> Unit
 ) {
+
   this.whatIfHasExtras(
     name = name,
     whatIf = whatIf,
@@ -123,6 +124,7 @@ inline fun Activity.whatIfHasStringExtra(
   name: String,
   whatIf: (String) -> Unit
 ) {
+
   this.intent.getStringExtra(name).whatIfNotNull(
     whatIf = whatIf,
     whatIfNot = { }
@@ -144,6 +146,7 @@ inline fun Activity.whatIfHasStringExtra(
   whatIf: (String) -> Unit,
   whatIfNot: () -> Unit
 ) {
+
   this.intent.getStringExtra(name).whatIfNotNull(
     whatIf = whatIf,
     whatIfNot = whatIfNot
@@ -162,6 +165,7 @@ inline fun Activity.whatIfHasCharSequenceExtra(
   name: String,
   whatIf: (CharSequence) -> Unit
 ) {
+
   this.intent.getCharSequenceExtra(name).whatIfNotNull(
     whatIf = whatIf,
     whatIfNot = { }
@@ -183,6 +187,7 @@ inline fun Activity.whatIfHasCharSequenceExtra(
   whatIf: (CharSequence) -> Unit,
   whatIfNot: () -> Unit
 ) {
+
   this.intent.getCharSequenceExtra(name).whatIfNotNull(
     whatIf = whatIf,
     whatIfNot = whatIfNot
@@ -201,6 +206,7 @@ inline fun <reified T : Serializable> Activity.whatIfHasSerializableExtra(
   name: String,
   whatIf: (T) -> Unit
 ) {
+
   this.intent.getSerializableExtra(name).whatIfNotNullAs<T>(
     whatIf = whatIf,
     whatIfNot = { }
@@ -222,6 +228,7 @@ inline fun <reified T : Serializable> Activity.whatIfHasSerializableExtra(
   whatIf: (T) -> Unit,
   whatIfNot: () -> Unit
 ) {
+
   this.intent.getSerializableExtra(name).whatIfNotNullAs<T>(
     whatIf = whatIf,
     whatIfNot = whatIfNot
@@ -240,6 +247,7 @@ inline fun <reified T : Parcelable> Activity.whatIfHasParcelableExtra(
   name: String,
   whatIf: (T) -> Unit
 ) {
+
   this.intent.getParcelableExtra<T>(name).whatIfNotNull(
     whatIf = whatIf,
     whatIfNot = { }
@@ -261,6 +269,7 @@ inline fun <reified T : Parcelable> Activity.whatIfHasParcelableExtra(
   whatIf: (T) -> Unit,
   whatIfNot: () -> Unit
 ) {
+
   this.intent.getParcelableExtra<T>(name).whatIfNotNull(
     whatIf = whatIf,
     whatIfNot = whatIfNot
@@ -279,6 +288,7 @@ inline fun <reified T : Parcelable> Activity.whatIfHasParcelableArrayListExtra(
   name: String,
   whatIf: (ArrayList<T>) -> Unit
 ) {
+
   this.intent.getParcelableArrayListExtra<T>(name).whatIfNotNull(
     whatIf = whatIf,
     whatIfNot = { }
@@ -300,6 +310,7 @@ inline fun <reified T : Parcelable> Activity.whatIfHasParcelableArrayListExtra(
   whatIf: (ArrayList<T>) -> Unit,
   whatIfNot: () -> Unit
 ) {
+
   this.intent.getParcelableArrayListExtra<T>(name).whatIfNotNull(
     whatIf = whatIf,
     whatIfNot = whatIfNot
