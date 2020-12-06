@@ -96,14 +96,14 @@ nullableObject.whatIfNotNull(
 ```
 
 ### WhatIfNotNullAs
-`WhatIfNotNullAs` is an expression for invoking `whatIf` lambda when the target object is not null. If the target is not null, the receiver will get a desired casted type.
+`WhatIfNotNullAs` is an expression for invoking `whatIf` lambda when the target object is not null and the target can be cast by the desired type, the receiver will get a casted type.
 
 ```kotlin
 parcelable.whatIfNotNullAs<Poster> { poster ->
   log(poster.name)
 }
 ```
-And we can also handle the null case.
+And we can also handle the exception case (target is null or can't cast by the desired type) using `whatIfNot`.
 
 ```kotlin
 serializable.whatIfNotNullAs<Poster>(
@@ -156,9 +156,9 @@ We can use some expressions for List, Map, and Set.
 
 
 ### WhatIfMap
-The basic concept is the same as `whatIf`. An expression for invoking `whatIf` when the target object is not null. It is useful when the receiver and the result should be different.<br>
+The basic concept is the same as `whatIf`. An expression for invoking `whatIf` when the target object is not null. It is useful when the type of the receiver and the result should be different.<br>
 ```kotlin
-val length = nullableString.whatIfMap(
+val length: Int = nullableString.whatIfMap(
   whatIf = { it.length },
   whatIfNot = {
     log("$it, nullableString is null.")
@@ -166,7 +166,7 @@ val length = nullableString.whatIfMap(
   }
 )
 ```
-We can use default value instead of the `whatIfNot` and can be omitted the `whatIfNot`.
+We can use a default value instead of the `whatIfNot` and it can be omitted.
 ```kotlin
 val length = nullableString.whatIfMap(
     default = -1
