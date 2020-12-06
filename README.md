@@ -98,20 +98,29 @@ nullableObject.whatIfNotNull(
 ### WhatIfNotNullAs
 `WhatIfNotNullAs` is an expression for invoking `whatIf` lambda when the target object is not null and the target can be cast by the desired type, the receiver will get a casted type.
 
-```kotlin
-parcelable.whatIfNotNullAs<Poster> { poster ->
-  log(poster.name)
-}
+```diff
+- (serializable as? Poster?)?.let { poster ->
+- 
+- }
+
++ parcelable.whatIfNotNullAs<Poster> { poster ->
++  log(poster.name)
++ }
 ```
 And we can also handle the exception case (target is null or can't cast by the desired type) using `whatIfNot`.
 
-```kotlin
-serializable.whatIfNotNullAs<Poster>(
-  whatIf = { poster -> log(poster.name) },
-  whatIfNot = { 
-    // do something
-  }
-)
+```diff
+- (serializable as? Poster?)?.let { poster ->
+-  log(poster.name)
+- } ?: let {
+-  // do something
+- }
+
++ serializable.whatIfNotNullAs<Poster>(
++  whatIf = { poster -> log(poster.name) },
++  whatIfNot = { 
++    // do something
++  })
 ```
 
 ### WhatIfNotNullOrEmpty

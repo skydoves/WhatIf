@@ -377,6 +377,12 @@ public inline fun <T> T?.whatIfNotNull(
  * If the target is not null and the target can be cast by the desired type [R],
  * the receiver will get a casted [R] type.
  *
+ * ```
+ * parcelable.whatIfNotNullAs<Poster> { poster ->
+ *  log(poster.name)
+ * }
+ * ```
+ *
  * @param whatIf An executable lambda will receive a casted [R]
  * if a target object is not null and the target can be cast by the desired type [R].
  *
@@ -399,6 +405,14 @@ public inline fun <reified R> Any?.whatIfNotNullAs(
  * If the target is not null and the target can be cast by the desired type [R],
  * the receiver will get a casted [R] type.
  * If the target is null, [whatIfNot] will be invoked instead of the [whatIf] without casting.
+ *
+ * ```
+ *  serializable.whatIfNotNullAs<Poster>(
+ *  whatIf = { poster -> log(poster.name) },
+ *  whatIfNot = {
+ *    // do something
+ *  })
+ * ```
  *
  * @param whatIf @param whatIf An executable lambda will receive a casted [R]
  * if a target object is not null and the target can be cast by the desired type [R].
