@@ -19,5 +19,6 @@ ext.versions = [
 
     // unit test
     junit            : '4.13.1',
+    jacoco           : '0.8.6',
     robolectric      : '4.4'
 ]
