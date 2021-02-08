@@ -27,7 +27,15 @@
 ![downloads](https://user-images.githubusercontent.com/24237865/101273131-2187a980-37d6-11eb-9000-e1cd10f87b0d.png)
 
 ### Gradle
-Add a dependency code to your **module**'s `build.gradle` file.
+Add below codes to your **root** `build.gradle` file (not your module build.gradle file).
+```gradle
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+```
+And add a dependency code to your **module**'s `build.gradle` file.
 ```gradle
 dependencies {
     implementation "com.github.skydoves:whatif:1.0.9"
