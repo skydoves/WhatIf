@@ -19,7 +19,6 @@
 </p>
 
 ## Download
-[![Download](https://api.bintray.com/packages/devmagician/maven/whatif/images/download.svg) ](https://bintray.com/devmagician/maven/whatif/_latestVersion)
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.skydoves/whatif.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.skydoves%22%20AND%20a:%22whatif%22)
 [![Jitpack](https://jitpack.io/v/skydoves/whatif.svg)](https://jitpack.io/#skydoves/whatif)
 
