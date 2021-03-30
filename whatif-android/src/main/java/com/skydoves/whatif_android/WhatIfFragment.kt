@@ -25,13 +25,12 @@ import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import com.skydoves.whatif.WhatIfInlineOnly
 import com.skydoves.whatif.whatIfNotNull
 
 /**
  * An expression for invoking [whatIf] when the [Context] is not null.
  *
- * @param whatIf AwhatIf An executable lambda function if the [Fragment]'s context is not null.
+ * @param whatIf An executable lambda function if the [Fragment]'s context is not null.
  */
 @JvmSynthetic
 @WhatIfInlineOnly

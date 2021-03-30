@@ -23,7 +23,6 @@ package com.skydoves.whatif_android
 import android.app.Activity
 import android.os.Bundle
 import android.os.Parcelable
-import com.skydoves.whatif.WhatIfInlineOnly
 import com.skydoves.whatif.whatIfNotNull
 import com.skydoves.whatif.whatIfNotNullAs
 import java.io.Serializable
