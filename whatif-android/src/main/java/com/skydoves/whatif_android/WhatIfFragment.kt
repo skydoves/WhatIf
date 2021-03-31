@@ -37,11 +37,11 @@ import com.skydoves.whatif.whatIfNotNullAs
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun Fragment.whatIfNotNullContext(
+inline fun Fragment?.whatIfNotNullContext(
   whatIf: (Context) -> Unit
 ) {
 
-  this.context.whatIfNotNull {
+  this?.context.whatIfNotNull {
     whatIf(it)
   }
 }
@@ -57,12 +57,12 @@ inline fun Fragment.whatIfNotNullContext(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun Fragment.whatIfNotNullContext(
+inline fun Fragment?.whatIfNotNullContext(
   whatIf: (Context) -> Unit,
   whatIfNot: () -> Unit
 ) {
 
-  this.context.whatIfNotNull(
+  this?.context.whatIfNotNull(
     whatIf = whatIf,
     whatIfNot = whatIfNot
   )
@@ -77,11 +77,11 @@ inline fun Fragment.whatIfNotNullContext(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun Fragment.whatIfNotNullActivity(
+inline fun Fragment?.whatIfNotNullActivity(
   whatIf: (FragmentActivity) -> Unit
 ) {
 
-  this.activity.whatIfNotNull {
+  this?.activity.whatIfNotNull {
     whatIf(it)
   }
 }
@@ -97,12 +97,12 @@ inline fun Fragment.whatIfNotNullActivity(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun Fragment.whatIfNotNullActivity(
+inline fun Fragment?.whatIfNotNullActivity(
   whatIf: (FragmentActivity) -> Unit,
   whatIfNot: () -> Unit
 ) {
 
-  this.activity.whatIfNotNull(
+  this?.activity.whatIfNotNull(
     whatIf = whatIf,
     whatIfNot = whatIfNot
   )
@@ -117,11 +117,11 @@ inline fun Fragment.whatIfNotNullActivity(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun Fragment.whatIfHasArguments(
+inline fun Fragment?.whatIfHasArguments(
   whatIf: (Bundle) -> Unit
 ) {
 
-  this.arguments.whatIfNotNull {
+  this?.arguments.whatIfNotNull {
     whatIf(it)
   }
 }
@@ -135,11 +135,11 @@ inline fun Fragment.whatIfHasArguments(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun <reified T> Fragment.whatIfFindParentInterface(
+inline fun <reified T> Fragment?.whatIfFindParentInterface(
   whatIf: (T) -> Unit
 ) {
 
-  activity.whatIfNotNullAs(whatIf, { })
+  this?.activity.whatIfNotNullAs(whatIf) { }
 }
 
 /**
@@ -152,10 +152,10 @@ inline fun <reified T> Fragment.whatIfFindParentInterface(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun <reified T> Fragment.whatIfFindParentInterface(
+inline fun <reified T> Fragment?.whatIfFindParentInterface(
   whatIf: (T) -> Unit,
   whatIfNot: () -> Unit
 ) {
 
-  activity.whatIfNotNullAs(whatIf, whatIfNot)
+  this?.activity.whatIfNotNullAs(whatIf, whatIfNot)
 }
