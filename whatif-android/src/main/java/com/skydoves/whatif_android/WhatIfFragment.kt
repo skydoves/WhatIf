@@ -26,8 +26,11 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.skydoves.whatif.whatIfNotNull
+import com.skydoves.whatif.whatIfNotNullAs
 
 /**
+ * @author skydoves (Jaewoong Eum)
+ *
  * An expression for invoking [whatIf] when the [Context] is not null.
  *
  * @param whatIf An executable lambda function if the [Fragment]'s context is not null.
@@ -44,6 +47,8 @@ inline fun Fragment.whatIfNotNullContext(
 }
 
 /**
+ * @author skydoves (Jaewoong Eum)
+ *
  * An expression for invoking [whatIf] when the [Context] is not null.
  * If the activity is null, [whatIfNot] will be invoked instead of the [whatIf].
  *
@@ -64,6 +69,8 @@ inline fun Fragment.whatIfNotNullContext(
 }
 
 /**
+ * @author skydoves (Jaewoong Eum)
+ *
  * An expression for invoking [whatIf] when the [Activity] is not null.
  *
  * @param whatIf An executable lambda function if the [Fragment]'s parent Activity is not null.
@@ -80,6 +87,8 @@ inline fun Fragment.whatIfNotNullActivity(
 }
 
 /**
+ * @author skydoves (Jaewoong Eum)
+ *
  * An expression for invoking [whatIf] when the [Activity] is not null.
  * If the activity is null, [whatIfNot] will be invoked instead of the [whatIf].
  *
@@ -100,6 +109,8 @@ inline fun Fragment.whatIfNotNullActivity(
 }
 
 /**
+ * @author skydoves (Jaewoong Eum)
+ *
  * An expression for invoking [whatIf] when the [Fragment.getArguments] is not null.
  *
  * @param whatIf An executable lambda function if the [Fragment]'s arguments are not null.
@@ -113,4 +124,38 @@ inline fun Fragment.whatIfHasArguments(
   this.arguments.whatIfNotNull {
     whatIf(it)
   }
+}
+
+/**
+ * @author skydoves (Jaewoong Eum)
+ *
+ * An expression for invoking [whatIf] when the [Fragment] has an [T] interface as a parent.
+ *
+ * @param whatIf An executable lambda function if the [Fragment] has an [T] interface as a parent.
+ */
+@JvmSynthetic
+@WhatIfInlineOnly
+inline fun <reified T> Fragment.whatIfFindParentInterface(
+  whatIf: (T) -> Unit
+) {
+
+  activity.whatIfNotNullAs(whatIf, { })
+}
+
+/**
+ * @author skydoves (Jaewoong Eum)
+ *
+ * An expression for invoking [whatIf] when the [Fragment] has an [T] interface as a parent.
+ *
+ * @param whatIf An executable lambda function if the [Fragment] has an [T] interface as a parent.
+ * @param whatIfNot An executable lambda function if the [Fragment] has not an [T] interface as a parent.
+ */
+@JvmSynthetic
+@WhatIfInlineOnly
+inline fun <reified T> Fragment.whatIfFindParentInterface(
+  whatIf: (T) -> Unit,
+  whatIfNot: () -> Unit
+) {
+
+  activity.whatIfNotNullAs(whatIf, whatIfNot)
 }
