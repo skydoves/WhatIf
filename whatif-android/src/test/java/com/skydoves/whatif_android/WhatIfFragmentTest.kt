@@ -19,6 +19,7 @@ package com.skydoves.whatif_android
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.FragmentActivity
+import junit.framework.TestCase.assertNotNull
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.CoreMatchers.instanceOf
 import org.hamcrest.MatcherAssert.assertThat
@@ -117,13 +118,55 @@ class WhatIfFragmentTest {
   }
 
   @Test
-  fun whatIfHasNotNullArgumentsTest() {
+  fun whatIfHasArgumentsNotNullTest() {
     val fragment = MainTestFragment()
 
     var flag = false
     fragment.whatIfHasArguments(
       whatIf = {},
       whatIfNot = { flag = true }
+    )
+    assertThat(flag, Is.`is`(true))
+  }
+
+  @Test
+  fun whatIfFindParentInterfaceTest() {
+    val fragment = mainTestActivity.supportFragmentManager.findFragmentByTag(MainTestFragment.TAG)
+
+    var flag = false
+    fragment.whatIfFindParentInterface<MainTestActivity> {
+      assertNotNull(it)
+      assertThat(it, instanceOf(MainTestActivity::class.java))
+      flag = true
+    }
+    assertThat(flag, Is.`is`(true))
+  }
+
+  @Test
+  fun whatIfFindParentInterfaceAsInterfaceTest() {
+    val fragment = mainTestActivity.supportFragmentManager.findFragmentByTag(MainTestFragment.TAG)
+
+    var flag = false
+    fragment.whatIfFindParentInterface<MainTestActivityInterface> {
+      assertNotNull(it)
+      assertThat(it, instanceOf(MainTestActivityInterface::class.java))
+      flag = true
+    }
+    assertThat(flag, Is.`is`(true))
+  }
+
+  @Test
+  fun whatIfFindParentInterfaceNotNullTest() {
+    val fragment = mainTestActivity.supportFragmentManager.findFragmentByTag(MainTestFragment.TAG)
+
+    var flag = false
+    fragment.whatIfFindParentInterface<MainTestFragment2>(
+      whatIf = {
+        assertThat(1, `is`(2))
+      },
+      whatIfNot = {
+        flag = true
+      }
     )
     assertThat(flag, Is.`is`(true))
   }
