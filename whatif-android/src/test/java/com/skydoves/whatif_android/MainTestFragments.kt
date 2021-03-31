@@ -16,6 +16,18 @@
 
 package com.skydoves.whatif_android
 
-import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.Fragment
 
-class MainTestActivity : FragmentActivity()
+class MainTestFragment : Fragment() {
+
+  companion object {
+    const val TAG = "MainTestFragment"
+  }
+}
+
+class MainTestFragment2 : Fragment() {
+
+  companion object {
+    const val TAG = "MainTestFragment2"
+  }
+}
