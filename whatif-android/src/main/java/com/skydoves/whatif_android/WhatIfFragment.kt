@@ -113,7 +113,7 @@ inline fun Fragment?.whatIfNotNullActivity(
  *
  * An expression for invoking [whatIf] when the [Fragment.getArguments] is not null.
  *
- * @param whatIf An executable lambda function if the [Fragment]'s arguments are not null.
+ * @param whatIf An executable lambda function if the [Fragment] has arguments.
  */
 @JvmSynthetic
 @WhatIfInlineOnly
@@ -121,9 +121,25 @@ inline fun Fragment?.whatIfHasArguments(
   whatIf: (Bundle) -> Unit
 ) {
 
-  this?.arguments.whatIfNotNull {
-    whatIf(it)
-  }
+  whatIfHasArguments(whatIf) { }
+}
+
+/**
+ * @author skydoves (Jaewoong Eum)
+ *
+ * An expression for invoking [whatIf] when the [Fragment.getArguments] is not null.
+ *
+ * @param whatIf An executable lambda function if the [Fragment] has arguments.
+ * @param whatIfNot An executable lambda function if the [Fragment] has not any arguments.
+ */
+@JvmSynthetic
+@WhatIfInlineOnly
+inline fun Fragment?.whatIfHasArguments(
+  whatIf: (Bundle) -> Unit,
+  whatIfNot: () -> Unit
+) {
+
+  this?.arguments.whatIfNotNull(whatIf, whatIfNot)
 }
 
 /**
@@ -139,7 +155,7 @@ inline fun <reified T> Fragment?.whatIfFindParentInterface(
   whatIf: (T) -> Unit
 ) {
 
-  this?.activity.whatIfNotNullAs(whatIf) { }
+  whatIfFindParentInterface(whatIf) { }
 }
 
 /**
