@@ -17,6 +17,7 @@
 package com.skydoves.whatif_android
 
 import android.content.Intent
+import android.net.Uri
 import com.skydoves.whatif_android.data.Poster
 import com.skydoves.whatif_android.data.PosterSerializable
 import org.hamcrest.CoreMatchers.`is`
@@ -45,6 +46,7 @@ class WhatIfActivityTest {
       putExtra("charSequence", "charSequence")
       putExtra("parcelable", Poster.create())
       putExtra("serializable", PosterSerializable.create())
+      data = Uri.parse("skydoves")
     }
     this.controller = Robolectric.buildActivity(
       MainTestActivity::class.java,
@@ -145,5 +147,32 @@ class WhatIfActivityTest {
     )
 
     assertNull(poster)
+  }
+
+  @Test
+  fun whatIfHasDeepLinkUriTest() {
+    mainTestActivity.intent.data = Uri.parse("skydoves")
+    var deepLinkUri: Uri? = null
+
+    this.mainTestActivity.whatIfHasDeepLinkUri {
+      deepLinkUri = it
+    }
+
+    assertThat(deepLinkUri.toString(), `is`("skydoves"))
+  }
+
+  @Test
+  fun whatIfHasDeepLinkUriNotNullTest() {
+    mainTestActivity.intent.data = null
+    var deepLinkUri: Uri? = null
+    var isNotNull: Boolean = false
+
+    this.mainTestActivity.whatIfHasDeepLinkUri(
+      whatIf = { deepLinkUri = it },
+      whatIfNot = { isNotNull = true }
+    )
+
+    assertNull(deepLinkUri)
+    assertThat(isNotNull, `is`(true))
   }
 }
