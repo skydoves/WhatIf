@@ -21,6 +21,7 @@
 package com.skydoves.whatif_android
 
 import android.app.Activity
+import android.net.Uri
 import android.os.Bundle
 import android.os.Parcelable
 import com.skydoves.whatif.whatIfNotNull
@@ -314,4 +315,35 @@ inline fun <reified T : Parcelable> Activity.whatIfHasParcelableArrayListExtra(
     whatIf = whatIf,
     whatIfNot = whatIfNot
   )
+}
+
+/**
+ * An expression for invoking [whatIf] when the [Activity]'s intent deep link uri is not null and not empty.
+ *
+ * @param whatIf An executable lambda function if the [Activity]'s extra data is not null.
+ */
+@JvmSynthetic
+@WhatIfInlineOnly
+inline fun Activity.whatIfHasDeepLinkUri(
+  whatIf: (Uri) -> Unit
+) {
+
+  this.whatIfHasDeepLinkUri(whatIf, { })
+}
+
+/**
+ * An expression for invoking [whatIf] when the [Activity]'s intent deep link uri is not null and not empty.
+ * If the intent deep link uri is null or empty, [whatIfNot] will be invoked instead of the [whatIf].
+ *
+ * @param whatIf An executable lambda function if the [Activity]'s deep link uri is not null.
+ * @param whatIfNot An executable lambda function if the [Activity]'s deep link uri is null.
+ */
+@JvmSynthetic
+@WhatIfInlineOnly
+inline fun Activity.whatIfHasDeepLinkUri(
+  whatIf: (Uri) -> Unit,
+  whatIfNot: () -> Unit
+) {
+
+  this.intent.data.whatIfNotNull(whatIf, whatIfNot)
 }
