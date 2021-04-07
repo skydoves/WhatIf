@@ -37,7 +37,7 @@ allprojects {
 And add a dependency code to your **module**'s `build.gradle` file.
 ```gradle
 dependencies {
-    implementation "com.github.skydoves:whatif:1.0.9"
+    implementation "com.github.skydoves:whatif:1.1.0"
 }
 ```
 
