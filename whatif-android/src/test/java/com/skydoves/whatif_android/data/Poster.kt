@@ -19,7 +19,7 @@ package com.skydoves.whatif_android.data
 import android.os.Parcel
 import android.os.Parcelable
 
-data class Poster(
+internal data class Poster(
   val id: Long,
   val name: String?,
   val release: String?,
