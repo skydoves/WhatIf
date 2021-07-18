@@ -31,7 +31,7 @@ import com.skydoves.whatif.whatIfNotNullAs
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun <reified T : Fragment> FragmentActivity.whatIfFindFragment(
+public inline fun <reified T : Fragment> FragmentActivity.whatIfFindFragment(
   @IdRes id: Int,
   whatIf: (T) -> Unit
 ) {
@@ -50,7 +50,7 @@ inline fun <reified T : Fragment> FragmentActivity.whatIfFindFragment(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun <reified T : Fragment> FragmentActivity.whatIfFindFragment(
+public inline fun <reified T : Fragment> FragmentActivity.whatIfFindFragment(
   @IdRes id: Int,
   whatIf: (T) -> Unit,
   whatIfNot: () -> Unit
@@ -68,7 +68,7 @@ inline fun <reified T : Fragment> FragmentActivity.whatIfFindFragment(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun <reified T : Fragment> FragmentActivity.whatIfFindFragment(
+public inline fun <reified T : Fragment> FragmentActivity.whatIfFindFragment(
   tag: String?,
   whatIf: (T) -> Unit
 ) {
@@ -87,7 +87,7 @@ inline fun <reified T : Fragment> FragmentActivity.whatIfFindFragment(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun <reified T : Fragment> FragmentActivity.whatIfFindFragment(
+public inline fun <reified T : Fragment> FragmentActivity.whatIfFindFragment(
   tag: String?,
   whatIf: (T) -> Unit,
   whatIfNot: () -> Unit

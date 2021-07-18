@@ -30,7 +30,7 @@ import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [21])
-class WhatIfFragmentActivityTest {
+internal class WhatIfFragmentActivityTest {
 
   private lateinit var controller: ActivityController<MainTestActivity>
   private lateinit var mainTestActivity: MainTestActivity

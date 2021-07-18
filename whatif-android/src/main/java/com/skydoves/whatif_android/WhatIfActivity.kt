@@ -35,7 +35,7 @@ import java.io.Serializable
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun Activity.whatIfHasExtras(
+public inline fun Activity.whatIfHasExtras(
   whatIf: (Bundle) -> Unit
 ) {
 
@@ -54,7 +54,7 @@ inline fun Activity.whatIfHasExtras(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun Activity.whatIfHasExtras(
+public inline fun Activity.whatIfHasExtras(
   whatIf: (Bundle) -> Unit,
   whatIfNot: () -> Unit
 ) {
@@ -77,7 +77,7 @@ inline fun Activity.whatIfHasExtras(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun Activity.whatIfHasExtras(
+public inline fun Activity.whatIfHasExtras(
   name: String,
   whatIf: () -> Unit
 ) {
@@ -99,7 +99,7 @@ inline fun Activity.whatIfHasExtras(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun Activity.whatIfHasExtras(
+public inline fun Activity.whatIfHasExtras(
   name: String,
   whatIf: () -> Unit,
   whatIfNot: () -> Unit
@@ -120,7 +120,7 @@ inline fun Activity.whatIfHasExtras(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun Activity.whatIfHasStringExtra(
+public inline fun Activity.whatIfHasStringExtra(
   name: String,
   whatIf: (String) -> Unit
 ) {
@@ -141,7 +141,7 @@ inline fun Activity.whatIfHasStringExtra(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun Activity.whatIfHasStringExtra(
+public inline fun Activity.whatIfHasStringExtra(
   name: String,
   whatIf: (String) -> Unit,
   whatIfNot: () -> Unit
@@ -161,7 +161,7 @@ inline fun Activity.whatIfHasStringExtra(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun Activity.whatIfHasCharSequenceExtra(
+public inline fun Activity.whatIfHasCharSequenceExtra(
   name: String,
   whatIf: (CharSequence) -> Unit
 ) {
@@ -182,7 +182,7 @@ inline fun Activity.whatIfHasCharSequenceExtra(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun Activity.whatIfHasCharSequenceExtra(
+public inline fun Activity.whatIfHasCharSequenceExtra(
   name: String,
   whatIf: (CharSequence) -> Unit,
   whatIfNot: () -> Unit
@@ -202,12 +202,12 @@ inline fun Activity.whatIfHasCharSequenceExtra(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun <reified T : Serializable> Activity.whatIfHasSerializableExtra(
+public inline fun <reified T : Serializable> Activity.whatIfHasSerializableExtra(
   name: String,
   whatIf: (T) -> Unit
 ) {
 
-  this.intent.getSerializableExtra(name).whatIfNotNullAs<T>(
+  this.intent.getSerializableExtra(name).whatIfNotNullAs(
     whatIf = whatIf,
     whatIfNot = { }
   )
@@ -223,13 +223,13 @@ inline fun <reified T : Serializable> Activity.whatIfHasSerializableExtra(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun <reified T : Serializable> Activity.whatIfHasSerializableExtra(
+public inline fun <reified T : Serializable> Activity.whatIfHasSerializableExtra(
   name: String,
   whatIf: (T) -> Unit,
   whatIfNot: () -> Unit
 ) {
 
-  this.intent.getSerializableExtra(name).whatIfNotNullAs<T>(
+  this.intent.getSerializableExtra(name).whatIfNotNullAs(
     whatIf = whatIf,
     whatIfNot = whatIfNot
   )
@@ -243,7 +243,7 @@ inline fun <reified T : Serializable> Activity.whatIfHasSerializableExtra(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun <reified T : Parcelable> Activity.whatIfHasParcelableExtra(
+public inline fun <reified T : Parcelable> Activity.whatIfHasParcelableExtra(
   name: String,
   whatIf: (T) -> Unit
 ) {
@@ -264,7 +264,7 @@ inline fun <reified T : Parcelable> Activity.whatIfHasParcelableExtra(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun <reified T : Parcelable> Activity.whatIfHasParcelableExtra(
+public inline fun <reified T : Parcelable> Activity.whatIfHasParcelableExtra(
   name: String,
   whatIf: (T) -> Unit,
   whatIfNot: () -> Unit
@@ -284,7 +284,7 @@ inline fun <reified T : Parcelable> Activity.whatIfHasParcelableExtra(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun <reified T : Parcelable> Activity.whatIfHasParcelableArrayListExtra(
+public inline fun <reified T : Parcelable> Activity.whatIfHasParcelableArrayListExtra(
   name: String,
   whatIf: (ArrayList<T>) -> Unit
 ) {
@@ -305,7 +305,7 @@ inline fun <reified T : Parcelable> Activity.whatIfHasParcelableArrayListExtra(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun <reified T : Parcelable> Activity.whatIfHasParcelableArrayListExtra(
+public inline fun <reified T : Parcelable> Activity.whatIfHasParcelableArrayListExtra(
   name: String,
   whatIf: (ArrayList<T>) -> Unit,
   whatIfNot: () -> Unit
@@ -324,7 +324,7 @@ inline fun <reified T : Parcelable> Activity.whatIfHasParcelableArrayListExtra(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun Activity.whatIfHasDeepLinkUri(
+public inline fun Activity.whatIfHasDeepLinkUri(
   whatIf: (Uri) -> Unit
 ) {
 
@@ -340,7 +340,7 @@ inline fun Activity.whatIfHasDeepLinkUri(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun Activity.whatIfHasDeepLinkUri(
+public inline fun Activity.whatIfHasDeepLinkUri(
   whatIf: (Uri) -> Unit,
   whatIfNot: () -> Unit
 ) {

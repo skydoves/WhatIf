@@ -18,7 +18,7 @@ package com.skydoves.whatif_android.data
 
 import java.io.Serializable
 
-data class PosterSerializable(
+internal data class PosterSerializable(
   val id: Long,
   val name: String?,
   val release: String?,

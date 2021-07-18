@@ -37,7 +37,7 @@ import com.skydoves.whatif.whatIfNotNullAs
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun Fragment?.whatIfNotNullContext(
+public inline fun Fragment?.whatIfNotNullContext(
   whatIf: (Context) -> Unit
 ) {
 
@@ -57,7 +57,7 @@ inline fun Fragment?.whatIfNotNullContext(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun Fragment?.whatIfNotNullContext(
+public inline fun Fragment?.whatIfNotNullContext(
   whatIf: (Context) -> Unit,
   whatIfNot: () -> Unit
 ) {
@@ -77,7 +77,7 @@ inline fun Fragment?.whatIfNotNullContext(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun Fragment?.whatIfNotNullActivity(
+public inline fun Fragment?.whatIfNotNullActivity(
   whatIf: (FragmentActivity) -> Unit
 ) {
 
@@ -97,7 +97,7 @@ inline fun Fragment?.whatIfNotNullActivity(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun Fragment?.whatIfNotNullActivity(
+public inline fun Fragment?.whatIfNotNullActivity(
   whatIf: (FragmentActivity) -> Unit,
   whatIfNot: () -> Unit
 ) {
@@ -117,7 +117,7 @@ inline fun Fragment?.whatIfNotNullActivity(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun Fragment?.whatIfHasArguments(
+public inline fun Fragment?.whatIfHasArguments(
   whatIf: (Bundle) -> Unit
 ) {
 
@@ -134,7 +134,7 @@ inline fun Fragment?.whatIfHasArguments(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun Fragment?.whatIfHasArguments(
+public inline fun Fragment?.whatIfHasArguments(
   whatIf: (Bundle) -> Unit,
   whatIfNot: () -> Unit
 ) {
@@ -151,7 +151,7 @@ inline fun Fragment?.whatIfHasArguments(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun <reified T> Fragment?.whatIfFindParentInterface(
+public inline fun <reified T> Fragment?.whatIfFindParentInterface(
   whatIf: (T) -> Unit
 ) {
 
@@ -168,7 +168,7 @@ inline fun <reified T> Fragment?.whatIfFindParentInterface(
  */
 @JvmSynthetic
 @WhatIfInlineOnly
-inline fun <reified T> Fragment?.whatIfFindParentInterface(
+public inline fun <reified T> Fragment?.whatIfFindParentInterface(
   whatIf: (T) -> Unit,
   whatIfNot: () -> Unit
 ) {

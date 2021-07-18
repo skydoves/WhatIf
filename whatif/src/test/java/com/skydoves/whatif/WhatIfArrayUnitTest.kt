@@ -23,7 +23,7 @@ import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 
 @RunWith(JUnit4::class)
-public class WhatIfArrayUnitTest {
+internal class WhatIfArrayUnitTest {
 
   @Test
   public fun whatIfNotNullOrEmptyArrayTest() {

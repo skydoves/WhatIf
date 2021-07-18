@@ -18,8 +18,8 @@ package com.skydoves.whatif_android
 
 import androidx.fragment.app.FragmentActivity
 
-class MainTestActivity : FragmentActivity(), MainTestActivityInterface
+internal class MainTestActivity : FragmentActivity(), MainTestActivityInterface
 
-class MainTestActivity2 : FragmentActivity()
+internal class MainTestActivity2 : FragmentActivity()
 
-interface MainTestActivityInterface
+internal interface MainTestActivityInterface

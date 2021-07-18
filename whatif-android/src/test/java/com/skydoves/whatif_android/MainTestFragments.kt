@@ -18,14 +18,14 @@ package com.skydoves.whatif_android
 
 import androidx.fragment.app.Fragment
 
-class MainTestFragment : Fragment() {
+internal class MainTestFragment : Fragment() {
 
   companion object {
     const val TAG = "MainTestFragment"
   }
 }
 
-class MainTestFragment2 : Fragment() {
+internal class MainTestFragment2 : Fragment() {
 
   companion object {
     const val TAG = "MainTestFragment2"
