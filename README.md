@@ -1,4 +1,5 @@
-<h1 align="center">WhatIf</h1></br>
+![whatif](https://user-images.githubusercontent.com/24237865/127761307-b19f130f-dce6-4b14-a590-42361a8567e5.png)<br>
+
 
 <p align="center">
 ☔ Fluent expressions of Kotlin for handling single if-else statements, nullable, collections, and boolean.
@@ -14,15 +15,11 @@
   <a href="https://skydoves.github.io/libraries/whatif/javadoc/whatif/com.skydoves.whatif/index.html"><img alt="Javadoc" src="https://skydoves.github.io/badges/javadoc-whatif.svg"/></a>
 </p>
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/24237865/64483102-1727da00-d238-11e9-9f69-7037223947d1.png" width="844" height="341"/>
-</p>
-
 ## Download
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.skydoves/whatif.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.skydoves%22%20AND%20a:%22whatif%22)
 [![Jitpack](https://jitpack.io/v/skydoves/whatif.svg)](https://jitpack.io/#skydoves/whatif)
 
-☔ WhatIf has been downloaded in more than __50k__ Kotlin and Android projects all over the world!
+☔ WhatIf has been downloaded in more than __70k__ Kotlin and Android projects all over the world! <br><br>
 ![downloads](https://user-images.githubusercontent.com/24237865/101273131-2187a980-37d6-11eb-9000-e1cd10f87b0d.png)
 
 ### Gradle
