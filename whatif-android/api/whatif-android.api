@@ -1,0 +1,22 @@
+public final class com/skydoves/whatif_android/WhatIfActivity {
+	public static final synthetic fun whatIfHasCharSequenceExtra (Landroid/app/Activity;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public static final synthetic fun whatIfHasCharSequenceExtra (Landroid/app/Activity;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)V
+	public static final synthetic fun whatIfHasDeepLinkUri (Landroid/app/Activity;Lkotlin/jvm/functions/Function1;)V
+	public static final synthetic fun whatIfHasDeepLinkUri (Landroid/app/Activity;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)V
+	public static final synthetic fun whatIfHasExtras (Landroid/app/Activity;Ljava/lang/String;Lkotlin/jvm/functions/Function0;)V
+	public static final synthetic fun whatIfHasExtras (Landroid/app/Activity;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)V
+	public static final synthetic fun whatIfHasExtras (Landroid/app/Activity;Lkotlin/jvm/functions/Function1;)V
+	public static final synthetic fun whatIfHasExtras (Landroid/app/Activity;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)V
+	public static final synthetic fun whatIfHasStringExtra (Landroid/app/Activity;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public static final synthetic fun whatIfHasStringExtra (Landroid/app/Activity;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)V
+}
+
+public final class com/skydoves/whatif_android/WhatIfFragment {
+	public static final synthetic fun whatIfHasArguments (Landroidx/fragment/app/Fragment;Lkotlin/jvm/functions/Function1;)V
+	public static final synthetic fun whatIfHasArguments (Landroidx/fragment/app/Fragment;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)V
+	public static final synthetic fun whatIfNotNullActivity (Landroidx/fragment/app/Fragment;Lkotlin/jvm/functions/Function1;)V
+	public static final synthetic fun whatIfNotNullActivity (Landroidx/fragment/app/Fragment;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)V
+	public static final synthetic fun whatIfNotNullContext (Landroidx/fragment/app/Fragment;Lkotlin/jvm/functions/Function1;)V
+	public static final synthetic fun whatIfNotNullContext (Landroidx/fragment/app/Fragment;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)V
+}
+
