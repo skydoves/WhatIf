@@ -27,7 +27,7 @@ import org.junit.runners.JUnit4
 internal class WhatIfCollectionsUnitTest {
 
   @Test
-  public fun whatIfNotNullOrEmptyListTest() {
+  fun whatIfNotNullOrEmptyListTest() {
     var list: List<String>? = null
 
     list.whatIfNotNullOrEmpty(
@@ -45,7 +45,7 @@ internal class WhatIfCollectionsUnitTest {
   }
 
   @Test
-  public fun whatIfNotNullOrEmptySetTest() {
+  fun whatIfNotNullOrEmptySetTest() {
     var set: Set<String>? = null
 
     set.whatIfNotNullOrEmpty(
@@ -63,7 +63,7 @@ internal class WhatIfCollectionsUnitTest {
   }
 
   @Test
-  public fun whatIfNotNullOrEmptyMapTest() {
+  fun whatIfNotNullOrEmptyMapTest() {
     var map: Map<Int, String>? = null
 
     map.whatIfNotNullOrEmpty(
@@ -81,7 +81,7 @@ internal class WhatIfCollectionsUnitTest {
   }
 
   @Test
-  public fun addWhatIfNotNullTest() {
+  fun addWhatIfNotNullTest() {
     var poster: Poster? = Poster.create()
     val posters: MutableList<Poster> = mutableListOf(Poster.create())
 
@@ -102,7 +102,7 @@ internal class WhatIfCollectionsUnitTest {
   }
 
   @Test
-  public fun addAllWhatIfNotNullTest() {
+  fun addAllWhatIfNotNullTest() {
     val posters: MutableList<Poster> = mutableListOf(Poster.create())
     var poster: List<Poster>? = listOf(Poster.create(), Poster.create())
 
@@ -122,7 +122,7 @@ internal class WhatIfCollectionsUnitTest {
   }
 
   @Test
-  public fun removeWhatIfNotNullTest() {
+  fun removeWhatIfNotNullTest() {
     val posters: MutableList<Poster> = mutableListOf(Poster.create(), Poster.create())
     var poster: Poster? = Poster.create()
 
@@ -141,7 +141,7 @@ internal class WhatIfCollectionsUnitTest {
   }
 
   @Test
-  public fun removeAllWhatIfNotNullTest() {
+  fun removeAllWhatIfNotNullTest() {
     val posters: MutableList<Poster> =
       mutableListOf(Poster.create(), Poster.create(), Poster.create())
     var poster: List<Poster>? = null
@@ -164,7 +164,7 @@ internal class WhatIfCollectionsUnitTest {
   }
 
   @Test
-  public fun whatIfAndTest() {
+  fun whatIfAndTest() {
     var predicates = listOf(true, true, true, false)
     var result = 0
 
@@ -189,7 +189,7 @@ internal class WhatIfCollectionsUnitTest {
   }
 
   @Test
-  public fun whatIfOrTest() {
+  fun whatIfOrTest() {
     var predicates = listOf(false, false, false, false)
     var result = 0
 

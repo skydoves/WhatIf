@@ -25,8 +25,8 @@ import org.junit.runners.JUnit4
 @RunWith(JUnit4::class)
 internal class WhatIfArrayUnitTest {
 
-  @Test
-  public fun whatIfNotNullOrEmptyArrayTest() {
+  @Test 
+  fun whatIfNotNullOrEmptyArrayTest() {
     var array: Array<String>? = null
 
     array.whatIfNotNullOrEmpty(
@@ -43,8 +43,8 @@ internal class WhatIfArrayUnitTest {
     assertThat(array?.get(0), `is`("NotNullOrEmpty"))
   }
 
-  @Test
-  public fun whatIfNotNullOrEmptyByteArrayTest() {
+  @Test 
+  fun whatIfNotNullOrEmptyByteArrayTest() {
     var array: ByteArray? = null
 
     array.whatIfNotNullOrEmpty(
@@ -62,7 +62,7 @@ internal class WhatIfArrayUnitTest {
   }
 
   @Test
-  public fun whatIfNotNullOrEmptyShortArrayTest() {
+  fun whatIfNotNullOrEmptyShortArrayTest() {
     var array: ShortArray? = null
 
     array.whatIfNotNullOrEmpty(
@@ -80,7 +80,7 @@ internal class WhatIfArrayUnitTest {
   }
 
   @Test
-  public fun whatIfNotNullOrEmptyIntArrayTest() {
+  fun whatIfNotNullOrEmptyIntArrayTest() {
     var array: IntArray? = null
 
     array.whatIfNotNullOrEmpty(
@@ -98,7 +98,7 @@ internal class WhatIfArrayUnitTest {
   }
 
   @Test
-  public fun whatIfNotNullOrEmptyLongArrayTest() {
+  fun whatIfNotNullOrEmptyLongArrayTest() {
     var array: LongArray? = null
 
     array.whatIfNotNullOrEmpty(
@@ -116,7 +116,7 @@ internal class WhatIfArrayUnitTest {
   }
 
   @Test
-  public fun whatIfNotNullOrEmptyFloatArrayTest() {
+  fun whatIfNotNullOrEmptyFloatArrayTest() {
     var array: FloatArray? = null
 
     array.whatIfNotNullOrEmpty(
@@ -134,7 +134,7 @@ internal class WhatIfArrayUnitTest {
   }
 
   @Test
-  public fun whatIfNotNullOrEmptyDoubleArrayTest() {
+  fun whatIfNotNullOrEmptyDoubleArrayTest() {
     var array: DoubleArray? = null
 
     array.whatIfNotNullOrEmpty(
@@ -152,7 +152,7 @@ internal class WhatIfArrayUnitTest {
   }
 
   @Test
-  public fun whatIfNotNullOrEmptyBooleanArrayTest() {
+  fun whatIfNotNullOrEmptyBooleanArrayTest() {
     var array: BooleanArray? = null
 
     array.whatIfNotNullOrEmpty(
@@ -170,7 +170,7 @@ internal class WhatIfArrayUnitTest {
   }
 
   @Test
-  public fun whatIfNotNullOrEmptyCharArrayTest() {
+  fun whatIfNotNullOrEmptyCharArrayTest() {
     var array: CharArray? = null
 
     array.whatIfNotNullOrEmpty(

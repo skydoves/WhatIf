@@ -26,7 +26,7 @@ import org.junit.runners.JUnit4
 internal class WhatIfStringUnitTest {
 
   @Test
-  public fun whatIfNotNullOrEmptyStringNullTest() {
+  fun whatIfNotNullOrEmptyStringNullTest() {
     var nullableString: String? = null
 
     nullableString.whatIfNotNullOrEmpty(
@@ -44,7 +44,7 @@ internal class WhatIfStringUnitTest {
   }
 
   @Test
-  public fun whatIfNotNullOrEmptyStringEmptyTest() {
+  fun whatIfNotNullOrEmptyStringEmptyTest() {
     var nullableString: String? = ""
 
     nullableString.whatIfNotNullOrEmpty(
