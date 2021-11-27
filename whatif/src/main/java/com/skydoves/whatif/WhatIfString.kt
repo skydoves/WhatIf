@@ -19,6 +19,9 @@
 
 package com.skydoves.whatif
 
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
+
 /**
  * An expression for invoking [whatIf] when the [String] is not null and not empty.
  *
@@ -30,12 +33,15 @@ package com.skydoves.whatif
 @WhatIfInlineOnly
 public inline fun String?.whatIfNotNullOrEmpty(
   whatIf: (String) -> Unit
-): String? = apply {
-
+): String? {
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+  }
   this.whatIfNotNullOrEmpty(
     whatIf = whatIf,
     whatIfNot = { }
   )
+  return this
 }
 
 /**
@@ -52,11 +58,15 @@ public inline fun String?.whatIfNotNullOrEmpty(
 public inline fun String?.whatIfNotNullOrEmpty(
   whatIf: (String) -> Unit,
   whatIfNot: () -> Unit
-): String? = apply {
-
+): String? {
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+    callsInPlace(whatIfNot, InvocationKind.AT_MOST_ONCE)
+  }
   if (!this.isNullOrEmpty()) {
     whatIf(this)
   } else {
     whatIfNot()
   }
+  return this
 }
