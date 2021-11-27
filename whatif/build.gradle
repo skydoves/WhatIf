@@ -21,7 +21,10 @@ task coverageReport(type: JacocoReport, dependsOn: 'test') {
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
-  kotlinOptions.freeCompilerArgs += ["-Xopt-in=kotlin.contracts.ExperimentalContracts"]
+  kotlinOptions.freeCompilerArgs += [
+      "-Xexplicit-api=strict",
+      "-Xopt-in=kotlin.contracts.ExperimentalContracts"
+  ]
 }
 
 dependencies {

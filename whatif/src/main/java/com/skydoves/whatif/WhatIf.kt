@@ -375,7 +375,7 @@ public inline fun <T> T?.whatIfNotNull(
   whatIf: (T) -> Unit
 ): T? {
   contract {
-    callsInPlace(whatIf, InvocationKind.EXACTLY_ONCE)
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   return this.whatIfNotNull(
     whatIf = whatIf,
