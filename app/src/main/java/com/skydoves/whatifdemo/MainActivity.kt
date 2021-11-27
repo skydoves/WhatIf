@@ -103,6 +103,6 @@ class MainActivity : AppCompatActivity() {
   }
 
   private fun log(log: String) {
-    Log.d(this::class::java.name, log)
+    Log.d("MainActivity", log)
   }
 }
