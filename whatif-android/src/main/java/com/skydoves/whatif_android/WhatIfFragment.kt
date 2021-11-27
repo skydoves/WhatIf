@@ -27,6 +27,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.skydoves.whatif.whatIfNotNull
 import com.skydoves.whatif.whatIfNotNullAs
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /**
  * @author skydoves (Jaewoong Eum)
@@ -40,7 +42,9 @@ import com.skydoves.whatif.whatIfNotNullAs
 public inline fun Fragment?.whatIfNotNullContext(
   whatIf: (Context) -> Unit
 ) {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+  }
   this?.context.whatIfNotNull {
     whatIf(it)
   }
@@ -80,7 +84,9 @@ public inline fun Fragment?.whatIfNotNullContext(
 public inline fun Fragment?.whatIfNotNullActivity(
   whatIf: (FragmentActivity) -> Unit
 ) {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+  }
   this?.activity.whatIfNotNull {
     whatIf(it)
   }
@@ -101,7 +107,10 @@ public inline fun Fragment?.whatIfNotNullActivity(
   whatIf: (FragmentActivity) -> Unit,
   whatIfNot: () -> Unit
 ) {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+    callsInPlace(whatIfNot, InvocationKind.AT_MOST_ONCE)
+  }
   this?.activity.whatIfNotNull(
     whatIf = whatIf,
     whatIfNot = whatIfNot
@@ -120,7 +129,9 @@ public inline fun Fragment?.whatIfNotNullActivity(
 public inline fun Fragment?.whatIfHasArguments(
   whatIf: (Bundle) -> Unit
 ) {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+  }
   whatIfHasArguments(whatIf) { }
 }
 
@@ -138,7 +149,10 @@ public inline fun Fragment?.whatIfHasArguments(
   whatIf: (Bundle) -> Unit,
   whatIfNot: () -> Unit
 ) {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+    callsInPlace(whatIfNot, InvocationKind.AT_MOST_ONCE)
+  }
   this?.arguments.whatIfNotNull(whatIf, whatIfNot)
 }
 
@@ -154,7 +168,9 @@ public inline fun Fragment?.whatIfHasArguments(
 public inline fun <reified T> Fragment?.whatIfFindParentInterface(
   whatIf: (T) -> Unit
 ) {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+  }
   whatIfFindParentInterface(whatIf) { }
 }
 
@@ -172,6 +188,9 @@ public inline fun <reified T> Fragment?.whatIfFindParentInterface(
   whatIf: (T) -> Unit,
   whatIfNot: () -> Unit
 ) {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+    callsInPlace(whatIfNot, InvocationKind.AT_MOST_ONCE)
+  }
   this?.activity.whatIfNotNullAs(whatIf, whatIfNot)
 }

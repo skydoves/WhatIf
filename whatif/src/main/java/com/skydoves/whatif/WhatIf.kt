@@ -20,6 +20,9 @@
 
 package com.skydoves.whatif
 
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
+
 /**
  * WhatIf is kotlin extensions for expressing a single if-else statement, nullable and boolean.
  */
@@ -38,7 +41,9 @@ public inline fun <T> T.whatIf(
   given: (T) -> Boolean?,
   whatIf: () -> Unit
 ): T {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+  }
   if (given(this) == true) {
     whatIf()
   }
@@ -62,7 +67,10 @@ public inline fun <T> T.whatIf(
   whatIf: () -> Unit,
   whatIfNot: () -> Unit
 ): T {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+    callsInPlace(whatIfNot, InvocationKind.AT_MOST_ONCE)
+  }
   if (given(this) == true) {
     whatIf()
   } else {
@@ -86,7 +94,9 @@ public inline fun <T> T.whatIf(
   given: Boolean?,
   whatIf: T.() -> Unit
 ): T {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+  }
   if (given == true) {
     this.apply { whatIf() }
   }
@@ -111,7 +121,10 @@ public inline fun <T> T.whatIf(
   whatIf: T.() -> Unit,
   whatIfNot: T.() -> Unit
 ): T {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+    callsInPlace(whatIfNot, InvocationKind.AT_MOST_ONCE)
+  }
   if (given == true) {
     this.apply { whatIf() }
   } else {
@@ -135,7 +148,9 @@ public inline fun <T> T.whatIf(
   given: () -> Boolean?,
   whatIfDo: T.() -> Unit
 ): T {
-
+  contract {
+    callsInPlace(whatIfDo, InvocationKind.AT_MOST_ONCE)
+  }
   return this.whatIf(
     given = given,
     whatIfDo = whatIfDo,
@@ -161,7 +176,10 @@ public inline fun <T> T.whatIf(
   whatIfDo: T.() -> Unit,
   whatIfNot: T.() -> Unit
 ): T {
-
+  contract {
+    callsInPlace(whatIfDo, InvocationKind.AT_MOST_ONCE)
+    callsInPlace(whatIfNot, InvocationKind.AT_MOST_ONCE)
+  }
   if (given() == true) {
     this.whatIfDo()
   } else {
@@ -185,7 +203,9 @@ public inline fun <T, R> T.whatIfMap(
   default: R,
   whatIf: (T) -> R
 ): R {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+  }
   return this.whatIfMap(
     whatIf = whatIf,
     whatIfNot = { default }
@@ -207,7 +227,10 @@ public inline fun <T, R> T.whatIfMap(
   whatIf: (T) -> R,
   whatIfNot: (T) -> R
 ): R {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+    callsInPlace(whatIfNot, InvocationKind.AT_MOST_ONCE)
+  }
   if (this != null) {
     return whatIf(this)
   }
@@ -232,7 +255,9 @@ public inline fun <T, R> T.whatIfMap(
   default: R,
   whatIf: (T) -> R
 ): R {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+  }
   return this.whatIfMap(
     given = given,
     whatIf = whatIf,
@@ -258,7 +283,10 @@ public inline fun <T, R> T.whatIfMap(
   whatIf: (T) -> R,
   whatIfNot: (T) -> R
 ): R {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+    callsInPlace(whatIfNot, InvocationKind.AT_MOST_ONCE)
+  }
   if (given == true) {
     return whatIf(this)
   }
@@ -290,7 +318,9 @@ public inline fun <T, R> T.whatIfLet(
   default: R,
   whatIf: (T) -> R
 ): R {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+  }
   if (given == true) {
     return whatIf(this)
   }
@@ -322,7 +352,10 @@ public inline fun <T, R> T.whatIfLet(
   whatIf: (T) -> R,
   whatIfNot: (T) -> R
 ): R {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+    callsInPlace(whatIfNot, InvocationKind.AT_MOST_ONCE)
+  }
   if (given == true) {
     return whatIf(this)
   }
@@ -341,7 +374,9 @@ public inline fun <T, R> T.whatIfLet(
 public inline fun <T> T?.whatIfNotNull(
   whatIf: (T) -> Unit
 ): T? {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+  }
   return this.whatIfNotNull(
     whatIf = whatIf,
     whatIfNot = { }
@@ -363,7 +398,10 @@ public inline fun <T> T?.whatIfNotNull(
   whatIf: (T) -> Unit,
   whatIfNot: () -> Unit
 ): T? {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+    callsInPlace(whatIfNot, InvocationKind.AT_MOST_ONCE)
+  }
   if (this != null) {
     whatIf(this)
     return this
@@ -393,7 +431,9 @@ public inline fun <T> T?.whatIfNotNull(
 public inline fun <reified R> Any?.whatIfNotNullAs(
   whatIf: (R) -> Unit
 ): Any? {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+  }
   return whatIfNotNullAs(
     whatIf = whatIf,
     whatIfNot = { }
@@ -426,7 +466,10 @@ public inline fun <reified R> Any?.whatIfNotNullAs(
   whatIf: (R) -> Unit,
   whatIfNot: () -> Unit
 ): Any? {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+    callsInPlace(whatIfNot, InvocationKind.AT_MOST_ONCE)
+  }
   if (this != null && this is R) {
     whatIf(this as R)
     return this
@@ -451,7 +494,10 @@ public inline fun <T, R> T?.whatIfNotNullWith(
   whatIf: (T) -> R,
   whatIfNot: (T?) -> R
 ): R {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+    callsInPlace(whatIfNot, InvocationKind.AT_MOST_ONCE)
+  }
   if (this != null) {
     return whatIf(this)
   }
@@ -470,7 +516,9 @@ public inline fun <T, R> T?.whatIfNotNullWith(
 public inline fun Boolean?.whatIf(
   whatIf: () -> Unit
 ): Boolean? {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+  }
   return this.whatIf(
     whatIf = whatIf,
     whatIfNot = { }
@@ -492,7 +540,10 @@ public inline fun Boolean?.whatIf(
   whatIf: () -> Unit,
   whatIfNot: () -> Unit
 ): Boolean? {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+    callsInPlace(whatIfNot, InvocationKind.AT_MOST_ONCE)
+  }
   if (this == true) {
     whatIf()
   } else {
@@ -513,7 +564,9 @@ public inline fun Boolean?.whatIf(
 public inline fun Boolean?.whatIfElse(
   whatIf: () -> Unit
 ): Boolean? {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+  }
   if (this == false) {
     whatIf()
   }
@@ -534,7 +587,9 @@ public inline fun Boolean?.whatIfAnd(
   predicate: Boolean?,
   whatIf: () -> Unit
 ): Boolean? {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+  }
   if (this == true && predicate == true) {
     whatIf()
   }
@@ -555,7 +610,9 @@ public inline fun Boolean?.whatIfOr(
   predicate: Boolean?,
   whatIf: () -> Unit
 ): Boolean? {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+  }
   if (this == true || predicate == true) {
     whatIf()
   }

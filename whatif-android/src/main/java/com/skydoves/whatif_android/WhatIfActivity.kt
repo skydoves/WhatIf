@@ -27,6 +27,8 @@ import android.os.Parcelable
 import com.skydoves.whatif.whatIfNotNull
 import com.skydoves.whatif.whatIfNotNullAs
 import java.io.Serializable
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /**
  * An expression for invoking [whatIf] when the [Activity]'s intent extras is not null and not empty.
@@ -38,7 +40,9 @@ import java.io.Serializable
 public inline fun Activity.whatIfHasExtras(
   whatIf: (Bundle) -> Unit
 ) {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+  }
   this.whatIfHasExtras(
     whatIf = whatIf,
     whatIfNot = { }
@@ -58,7 +62,10 @@ public inline fun Activity.whatIfHasExtras(
   whatIf: (Bundle) -> Unit,
   whatIfNot: () -> Unit
 ) {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+    callsInPlace(whatIfNot, InvocationKind.AT_MOST_ONCE)
+  }
   this.intent.extras.whatIfNotNull(
     whatIf = {
       if (!it.isEmpty) {
@@ -81,7 +88,9 @@ public inline fun Activity.whatIfHasExtras(
   name: String,
   whatIf: () -> Unit
 ) {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+  }
   this.whatIfHasExtras(
     name = name,
     whatIf = whatIf,
@@ -104,7 +113,10 @@ public inline fun Activity.whatIfHasExtras(
   whatIf: () -> Unit,
   whatIfNot: () -> Unit
 ) {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+    callsInPlace(whatIfNot, InvocationKind.AT_MOST_ONCE)
+  }
   if (intent.hasExtra(name)) {
     whatIf()
   } else {
@@ -124,7 +136,9 @@ public inline fun Activity.whatIfHasStringExtra(
   name: String,
   whatIf: (String) -> Unit
 ) {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+  }
   this.intent.getStringExtra(name).whatIfNotNull(
     whatIf = whatIf,
     whatIfNot = { }
@@ -146,7 +160,10 @@ public inline fun Activity.whatIfHasStringExtra(
   whatIf: (String) -> Unit,
   whatIfNot: () -> Unit
 ) {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+    callsInPlace(whatIfNot, InvocationKind.AT_MOST_ONCE)
+  }
   this.intent.getStringExtra(name).whatIfNotNull(
     whatIf = whatIf,
     whatIfNot = whatIfNot
@@ -165,7 +182,9 @@ public inline fun Activity.whatIfHasCharSequenceExtra(
   name: String,
   whatIf: (CharSequence) -> Unit
 ) {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+  }
   this.intent.getCharSequenceExtra(name).whatIfNotNull(
     whatIf = whatIf,
     whatIfNot = { }
@@ -187,7 +206,10 @@ public inline fun Activity.whatIfHasCharSequenceExtra(
   whatIf: (CharSequence) -> Unit,
   whatIfNot: () -> Unit
 ) {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+    callsInPlace(whatIfNot, InvocationKind.AT_MOST_ONCE)
+  }
   this.intent.getCharSequenceExtra(name).whatIfNotNull(
     whatIf = whatIf,
     whatIfNot = whatIfNot
@@ -206,7 +228,9 @@ public inline fun <reified T : Serializable> Activity.whatIfHasSerializableExtra
   name: String,
   whatIf: (T) -> Unit
 ) {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+  }
   this.intent.getSerializableExtra(name).whatIfNotNullAs(
     whatIf = whatIf,
     whatIfNot = { }
@@ -228,7 +252,10 @@ public inline fun <reified T : Serializable> Activity.whatIfHasSerializableExtra
   whatIf: (T) -> Unit,
   whatIfNot: () -> Unit
 ) {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+    callsInPlace(whatIfNot, InvocationKind.AT_MOST_ONCE)
+  }
   this.intent.getSerializableExtra(name).whatIfNotNullAs(
     whatIf = whatIf,
     whatIfNot = whatIfNot
@@ -247,7 +274,9 @@ public inline fun <reified T : Parcelable> Activity.whatIfHasParcelableExtra(
   name: String,
   whatIf: (T) -> Unit
 ) {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+  }
   this.intent.getParcelableExtra<T>(name).whatIfNotNull(
     whatIf = whatIf,
     whatIfNot = { }
@@ -269,7 +298,10 @@ public inline fun <reified T : Parcelable> Activity.whatIfHasParcelableExtra(
   whatIf: (T) -> Unit,
   whatIfNot: () -> Unit
 ) {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+    callsInPlace(whatIfNot, InvocationKind.AT_MOST_ONCE)
+  }
   this.intent.getParcelableExtra<T>(name).whatIfNotNull(
     whatIf = whatIf,
     whatIfNot = whatIfNot
@@ -288,7 +320,9 @@ public inline fun <reified T : Parcelable> Activity.whatIfHasParcelableArrayList
   name: String,
   whatIf: (ArrayList<T>) -> Unit
 ) {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+  }
   this.intent.getParcelableArrayListExtra<T>(name).whatIfNotNull(
     whatIf = whatIf,
     whatIfNot = { }
@@ -310,7 +344,10 @@ public inline fun <reified T : Parcelable> Activity.whatIfHasParcelableArrayList
   whatIf: (ArrayList<T>) -> Unit,
   whatIfNot: () -> Unit
 ) {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+    callsInPlace(whatIfNot, InvocationKind.AT_MOST_ONCE)
+  }
   this.intent.getParcelableArrayListExtra<T>(name).whatIfNotNull(
     whatIf = whatIf,
     whatIfNot = whatIfNot
@@ -327,7 +364,9 @@ public inline fun <reified T : Parcelable> Activity.whatIfHasParcelableArrayList
 public inline fun Activity.whatIfHasDeepLinkUri(
   whatIf: (Uri) -> Unit
 ) {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+  }
   this.whatIfHasDeepLinkUri(whatIf, { })
 }
 
@@ -344,6 +383,9 @@ public inline fun Activity.whatIfHasDeepLinkUri(
   whatIf: (Uri) -> Unit,
   whatIfNot: () -> Unit
 ) {
-
+  contract {
+    callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
+    callsInPlace(whatIfNot, InvocationKind.AT_MOST_ONCE)
+  }
   this.intent.data.whatIfNotNull(whatIf, whatIfNot)
 }

@@ -20,6 +20,8 @@ import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.skydoves.whatif.whatIfNotNullAs
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /**
  * @author skydoves (Jaewoong Eum)
@@ -35,6 +37,9 @@ public inline fun <reified T : Fragment> FragmentActivity.whatIfFindFragment(
   @IdRes id: Int,
   whatIf: (T) -> Unit
 ) {
+  contract {
+    callsInPlace(whatIf, InvocationKind.EXACTLY_ONCE)
+  }
   whatIfFindFragment(id, whatIf, {})
 }
 
@@ -55,6 +60,9 @@ public inline fun <reified T : Fragment> FragmentActivity.whatIfFindFragment(
   whatIf: (T) -> Unit,
   whatIfNot: () -> Unit
 ) {
+  contract {
+    callsInPlace(whatIf, InvocationKind.EXACTLY_ONCE)
+  }
   supportFragmentManager.findFragmentById(id).whatIfNotNullAs(whatIf, whatIfNot)
 }
 
@@ -72,6 +80,9 @@ public inline fun <reified T : Fragment> FragmentActivity.whatIfFindFragment(
   tag: String?,
   whatIf: (T) -> Unit
 ) {
+  contract {
+    callsInPlace(whatIf, InvocationKind.EXACTLY_ONCE)
+  }
   whatIfFindFragment(tag, whatIf, {})
 }
 
@@ -92,5 +103,8 @@ public inline fun <reified T : Fragment> FragmentActivity.whatIfFindFragment(
   whatIf: (T) -> Unit,
   whatIfNot: () -> Unit
 ) {
+  contract {
+    callsInPlace(whatIf, InvocationKind.EXACTLY_ONCE)
+  }
   supportFragmentManager.findFragmentByTag(tag).whatIfNotNullAs(whatIf, whatIfNot)
 }
