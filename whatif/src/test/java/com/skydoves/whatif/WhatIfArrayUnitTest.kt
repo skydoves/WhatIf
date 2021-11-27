@@ -25,7 +25,7 @@ import org.junit.runners.JUnit4
 @RunWith(JUnit4::class)
 internal class WhatIfArrayUnitTest {
 
-  @Test 
+  @Test
   fun whatIfNotNullOrEmptyArrayTest() {
     var array: Array<String>? = null
 
@@ -43,7 +43,7 @@ internal class WhatIfArrayUnitTest {
     assertThat(array?.get(0), `is`("NotNullOrEmpty"))
   }
 
-  @Test 
+  @Test
   fun whatIfNotNullOrEmptyByteArrayTest() {
     var array: ByteArray? = null
 
