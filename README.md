@@ -13,18 +13,17 @@
   <a href="https://github.com/skydoves/WhatIf/actions"><img alt="Build Status" src="https://github.com/skydoves/WhatIf/workflows/Android%20CI/badge.svg"/></a>
   <a href="https://androidweekly.net/issues/issue-406"><img alt="Android Weekly" src="https://skydoves.github.io/badges/android-weekly.svg"/></a>
   <a href="https://github.com/skydoves"><img alt="Profile" src="https://skydoves.github.io/badges/skydoves.svg"/></a>
-  <a href="https://skydoves.github.io/libraries/whatif/javadoc/whatif/com.skydoves.whatif/index.html"><img alt="Javadoc" src="https://skydoves.github.io/badges/javadoc-whatif.svg"/></a>
+  <a href="https://skydoves.github.io/libraries/whatif/html/index.html"><img alt="Javadoc" src="https://skydoves.github.io/badges/dokka-whatif.svg"/></a>
 </p>
 
 ## Download
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.skydoves/whatif.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.skydoves%22%20AND%20a:%22whatif%22)
-[![Jitpack](https://jitpack.io/v/skydoves/whatif.svg)](https://jitpack.io/#skydoves/whatif)
 
 ☔ WhatIf has been downloaded in more than __70k__ Kotlin and Android projects all over the world! <br><br>
 ![downloads](https://user-images.githubusercontent.com/24237865/101273131-2187a980-37d6-11eb-9000-e1cd10f87b0d.png)
 
 ### Gradle
-Add below codes to your **root** `build.gradle` file (not your module build.gradle file).
+Add the codes below to your **root** `build.gradle` file:
 ```gradle
 allprojects {
     repositories {
@@ -32,7 +31,7 @@ allprojects {
     }
 }
 ```
-And add a dependency code to your **module**'s `build.gradle` file.
+Next, add the dependency below to your module's build.gradle file:
 ```gradle
 dependencies {
     implementation "com.github.skydoves:whatif:1.1.1"
@@ -288,9 +287,36 @@ whatIfNotNullActivity { activity ->
 }
 ```
 
+#### whatIfFindParentInterface
+ An expression for invoking `whatIf` lambe when the `Fragment` has an `T` interface as a parent. Let's assume we have a `MainActivity` that implements `OnClickCallback` interface,
+
+ ```kotlin
+class MainActivity : AppCompatActivity(), OnClickCallback {
+  ...
+}
+```
+
+We can get the parent Activity's `OnClickCallback` interface on Fragment as following with the `whatIfFindParentInterface`:
+```kotlin
+class MainFragment: Fragment() {
+
+ override fun onCreateView(
+  inflater: LayoutInflater,
+  container: ViewGroup?,
+  savedInstanceState: Bundle?
+ ): View? {
+  return super.onCreateView(inflater, container, savedInstanceState)
+  
+  whatIfFindParentInterface<OnClickCallback> { 
+   it.onClickedButtonFromFragment()
+  }
+ }
+}
+```
+
 ## Find this library useful? :heart:
-Support it by joining __[stargazers](https://github.com/skydoves/whatif/stargazers)__ for this repository. :star: <br>
-And __[follow](https://github.com/skydoves)__ me for my next creations! 🤩
+Support it by joining **__[stargazers](https://github.com/skydoves/whatif/stargazers)__** for this repository. :star: <br>
+Also, **__[follow](https://github.com/skydoves)__** me for my next creations! 🤩
 
 # License
 ```xml
