@@ -1,3 +1,4 @@
+apply plugin: 'org.jetbrains.dokka'
 buildscript {
   apply from: './dependencies.gradle'
   repositories {
@@ -20,6 +21,11 @@ allprojects {
     google()
     jcenter()
   }
+}
+
+tasks.withType(org.jetbrains.dokka.gradle.DokkaMultiModuleTask).configureEach {
+  outputDirectory = rootProject.file('docs/api')
+  failOnWarning = true
 }
 
 task clean(type: Delete) {

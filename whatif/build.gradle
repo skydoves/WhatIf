@@ -31,19 +31,5 @@ dependencies {
   testImplementation "junit:junit:$versions.junit"
 }
 
-afterEvaluate {
-  tasks.withType(org.jetbrains.dokka.gradle.DokkaTask).configureEach {
-    outputDirectory.set(rootProject.file('docs/api'))
-  }
-}
-
-dokkaHtml.configure {
-  dokkaSourceSets {
-    named("main") {
-      noAndroidSdkLink.set(false)
-    }
-  }
-}
-
 apply plugin: "com.vanniktech.maven.publish"
 apply from: '../spotless.gradle'
