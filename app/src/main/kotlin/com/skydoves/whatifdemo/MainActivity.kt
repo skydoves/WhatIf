@@ -84,7 +84,6 @@ class MainActivity : AppCompatActivity() {
     // example6 : what-if check in the builder pattern.
     val balloon = Balloon.Builder(this)
       .setArrowSize(10)
-      .setArrowVisible(true)
       .whatIf(nullableBoolean) { setTextColor(Color.YELLOW) }
       .whatIf(nullableBoolean, { setText("Hello, whatIf") }, { setText("Good-Bye whatIf") })
       .setWidthRatio(1.0f)
