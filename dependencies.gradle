@@ -12,7 +12,7 @@ ext.versions = [
     binaryValidator  : '0.8.0',
     mavenPublish     : '0.18.0',
 
-    kotlin           : '1.7.0',
+    kotlin           : '1.6.10',
     androidxAppcompat: '1.4.0',
 
     // for demo
