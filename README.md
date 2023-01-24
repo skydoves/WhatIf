@@ -2,7 +2,7 @@
 
 
 <p align="center">
-☔ Fluent expressions of Kotlin for handling single if-else statements, nullable, collections, and boolean.
+☔ Fluent Kotlin expressions for handling single if-else statements, nullable, collections, and boolean.
 </p>
 <br>
 
@@ -19,7 +19,7 @@
 ## Download
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.skydoves/whatif.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.skydoves%22%20AND%20a:%22whatif%22)
 
-☔ WhatIf has been downloaded in more than __70k__ Kotlin and Android projects all over the world! <br><br>
+☔ WhatIf has been downloaded in more than __100k__ Kotlin and Android projects all over the world! <br><br>
 ![downloads](https://user-images.githubusercontent.com/24237865/101273131-2187a980-37d6-11eb-9000-e1cd10f87b0d.png)
 
 ### Gradle

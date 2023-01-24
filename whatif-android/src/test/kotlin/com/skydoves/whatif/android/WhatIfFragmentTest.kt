@@ -1,5 +1,5 @@
 /*
- * Designed and developed by 2019 skydoves (Jaewoong Eum)
+ * Designed and developed by 2019-2023 skydoves (Jaewoong Eum)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.skydoves.whatif_android
+package com.skydoves.whatif.android
 
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.FragmentActivity
 import junit.framework.TestCase.assertNotNull
-import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.CoreMatchers.instanceOf
+import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.Is
 import org.junit.Before

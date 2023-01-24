@@ -1,3 +1,0 @@
-include ':whatif-android'
-include ':app', ':whatif'
-rootProject.name='WhatifDemo'

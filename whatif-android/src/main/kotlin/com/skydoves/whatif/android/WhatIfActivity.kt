@@ -1,5 +1,5 @@
 /*
- * Designed and developed by 2019 skydoves (Jaewoong Eum)
+ * Designed and developed by 2019-2023 skydoves (Jaewoong Eum)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
 @file:JvmName("WhatIfActivity")
 @file:JvmMultifileClass
 
-package com.skydoves.whatif_android
+package com.skydoves.whatif.android
 
 import android.app.Activity
 import android.net.Uri
