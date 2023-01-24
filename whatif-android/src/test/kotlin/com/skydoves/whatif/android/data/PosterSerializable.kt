@@ -1,5 +1,5 @@
 /*
- * Designed and developed by 2019 skydoves (Jaewoong Eum)
+ * Designed and developed by 2019-2023 skydoves (Jaewoong Eum)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,12 +14,11 @@
  * limitations under the License.
  */
 
-package com.skydoves.whatif_android.data
+package com.skydoves.whatif.android.data
 
-import android.os.Parcel
-import android.os.Parcelable
+import java.io.Serializable
 
-internal data class Poster(
+internal data class PosterSerializable(
   val id: Long,
   val name: String?,
   val release: String?,
@@ -27,40 +26,10 @@ internal data class Poster(
   val description: String?,
   val plot: String?,
   val poster: String?
-) : Parcelable {
+) : Serializable {
 
-  constructor(parcel: Parcel) : this(
-    parcel.readLong(),
-    parcel.readString(),
-    parcel.readString(),
-    parcel.readString(),
-    parcel.readString(),
-    parcel.readString(),
-    parcel.readString()
-  )
-
-  override fun writeToParcel(parcel: Parcel, flags: Int) {
-    parcel.writeLong(id)
-    parcel.writeString(name)
-    parcel.writeString(release)
-    parcel.writeString(playtime)
-    parcel.writeString(description)
-    parcel.writeString(plot)
-    parcel.writeString(poster)
-  }
-
-  override fun describeContents() = 0
-
-  companion object CREATOR : Parcelable.Creator<Poster> {
-    override fun createFromParcel(parcel: Parcel): Poster {
-      return Poster(parcel)
-    }
-
-    override fun newArray(size: Int): Array<Poster?> {
-      return arrayOfNulls(size)
-    }
-
-    fun create() = Poster(
+  companion object {
+    fun create() = PosterSerializable(
       id = 0,
       name = "Frozen II",
       release = "2019",

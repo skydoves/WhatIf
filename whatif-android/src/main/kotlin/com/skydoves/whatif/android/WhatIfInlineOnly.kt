@@ -1,5 +1,5 @@
 /*
- * Designed and developed by 2019 skydoves (Jaewoong Eum)
+ * Designed and developed by 2019-2023 skydoves (Jaewoong Eum)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,20 +14,15 @@
  * limitations under the License.
  */
 
-package com.skydoves.whatif_android
+package com.skydoves.whatif.android
 
-import androidx.fragment.app.Fragment
-
-internal class MainTestFragment : Fragment() {
-
-  companion object {
-    const val TAG = "MainTestFragment"
-  }
-}
-
-internal class MainTestFragment2 : Fragment() {
-
-  companion object {
-    const val TAG = "MainTestFragment2"
-  }
-}
+/** specifies that this function should not be called directly without inlining. */
+@Target(
+  AnnotationTarget.FUNCTION,
+  AnnotationTarget.PROPERTY,
+  AnnotationTarget.PROPERTY_GETTER,
+  AnnotationTarget.PROPERTY_SETTER
+)
+@DslMarker
+@Retention(AnnotationRetention.BINARY)
+internal annotation class WhatIfInlineOnly

@@ -1,5 +1,5 @@
 /*
- * Designed and developed by 2019 skydoves (Jaewoong Eum)
+ * Designed and developed by 2019-2023 skydoves (Jaewoong Eum)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.skydoves.whatif_android
+package com.skydoves.whatif.android
 
 import android.content.Intent
 import android.net.Uri
-import com.skydoves.whatif_android.data.Poster
-import com.skydoves.whatif_android.data.PosterSerializable
+import com.skydoves.whatif.android.data.Poster
+import com.skydoves.whatif.android.data.PosterSerializable
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Assert.assertNull

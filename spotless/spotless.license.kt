@@ -13,16 +13,4 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-package com.skydoves.whatif
-
-/** specifies that this function should not be called directly without inlining. */
-@Target(
-  AnnotationTarget.FUNCTION,
-  AnnotationTarget.PROPERTY,
-  AnnotationTarget.PROPERTY_GETTER,
-  AnnotationTarget.PROPERTY_SETTER
-)
-@DslMarker
-@Retention(AnnotationRetention.BINARY)
-internal annotation class WhatIfInlineOnly
+ 
