@@ -23,15 +23,7 @@
 ![downloads](https://user-images.githubusercontent.com/24237865/101273131-2187a980-37d6-11eb-9000-e1cd10f87b0d.png)
 
 ### Gradle
-Add the codes below to your **root** `build.gradle` file:
-```gradle
-allprojects {
-    repositories {
-        mavenCentral()
-    }
-}
-```
-Next, add the dependency below to your module's build.gradle file:
+Add the dependency below to your module's `build.gradle` file:
 ```gradle
 dependencies {
     implementation "com.github.skydoves:whatif:1.1.1"

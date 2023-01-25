@@ -18,20 +18,52 @@ package com.skydoves.whatifdemo
 
 import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import com.skydoves.whatif.whatIf
 import com.skydoves.whatif.whatIfMap
 import com.skydoves.whatif.whatIfNotNull
-import com.skydoves.whatifdemo.databinding.ActivityMainBinding
+import com.skydoves.whatifdemo.theme.WhatIfTheme
+import com.skydoves.whatifdemo.theme.background
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : ComponentActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
-    val binding = ActivityMainBinding.inflate(layoutInflater)
-    setContentView(binding.root)
+    whatIfExamples()
 
+    setContent {
+      WhatIfTheme {
+        var isBlueColor by remember { mutableStateOf(false) }
+
+        Box(modifier = Modifier.fillMaxSize()) {
+          Box(
+            modifier = Modifier
+              .align(Alignment.Center)
+              .clickable { isBlueColor = !isBlueColor }
+              .whatIfMap(isBlueColor, { it.background(Color.Blue) }, { it.background(Color.Cyan) })
+              .whatIfMap(isBlueColor, { it.size(120.dp) }, { it.size(240.dp) })
+          )
+        }
+      }
+    }
+  }
+
+  private fun whatIfExamples() {
     val nullableBoolean: Boolean? = true
     var nullableString: String? = null
 
