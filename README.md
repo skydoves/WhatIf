@@ -19,14 +19,14 @@
 ## Download
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.skydoves/whatif.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.skydoves%22%20AND%20a:%22whatif%22)
 
-☔ WhatIf has been downloaded in more than __100k__ Kotlin and Android projects all over the world! <br><br>
+☔ WhatIf has been downloaded in more than __110k__ Kotlin and Android projects all over the world! <br><br>
 ![downloads](https://user-images.githubusercontent.com/24237865/101273131-2187a980-37d6-11eb-9000-e1cd10f87b0d.png)
 
 ### Gradle
 Add the dependency below to your module's `build.gradle` file:
 ```gradle
 dependencies {
-    implementation "com.github.skydoves:whatif:1.1.1"
+    implementation "com.github.skydoves:whatif:1.1.2"
 }
 ```
 
