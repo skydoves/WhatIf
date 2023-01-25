@@ -50,8 +50,7 @@ afterEvaluate {
 
         pom {
           name = PUBLISH_ARTIFACT_ID
-          description = '☔ ' +
-                  'Fluent syntactic sugar of Kotlin for handling single if-else statements, nullable, collections, and booleans.'
+          description = 'Fluent syntactic sugar of Kotlin for handling single if-else statements, nullable, collections, and booleans.'
           url = 'https://github.com/skydoves/whatif'
           licenses {
             license {
