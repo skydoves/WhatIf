@@ -38,7 +38,7 @@ internal class WhatIfFragmentActivityTest {
   @Before
   fun createActivity() {
     this.controller = Robolectric.buildActivity(
-      MainTestActivity::class.java
+      MainTestActivity::class.java,
     ).create().start()
     this.mainTestActivity = controller.get()
     this.mainTestActivity.supportFragmentManager.apply {
@@ -76,7 +76,7 @@ internal class WhatIfFragmentActivityTest {
       },
       whatIfNot = {
         flag = true
-      }
+      },
     )
     assertThat(flag, `is`(true))
   }

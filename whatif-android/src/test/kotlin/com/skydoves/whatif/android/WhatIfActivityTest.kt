@@ -50,7 +50,7 @@ internal class WhatIfActivityTest {
     }
     this.controller = Robolectric.buildActivity(
       MainTestActivity::class.java,
-      intent
+      intent,
     ).create().start()
     this.mainTestActivity = controller.get()
   }
@@ -61,7 +61,7 @@ internal class WhatIfActivityTest {
 
     this.mainTestActivity.whatIfHasExtras(
       whatIf = { foo = it.getString("foo") },
-      whatIfNot = { foo = null }
+      whatIfNot = { foo = null },
     )
 
     assertThat(foo, `is`("bar"))
@@ -86,7 +86,7 @@ internal class WhatIfActivityTest {
     this.mainTestActivity.whatIfHasStringExtra(
       name = "null",
       whatIf = { string = it },
-      whatIfNot = { string = null }
+      whatIfNot = { string = null },
     )
 
     assertNull(string)
@@ -105,7 +105,7 @@ internal class WhatIfActivityTest {
     this.mainTestActivity.whatIfHasCharSequenceExtra(
       name = "null",
       whatIf = { charSequence = it },
-      whatIfNot = { charSequence = null }
+      whatIfNot = { charSequence = null },
     )
 
     assertNull(charSequence)
@@ -124,7 +124,7 @@ internal class WhatIfActivityTest {
     this.mainTestActivity.whatIfHasParcelableExtra<Poster>(
       name = "null",
       whatIf = { poster = it },
-      whatIfNot = { poster = null }
+      whatIfNot = { poster = null },
     )
 
     assertNull(poster)
@@ -143,7 +143,7 @@ internal class WhatIfActivityTest {
     this.mainTestActivity.whatIfHasSerializableExtra<PosterSerializable>(
       name = "null",
       whatIf = { poster = it },
-      whatIfNot = { poster = null }
+      whatIfNot = { poster = null },
     )
 
     assertNull(poster)
@@ -169,7 +169,7 @@ internal class WhatIfActivityTest {
 
     this.mainTestActivity.whatIfHasDeepLinkUri(
       whatIf = { deepLinkUri = it },
-      whatIfNot = { isNotNull = true }
+      whatIfNot = { isNotNull = true },
     )
 
     assertNull(deepLinkUri)

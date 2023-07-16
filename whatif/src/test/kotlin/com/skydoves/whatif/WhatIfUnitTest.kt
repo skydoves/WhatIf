@@ -43,7 +43,7 @@ internal class WhatIfUnitTest {
     whatIf(
       given = nullableString.isNullOrEmpty(),
       whatIf = { nullableString = "whatIf" },
-      whatIfNot = { nullableString = "whatIfNot" }
+      whatIfNot = { nullableString = "whatIfNot" },
     )
 
     assertThat(nullableString, `is`("whatIf"))
@@ -51,7 +51,7 @@ internal class WhatIfUnitTest {
     whatIf(
       given = nullableString.isNullOrEmpty(),
       whatIf = { nullableString = "whatIf" },
-      whatIfNot = { nullableString = "whatIfNot" }
+      whatIfNot = { nullableString = "whatIfNot" },
     )
 
     assertThat(nullableString, `is`("whatIfNot"))
@@ -63,7 +63,7 @@ internal class WhatIfUnitTest {
 
     whatIf(
       given = { nullableString.isNullOrEmpty() },
-      whatIfDo = { nullableString = "isNullOrEmpty" }
+      whatIfDo = { nullableString = "isNullOrEmpty" },
     )
 
     assertThat(nullableString, `is`("isNullOrEmpty"))
@@ -75,7 +75,7 @@ internal class WhatIfUnitTest {
 
     whatIf(
       given = { nullableString.isNullOrEmpty() },
-      whatIfDo = { nullableString = "isNullOrEmpty" }
+      whatIfDo = { nullableString = "isNullOrEmpty" },
     )
 
     assertThat(nullableString, `is`("isNullOrEmpty"))
@@ -83,7 +83,7 @@ internal class WhatIfUnitTest {
     whatIf(
       given = { nullableString.isNullOrEmpty() },
       whatIfDo = { nullableString = "isNullOrEmpty" },
-      whatIfNot = { nullableString = "isNotNullOrEmpty" }
+      whatIfNot = { nullableString = "isNotNullOrEmpty" },
     )
 
     assertThat(nullableString, `is`("isNotNullOrEmpty"))
@@ -95,14 +95,14 @@ internal class WhatIfUnitTest {
 
     nullableString = nullableString.whatIfMap(
       default = "default",
-      whatIf = { "whatIf" }
+      whatIf = { "whatIf" },
     )
 
     assertThat(nullableString, `is`("default"))
 
     nullableString = nullableString.whatIfMap(
       whatIf = { "whatIf" },
-      whatIfNot = { "whatIfNot" }
+      whatIfNot = { "whatIfNot" },
     )
 
     assertThat(nullableString, `is`("whatIf"))
@@ -115,7 +115,7 @@ internal class WhatIfUnitTest {
     nullableString = nullableString.whatIfMap(
       given = !nullableString.isNullOrEmpty(),
       default = "default",
-      whatIf = { "whatIf" }
+      whatIf = { "whatIf" },
     )
 
     assertThat(nullableString, `is`("default"))
@@ -123,7 +123,7 @@ internal class WhatIfUnitTest {
     nullableString = nullableString.whatIfMap(
       given = !nullableString.isNullOrEmpty(),
       default = "default",
-      whatIf = { "whatIf" }
+      whatIf = { "whatIf" },
     )
 
     assertThat(nullableString, `is`("whatIf"))
@@ -146,14 +146,14 @@ internal class WhatIfUnitTest {
 
     nullableString.whatIfNotNull(
       whatIf = { nullableString = "whatIf" },
-      whatIfNot = { nullableString = "whatIfNot" }
+      whatIfNot = { nullableString = "whatIfNot" },
     )
 
     assertThat(nullableString, `is`("whatIfNot"))
 
     nullableString.whatIfNotNull(
       whatIf = { nullableString = it.length.toString() },
-      whatIfNot = { nullableString = "whatIfNot" }
+      whatIfNot = { nullableString = "whatIfNot" },
     )
 
     assertThat(nullableString, `is`("9"))
@@ -166,7 +166,7 @@ internal class WhatIfUnitTest {
 
     length = nullableString.whatIfNotNullWith(
       whatIf = { it.length },
-      whatIfNot = { 0 }
+      whatIfNot = { 0 },
     )
 
     assertThat(length, `is`(7))
@@ -193,7 +193,7 @@ internal class WhatIfUnitTest {
 
     nullableBoolean.whatIf(
       whatIf = { testInteger = 0 },
-      whatIfNot = { testInteger = 1 }
+      whatIfNot = { testInteger = 1 },
     )
     assertThat(testInteger, `is`(1))
 
@@ -201,7 +201,7 @@ internal class WhatIfUnitTest {
 
     nullableBoolean.whatIf(
       whatIf = { testInteger = 0 },
-      whatIfNot = { testInteger = 1 }
+      whatIfNot = { testInteger = 1 },
     )
     assertThat(testInteger, `is`(0))
   }
@@ -226,7 +226,7 @@ internal class WhatIfUnitTest {
 
     nullableIntList.whatIfNotNullAs<List<String>>(
       whatIf = { nullableIntList = arrayListOf(it.size) },
-      whatIfNot = { nullableIntList = arrayListOf(123) }
+      whatIfNot = { nullableIntList = arrayListOf(123) },
     )
 
     assertThat(nullableIntList?.get(0), `is`(123))
@@ -247,14 +247,14 @@ internal class WhatIfUnitTest {
 
     nullableString.whatIfNotNullAs<Long>(
       whatIf = { result = it },
-      whatIfNot = { result = -1 }
+      whatIfNot = { result = -1 },
     )
 
     assertThat(result, `is`(-1L))
 
     nullableString.whatIfNotNullAs<CharSequence>(
       whatIf = { result = it.length.toLong() },
-      whatIfNot = { result = -1 }
+      whatIfNot = { result = -1 },
     )
 
     assertThat(result, `is`(3))

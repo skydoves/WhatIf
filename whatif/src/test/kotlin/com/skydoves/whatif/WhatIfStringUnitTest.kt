@@ -31,7 +31,7 @@ internal class WhatIfStringUnitTest {
 
     nullableString.whatIfNotNullOrEmpty(
       whatIf = { nullableString = it },
-      whatIfNot = { nullableString = "NullOrEmpty" }
+      whatIfNot = { nullableString = "NullOrEmpty" },
     )
 
     assertThat(nullableString, `is`("NullOrEmpty"))
@@ -49,7 +49,7 @@ internal class WhatIfStringUnitTest {
 
     nullableString.whatIfNotNullOrEmpty(
       whatIf = { nullableString = it },
-      whatIfNot = { nullableString = "NullOrEmpty" }
+      whatIfNot = { nullableString = "NullOrEmpty" },
     )
 
     assertThat(nullableString, `is`("NullOrEmpty"))

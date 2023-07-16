@@ -40,7 +40,7 @@ import kotlin.contracts.contract
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun Fragment?.whatIfNotNullContext(
-  whatIf: (Context) -> Unit
+  whatIf: (Context) -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -63,11 +63,11 @@ public inline fun Fragment?.whatIfNotNullContext(
 @WhatIfInlineOnly
 public inline fun Fragment?.whatIfNotNullContext(
   whatIf: (Context) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ) {
   this?.context.whatIfNotNull(
     whatIf = whatIf,
-    whatIfNot = whatIfNot
+    whatIfNot = whatIfNot,
   )
 }
 
@@ -81,7 +81,7 @@ public inline fun Fragment?.whatIfNotNullContext(
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun Fragment?.whatIfNotNullActivity(
-  whatIf: (FragmentActivity) -> Unit
+  whatIf: (FragmentActivity) -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -104,7 +104,7 @@ public inline fun Fragment?.whatIfNotNullActivity(
 @WhatIfInlineOnly
 public inline fun Fragment?.whatIfNotNullActivity(
   whatIf: (FragmentActivity) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -112,7 +112,7 @@ public inline fun Fragment?.whatIfNotNullActivity(
   }
   this?.activity.whatIfNotNull(
     whatIf = whatIf,
-    whatIfNot = whatIfNot
+    whatIfNot = whatIfNot,
   )
 }
 
@@ -126,7 +126,7 @@ public inline fun Fragment?.whatIfNotNullActivity(
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun Fragment?.whatIfHasArguments(
-  whatIf: (Bundle) -> Unit
+  whatIf: (Bundle) -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -146,7 +146,7 @@ public inline fun Fragment?.whatIfHasArguments(
 @WhatIfInlineOnly
 public inline fun Fragment?.whatIfHasArguments(
   whatIf: (Bundle) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -165,7 +165,7 @@ public inline fun Fragment?.whatIfHasArguments(
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <reified T> Fragment?.whatIfFindParentInterface(
-  whatIf: (T) -> Unit
+  whatIf: (T) -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -185,7 +185,7 @@ public inline fun <reified T> Fragment?.whatIfFindParentInterface(
 @WhatIfInlineOnly
 public inline fun <reified T> Fragment?.whatIfFindParentInterface(
   whatIf: (T) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)

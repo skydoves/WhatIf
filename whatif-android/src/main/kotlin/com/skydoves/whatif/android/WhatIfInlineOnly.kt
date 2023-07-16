@@ -21,7 +21,7 @@ package com.skydoves.whatif.android
   AnnotationTarget.FUNCTION,
   AnnotationTarget.PROPERTY,
   AnnotationTarget.PROPERTY_GETTER,
-  AnnotationTarget.PROPERTY_SETTER
+  AnnotationTarget.PROPERTY_SETTER,
 )
 @DslMarker
 @Retention(AnnotationRetention.BINARY)

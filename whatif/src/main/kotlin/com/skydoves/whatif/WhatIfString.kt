@@ -32,14 +32,14 @@ import kotlin.contracts.contract
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun String?.whatIfNotNullOrEmpty(
-  whatIf: (String) -> Unit
+  whatIf: (String) -> Unit,
 ): String? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   this.whatIfNotNullOrEmpty(
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
   return this
 }
@@ -57,7 +57,7 @@ public inline fun String?.whatIfNotNullOrEmpty(
 @WhatIfInlineOnly
 public inline fun String?.whatIfNotNullOrEmpty(
   whatIf: (String) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ): String? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
