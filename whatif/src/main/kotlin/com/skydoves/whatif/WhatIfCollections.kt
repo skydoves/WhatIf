@@ -32,14 +32,14 @@ import kotlin.contracts.contract
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T> List<T>?.whatIfNotNullOrEmpty(
-  whatIf: (List<T>) -> Unit
+  whatIf: (List<T>) -> Unit,
 ): List<T>? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   this.whatIfNotNullOrEmpty(
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
   return this
 }
@@ -57,7 +57,7 @@ public inline fun <T> List<T>?.whatIfNotNullOrEmpty(
 @WhatIfInlineOnly
 public inline fun <T> List<T>?.whatIfNotNullOrEmpty(
   whatIf: (List<T>) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ): List<T>? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -81,14 +81,14 @@ public inline fun <T> List<T>?.whatIfNotNullOrEmpty(
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T> Set<T>?.whatIfNotNullOrEmpty(
-  whatIf: (Set<T>) -> Unit
+  whatIf: (Set<T>) -> Unit,
 ): Set<T>? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   this.whatIfNotNullOrEmpty(
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
   return this
 }
@@ -106,7 +106,7 @@ public inline fun <T> Set<T>?.whatIfNotNullOrEmpty(
 @WhatIfInlineOnly
 public inline fun <T> Set<T>?.whatIfNotNullOrEmpty(
   whatIf: (Set<T>) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ): Set<T>? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -130,14 +130,14 @@ public inline fun <T> Set<T>?.whatIfNotNullOrEmpty(
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T, R> Map<T, R>?.whatIfNotNullOrEmpty(
-  whatIf: (Map<T, R>) -> Unit
+  whatIf: (Map<T, R>) -> Unit,
 ): Map<T, R>? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   this.whatIfNotNullOrEmpty(
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
   return this
 }
@@ -155,7 +155,7 @@ public inline fun <T, R> Map<T, R>?.whatIfNotNullOrEmpty(
 @WhatIfInlineOnly
 public inline fun <T, R> Map<T, R>?.whatIfNotNullOrEmpty(
   whatIf: (Map<T, R>) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ): Map<T, R>? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -181,7 +181,7 @@ public inline fun <T, R> Map<T, R>?.whatIfNotNullOrEmpty(
 @WhatIfInlineOnly
 public inline fun <reified T : MutableCollection<E>, reified E> T.addWhatIfNotNull(
   element: E?,
-  whatIf: (T) -> Unit
+  whatIf: (T) -> Unit,
 ): T {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -189,7 +189,7 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.addWhatIfNotNu
   this.addWhatIfNotNull(
     element = element,
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
   return this
 }
@@ -208,7 +208,7 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.addWhatIfNotNu
 public inline fun <reified T : MutableCollection<E>, reified E> T.addWhatIfNotNull(
   element: E?,
   whatIf: (T) -> Unit,
-  whatIfNot: (T) -> Unit
+  whatIfNot: (T) -> Unit,
 ): T {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -221,7 +221,7 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.addWhatIfNotNu
     },
     whatIfNot = {
       whatIfNot(this)
-    }
+    },
   )
   return this
 }
@@ -238,7 +238,7 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.addWhatIfNotNu
 @WhatIfInlineOnly
 public inline fun <reified T : MutableCollection<E>, reified E> T.addAllWhatIfNotNull(
   element: Collection<E>?,
-  whatIf: (T) -> Unit
+  whatIf: (T) -> Unit,
 ): T {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -246,7 +246,7 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.addAllWhatIfNo
   this.addAllWhatIfNotNull(
     element = element,
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
   return this
 }
@@ -265,7 +265,7 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.addAllWhatIfNo
 public inline fun <reified T : MutableCollection<E>, reified E> T.addAllWhatIfNotNull(
   element: Collection<E>?,
   whatIf: (T) -> Unit,
-  whatIfNot: (T) -> Unit
+  whatIfNot: (T) -> Unit,
 ): T {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -278,7 +278,7 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.addAllWhatIfNo
     },
     whatIfNot = {
       whatIfNot(this)
-    }
+    },
   )
   return this
 }
@@ -295,7 +295,7 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.addAllWhatIfNo
 @WhatIfInlineOnly
 public inline fun <reified T : MutableCollection<E>, reified E> T.removeWhatIfNotNull(
   element: E?,
-  whatIf: (T) -> Unit
+  whatIf: (T) -> Unit,
 ): T {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -303,7 +303,7 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.removeWhatIfNo
   this.removeWhatIfNotNull(
     element = element,
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
   return this
 }
@@ -322,7 +322,7 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.removeWhatIfNo
 public inline fun <reified T : MutableCollection<E>, reified E> T.removeWhatIfNotNull(
   element: E?,
   whatIf: (T) -> Unit,
-  whatIfNot: (T) -> Unit
+  whatIfNot: (T) -> Unit,
 ): T {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -335,7 +335,7 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.removeWhatIfNo
     },
     whatIfNot = {
       whatIfNot(this)
-    }
+    },
   )
   return this
 }
@@ -352,7 +352,7 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.removeWhatIfNo
 @WhatIfInlineOnly
 public inline fun <reified T : MutableCollection<E>, reified E> T.removeAllWhatIfNotNull(
   element: Collection<E>?,
-  whatIf: (T) -> Unit
+  whatIf: (T) -> Unit,
 ): T {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -360,7 +360,7 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.removeAllWhatI
   this.removeAllWhatIfNotNull(
     element = element,
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
   return this
 }
@@ -379,7 +379,7 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.removeAllWhatI
 public inline fun <reified T : MutableCollection<E>, reified E> T.removeAllWhatIfNotNull(
   element: Collection<E>?,
   whatIf: (T) -> Unit,
-  whatIfNot: (T) -> Unit
+  whatIfNot: (T) -> Unit,
 ): T {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -392,7 +392,7 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.removeAllWhatI
     },
     whatIfNot = {
       whatIfNot(this)
-    }
+    },
   )
   return this
 }
@@ -407,14 +407,14 @@ public inline fun <reified T : MutableCollection<E>, reified E> T.removeAllWhatI
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun Iterable<Boolean?>.whatIfAnd(
-  whatIf: () -> Unit
+  whatIf: () -> Unit,
 ): Iterable<Boolean?> {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   return this.whatIfAnd(
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
 }
 
@@ -430,7 +430,7 @@ public inline fun Iterable<Boolean?>.whatIfAnd(
 @WhatIfInlineOnly
 public inline fun Iterable<Boolean?>.whatIfAnd(
   whatIf: () -> Unit,
-  whatIfNot: (() -> Unit)
+  whatIfNot: (() -> Unit),
 ): Iterable<Boolean?> {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -465,14 +465,14 @@ public inline fun Iterable<Boolean?>.whatIfAnd(
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun Iterable<Boolean?>.whatIfOr(
-  whatIf: () -> Unit
+  whatIf: () -> Unit,
 ): Iterable<Boolean?> {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   return this.whatIfOr(
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
 }
 
@@ -488,7 +488,7 @@ public inline fun Iterable<Boolean?>.whatIfOr(
 @WhatIfInlineOnly
 public inline fun Iterable<Boolean?>.whatIfOr(
   whatIf: () -> Unit,
-  whatIfNot: (() -> Unit)
+  whatIfNot: (() -> Unit),
 ): Iterable<Boolean?> {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)

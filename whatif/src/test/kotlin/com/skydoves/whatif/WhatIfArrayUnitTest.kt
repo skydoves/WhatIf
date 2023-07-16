@@ -31,7 +31,7 @@ internal class WhatIfArrayUnitTest {
 
     array.whatIfNotNullOrEmpty(
       whatIf = { array = arrayOf("NotNullOrEmpty") },
-      whatIfNot = { array = arrayOf("NullOrEmpty") }
+      whatIfNot = { array = arrayOf("NullOrEmpty") },
     )
 
     assertThat(array?.get(0), `is`("NullOrEmpty"))
@@ -49,7 +49,7 @@ internal class WhatIfArrayUnitTest {
 
     array.whatIfNotNullOrEmpty(
       whatIf = { array = byteArrayOf(0) },
-      whatIfNot = { array = byteArrayOf(11) }
+      whatIfNot = { array = byteArrayOf(11) },
     )
 
     assertThat(array!!, `is`(byteArrayOf(11)))
@@ -67,7 +67,7 @@ internal class WhatIfArrayUnitTest {
 
     array.whatIfNotNullOrEmpty(
       whatIf = { },
-      whatIfNot = { array = shortArrayOf(11) }
+      whatIfNot = { array = shortArrayOf(11) },
     )
 
     assertThat(array!!, `is`(shortArrayOf(11)))
@@ -85,7 +85,7 @@ internal class WhatIfArrayUnitTest {
 
     array.whatIfNotNullOrEmpty(
       whatIf = { },
-      whatIfNot = { array = intArrayOf(11) }
+      whatIfNot = { array = intArrayOf(11) },
     )
 
     assertThat(array!!, `is`(intArrayOf(11)))
@@ -103,7 +103,7 @@ internal class WhatIfArrayUnitTest {
 
     array.whatIfNotNullOrEmpty(
       whatIf = { },
-      whatIfNot = { array = longArrayOf(11) }
+      whatIfNot = { array = longArrayOf(11) },
     )
 
     assertThat(array!!, `is`(longArrayOf(11)))
@@ -121,7 +121,7 @@ internal class WhatIfArrayUnitTest {
 
     array.whatIfNotNullOrEmpty(
       whatIf = { },
-      whatIfNot = { array = floatArrayOf(11f) }
+      whatIfNot = { array = floatArrayOf(11f) },
     )
 
     assertThat(array!!, `is`(floatArrayOf(11f)))
@@ -139,7 +139,7 @@ internal class WhatIfArrayUnitTest {
 
     array.whatIfNotNullOrEmpty(
       whatIf = { },
-      whatIfNot = { array = doubleArrayOf(11.1) }
+      whatIfNot = { array = doubleArrayOf(11.1) },
     )
 
     assertThat(array!!, `is`(doubleArrayOf(11.1)))
@@ -157,7 +157,7 @@ internal class WhatIfArrayUnitTest {
 
     array.whatIfNotNullOrEmpty(
       whatIf = { },
-      whatIfNot = { array = booleanArrayOf(true) }
+      whatIfNot = { array = booleanArrayOf(true) },
     )
 
     assertThat(array!!, `is`(booleanArrayOf(true)))
@@ -175,7 +175,7 @@ internal class WhatIfArrayUnitTest {
 
     array.whatIfNotNullOrEmpty(
       whatIf = { },
-      whatIfNot = { array = charArrayOf('0') }
+      whatIfNot = { array = charArrayOf('0') },
     )
 
     assertThat(array!!, `is`(charArrayOf('0')))

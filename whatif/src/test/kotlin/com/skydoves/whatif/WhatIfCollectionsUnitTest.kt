@@ -32,7 +32,7 @@ internal class WhatIfCollectionsUnitTest {
 
     list.whatIfNotNullOrEmpty(
       whatIf = { arrayListOf("NotNullOrEmpty") },
-      whatIfNot = { list = arrayListOf("NullOrEmpty") }
+      whatIfNot = { list = arrayListOf("NullOrEmpty") },
     )
 
     assertThat(list?.get(0), `is`("NullOrEmpty"))
@@ -50,7 +50,7 @@ internal class WhatIfCollectionsUnitTest {
 
     set.whatIfNotNullOrEmpty(
       whatIf = { set = setOf("NotNullOrEmpty") },
-      whatIfNot = { set = setOf("NullOrEmpty") }
+      whatIfNot = { set = setOf("NullOrEmpty") },
     )
 
     assertThat(set?.contains("NullOrEmpty"), `is`(true))
@@ -68,7 +68,7 @@ internal class WhatIfCollectionsUnitTest {
 
     map.whatIfNotNullOrEmpty(
       whatIf = { map = mapOf(1 to "NotNullOrEmpty") },
-      whatIfNot = { map = mapOf(1 to "NullOrEmpty") }
+      whatIfNot = { map = mapOf(1 to "NullOrEmpty") },
     )
 
     assertThat(map?.get(1), `is`("NullOrEmpty"))
@@ -174,7 +174,7 @@ internal class WhatIfCollectionsUnitTest {
       },
       whatIfNot = {
         result = -1
-      }
+      },
     )
 
     assertThat(result, `is`(-1))
@@ -199,7 +199,7 @@ internal class WhatIfCollectionsUnitTest {
       },
       whatIfNot = {
         result = -1
-      }
+      },
     )
 
     assertThat(result, `is`(-1))

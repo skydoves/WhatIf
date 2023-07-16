@@ -38,14 +38,14 @@ import kotlin.contracts.contract
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun Activity.whatIfHasExtras(
-  whatIf: (Bundle) -> Unit
+  whatIf: (Bundle) -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   this.whatIfHasExtras(
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
 }
 
@@ -60,7 +60,7 @@ public inline fun Activity.whatIfHasExtras(
 @WhatIfInlineOnly
 public inline fun Activity.whatIfHasExtras(
   whatIf: (Bundle) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -72,7 +72,7 @@ public inline fun Activity.whatIfHasExtras(
         whatIf(it)
       }
     },
-    whatIfNot = { whatIfNot() }
+    whatIfNot = { whatIfNot() },
   )
 }
 
@@ -86,7 +86,7 @@ public inline fun Activity.whatIfHasExtras(
 @WhatIfInlineOnly
 public inline fun Activity.whatIfHasExtras(
   name: String,
-  whatIf: () -> Unit
+  whatIf: () -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -94,7 +94,7 @@ public inline fun Activity.whatIfHasExtras(
   this.whatIfHasExtras(
     name = name,
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
 }
 
@@ -111,7 +111,7 @@ public inline fun Activity.whatIfHasExtras(
 public inline fun Activity.whatIfHasExtras(
   name: String,
   whatIf: () -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -134,14 +134,14 @@ public inline fun Activity.whatIfHasExtras(
 @WhatIfInlineOnly
 public inline fun Activity.whatIfHasStringExtra(
   name: String,
-  whatIf: (String) -> Unit
+  whatIf: (String) -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   this.intent.getStringExtra(name).whatIfNotNull(
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
 }
 
@@ -158,7 +158,7 @@ public inline fun Activity.whatIfHasStringExtra(
 public inline fun Activity.whatIfHasStringExtra(
   name: String,
   whatIf: (String) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -166,7 +166,7 @@ public inline fun Activity.whatIfHasStringExtra(
   }
   this.intent.getStringExtra(name).whatIfNotNull(
     whatIf = whatIf,
-    whatIfNot = whatIfNot
+    whatIfNot = whatIfNot,
   )
 }
 
@@ -180,14 +180,14 @@ public inline fun Activity.whatIfHasStringExtra(
 @WhatIfInlineOnly
 public inline fun Activity.whatIfHasCharSequenceExtra(
   name: String,
-  whatIf: (CharSequence) -> Unit
+  whatIf: (CharSequence) -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   this.intent.getCharSequenceExtra(name).whatIfNotNull(
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
 }
 
@@ -204,7 +204,7 @@ public inline fun Activity.whatIfHasCharSequenceExtra(
 public inline fun Activity.whatIfHasCharSequenceExtra(
   name: String,
   whatIf: (CharSequence) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -212,7 +212,7 @@ public inline fun Activity.whatIfHasCharSequenceExtra(
   }
   this.intent.getCharSequenceExtra(name).whatIfNotNull(
     whatIf = whatIf,
-    whatIfNot = whatIfNot
+    whatIfNot = whatIfNot,
   )
 }
 
@@ -226,14 +226,14 @@ public inline fun Activity.whatIfHasCharSequenceExtra(
 @WhatIfInlineOnly
 public inline fun <reified T : Serializable> Activity.whatIfHasSerializableExtra(
   name: String,
-  whatIf: (T) -> Unit
+  whatIf: (T) -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   this.intent.getSerializableExtra(name).whatIfNotNullAs(
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
 }
 
@@ -250,7 +250,7 @@ public inline fun <reified T : Serializable> Activity.whatIfHasSerializableExtra
 public inline fun <reified T : Serializable> Activity.whatIfHasSerializableExtra(
   name: String,
   whatIf: (T) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -258,7 +258,7 @@ public inline fun <reified T : Serializable> Activity.whatIfHasSerializableExtra
   }
   this.intent.getSerializableExtra(name).whatIfNotNullAs(
     whatIf = whatIf,
-    whatIfNot = whatIfNot
+    whatIfNot = whatIfNot,
   )
 }
 
@@ -272,14 +272,14 @@ public inline fun <reified T : Serializable> Activity.whatIfHasSerializableExtra
 @WhatIfInlineOnly
 public inline fun <reified T : Parcelable> Activity.whatIfHasParcelableExtra(
   name: String,
-  whatIf: (T) -> Unit
+  whatIf: (T) -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   this.intent.getParcelableExtra<T>(name).whatIfNotNull(
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
 }
 
@@ -296,7 +296,7 @@ public inline fun <reified T : Parcelable> Activity.whatIfHasParcelableExtra(
 public inline fun <reified T : Parcelable> Activity.whatIfHasParcelableExtra(
   name: String,
   whatIf: (T) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -304,7 +304,7 @@ public inline fun <reified T : Parcelable> Activity.whatIfHasParcelableExtra(
   }
   this.intent.getParcelableExtra<T>(name).whatIfNotNull(
     whatIf = whatIf,
-    whatIfNot = whatIfNot
+    whatIfNot = whatIfNot,
   )
 }
 
@@ -318,14 +318,14 @@ public inline fun <reified T : Parcelable> Activity.whatIfHasParcelableExtra(
 @WhatIfInlineOnly
 public inline fun <reified T : Parcelable> Activity.whatIfHasParcelableArrayListExtra(
   name: String,
-  whatIf: (ArrayList<T>) -> Unit
+  whatIf: (ArrayList<T>) -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   this.intent.getParcelableArrayListExtra<T>(name).whatIfNotNull(
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
 }
 
@@ -342,7 +342,7 @@ public inline fun <reified T : Parcelable> Activity.whatIfHasParcelableArrayList
 public inline fun <reified T : Parcelable> Activity.whatIfHasParcelableArrayListExtra(
   name: String,
   whatIf: (ArrayList<T>) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -350,7 +350,7 @@ public inline fun <reified T : Parcelable> Activity.whatIfHasParcelableArrayList
   }
   this.intent.getParcelableArrayListExtra<T>(name).whatIfNotNull(
     whatIf = whatIf,
-    whatIfNot = whatIfNot
+    whatIfNot = whatIfNot,
   )
 }
 
@@ -362,7 +362,7 @@ public inline fun <reified T : Parcelable> Activity.whatIfHasParcelableArrayList
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun Activity.whatIfHasDeepLinkUri(
-  whatIf: (Uri) -> Unit
+  whatIf: (Uri) -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -381,7 +381,7 @@ public inline fun Activity.whatIfHasDeepLinkUri(
 @WhatIfInlineOnly
 public inline fun Activity.whatIfHasDeepLinkUri(
   whatIf: (Uri) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)

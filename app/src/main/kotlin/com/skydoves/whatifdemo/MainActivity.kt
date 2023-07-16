@@ -56,7 +56,7 @@ class MainActivity : ComponentActivity() {
               .align(Alignment.Center)
               .clickable { isBlueColor = !isBlueColor }
               .whatIfMap(isBlueColor, { it.background(Color.Blue) }, { it.background(Color.Cyan) })
-              .whatIfMap(isBlueColor, { it.size(120.dp) }, { it.size(240.dp) })
+              .whatIfMap(isBlueColor, { it.size(120.dp) }, { it.size(240.dp) }),
           )
         }
       }
@@ -80,7 +80,7 @@ class MainActivity : ComponentActivity() {
     // example2 : nullable Boolean true-false check extension with whatIfNot
     nullableBoolean.whatIf(
       whatIf = { log("not-null and true : $nullableBoolean") },
-      whatIfNot = { log("null or false : $nullableBoolean") }
+      whatIfNot = { log("null or false : $nullableBoolean") },
     )
 
     // example3 : nullable String true-false check extension with default value.
@@ -105,7 +105,7 @@ class MainActivity : ComponentActivity() {
       whatIfNot = {
         log("$it is short.")
         "short"
-      }
+      },
     )
   }
 

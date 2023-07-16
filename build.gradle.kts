@@ -3,17 +3,13 @@ plugins {
   alias(libs.plugins.android.application) apply false
   alias(libs.plugins.android.library) apply false
   alias(libs.plugins.kotlin.android) apply false
-  alias(libs.plugins.nexusPlugin)
+  alias(libs.plugins.kotlin.binary.compatibility) apply false
+  alias(libs.plugins.nexus.plugin)
   alias(libs.plugins.spotless)
   alias(libs.plugins.dokka)
-  alias(libs.plugins.kotlinBinaryCompatibilityValidator)
 }
 
 apply(from ="${rootDir}/scripts/publish-root.gradle")
-
-apiValidation {
-  ignoredProjects.addAll(listOf("app"))
-}
 
 subprojects {
   if (name != "app") {

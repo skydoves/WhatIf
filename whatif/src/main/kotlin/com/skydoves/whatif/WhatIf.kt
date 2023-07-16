@@ -39,7 +39,7 @@ import kotlin.contracts.contract
 @WhatIfInlineOnly
 public inline fun <T> T.whatIf(
   given: (T) -> Boolean?,
-  whatIf: () -> Unit
+  whatIf: () -> Unit,
 ): T {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -65,7 +65,7 @@ public inline fun <T> T.whatIf(
 public inline fun <T> T.whatIf(
   given: (T) -> Boolean?,
   whatIf: () -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ): T {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -92,7 +92,7 @@ public inline fun <T> T.whatIf(
 @WhatIfInlineOnly
 public inline fun <T> T.whatIf(
   given: Boolean?,
-  whatIf: T.() -> Unit
+  whatIf: T.() -> Unit,
 ): T {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -119,7 +119,7 @@ public inline fun <T> T.whatIf(
 public inline fun <T> T.whatIf(
   given: Boolean?,
   whatIf: T.() -> Unit,
-  whatIfNot: T.() -> Unit
+  whatIfNot: T.() -> Unit,
 ): T {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -146,7 +146,7 @@ public inline fun <T> T.whatIf(
 @WhatIfInlineOnly
 public inline fun <T> T.whatIf(
   given: () -> Boolean?,
-  whatIfDo: T.() -> Unit
+  whatIfDo: T.() -> Unit,
 ): T {
   contract {
     callsInPlace(whatIfDo, InvocationKind.AT_MOST_ONCE)
@@ -154,7 +154,7 @@ public inline fun <T> T.whatIf(
   return this.whatIf(
     given = given,
     whatIfDo = whatIfDo,
-    whatIfNot = { }
+    whatIfNot = { },
   )
 }
 
@@ -174,7 +174,7 @@ public inline fun <T> T.whatIf(
 public inline fun <T> T.whatIf(
   given: () -> Boolean?,
   whatIfDo: T.() -> Unit,
-  whatIfNot: T.() -> Unit
+  whatIfNot: T.() -> Unit,
 ): T {
   contract {
     callsInPlace(whatIfDo, InvocationKind.AT_MOST_ONCE)
@@ -201,14 +201,14 @@ public inline fun <T> T.whatIf(
 @WhatIfInlineOnly
 public inline fun <T, R> T.whatIfMap(
   default: R,
-  whatIf: (T) -> R
+  whatIf: (T) -> R,
 ): R {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   return this.whatIfMap(
     whatIf = whatIf,
-    whatIfNot = { default }
+    whatIfNot = { default },
   )
 }
 
@@ -225,7 +225,7 @@ public inline fun <T, R> T.whatIfMap(
 @WhatIfInlineOnly
 public inline fun <T, R> T.whatIfMap(
   whatIf: (T) -> R,
-  whatIfNot: (T) -> R
+  whatIfNot: (T) -> R,
 ): R {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -253,7 +253,7 @@ public inline fun <T, R> T.whatIfMap(
 public inline fun <T, R> T.whatIfMap(
   given: Boolean?,
   default: R,
-  whatIf: (T) -> R
+  whatIf: (T) -> R,
 ): R {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -261,7 +261,7 @@ public inline fun <T, R> T.whatIfMap(
   return this.whatIfMap(
     given = given,
     whatIf = whatIf,
-    whatIfNot = { default }
+    whatIfNot = { default },
   )
 }
 
@@ -281,7 +281,7 @@ public inline fun <T, R> T.whatIfMap(
 public inline fun <T, R> T.whatIfMap(
   given: Boolean?,
   whatIf: (T) -> R,
-  whatIfNot: (T) -> R
+  whatIfNot: (T) -> R,
 ): R {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -308,15 +308,15 @@ public inline fun <T, R> T.whatIfMap(
   message = "use whatIfMap instead.",
   replaceWith = ReplaceWith(
     "whatIfMap(given, default, whatIf)",
-    imports = ["com.skydoves.whatIf.whatIfMap"]
-  )
+    imports = ["com.skydoves.whatIf.whatIfMap"],
+  ),
 )
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T, R> T.whatIfLet(
   given: Boolean?,
   default: R,
-  whatIf: (T) -> R
+  whatIf: (T) -> R,
 ): R {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -342,15 +342,15 @@ public inline fun <T, R> T.whatIfLet(
   message = "use whatIfMap instead.",
   replaceWith = ReplaceWith(
     "whatIfMap(given, default, whatIf, whatIfNot)",
-    imports = ["com.skydoves.whatIf.whatIfMap"]
-  )
+    imports = ["com.skydoves.whatIf.whatIfMap"],
+  ),
 )
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T, R> T.whatIfLet(
   given: Boolean?,
   whatIf: (T) -> R,
-  whatIfNot: (T) -> R
+  whatIfNot: (T) -> R,
 ): R {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -372,14 +372,14 @@ public inline fun <T, R> T.whatIfLet(
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T> T?.whatIfNotNull(
-  whatIf: (T) -> Unit
+  whatIf: (T) -> Unit,
 ): T? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   return this.whatIfNotNull(
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
 }
 
@@ -396,7 +396,7 @@ public inline fun <T> T?.whatIfNotNull(
 @WhatIfInlineOnly
 public inline fun <T> T?.whatIfNotNull(
   whatIf: (T) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ): T? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -429,14 +429,14 @@ public inline fun <T> T?.whatIfNotNull(
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <reified R> Any?.whatIfNotNullAs(
-  whatIf: (R) -> Unit
+  whatIf: (R) -> Unit,
 ): Any? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   return whatIfNotNullAs(
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
 }
 
@@ -464,7 +464,7 @@ public inline fun <reified R> Any?.whatIfNotNullAs(
 @WhatIfInlineOnly
 public inline fun <reified R> Any?.whatIfNotNullAs(
   whatIf: (R) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ): Any? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -492,7 +492,7 @@ public inline fun <reified R> Any?.whatIfNotNullAs(
 @WhatIfInlineOnly
 public inline fun <T, R> T?.whatIfNotNullWith(
   whatIf: (T) -> R,
-  whatIfNot: (T?) -> R
+  whatIfNot: (T?) -> R,
 ): R {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -514,14 +514,14 @@ public inline fun <T, R> T?.whatIfNotNullWith(
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun Boolean?.whatIf(
-  whatIf: () -> Unit
+  whatIf: () -> Unit,
 ): Boolean? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   return this.whatIf(
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
 }
 
@@ -538,7 +538,7 @@ public inline fun Boolean?.whatIf(
 @WhatIfInlineOnly
 public inline fun Boolean?.whatIf(
   whatIf: () -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ): Boolean? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -562,7 +562,7 @@ public inline fun Boolean?.whatIf(
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun Boolean?.whatIfElse(
-  whatIf: () -> Unit
+  whatIf: () -> Unit,
 ): Boolean? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -585,7 +585,7 @@ public inline fun Boolean?.whatIfElse(
 @WhatIfInlineOnly
 public inline fun Boolean?.whatIfAnd(
   predicate: Boolean?,
-  whatIf: () -> Unit
+  whatIf: () -> Unit,
 ): Boolean? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -608,7 +608,7 @@ public inline fun Boolean?.whatIfAnd(
 @WhatIfInlineOnly
 public inline fun Boolean?.whatIfOr(
   predicate: Boolean?,
-  whatIf: () -> Unit
+  whatIf: () -> Unit,
 ): Boolean? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)

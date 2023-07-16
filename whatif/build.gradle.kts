@@ -1,5 +1,6 @@
 plugins {
   kotlin("jvm")
+  id(libs.plugins.kotlin.binary.compatibility.get().pluginId)
 }
 
 rootProject.extra.apply {

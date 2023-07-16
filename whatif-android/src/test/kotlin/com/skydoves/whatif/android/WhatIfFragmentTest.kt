@@ -42,7 +42,7 @@ internal class WhatIfFragmentTest {
   @Before
   fun createActivity() {
     this.controller = Robolectric.buildActivity(
-      MainTestActivity::class.java
+      MainTestActivity::class.java,
     ).create().start()
     this.mainTestActivity = controller.get()
     this.mainTestActivity.supportFragmentManager.apply {
@@ -72,7 +72,7 @@ internal class WhatIfFragmentTest {
     var flag = false
     fragment.whatIfNotNullContext(
       whatIf = {},
-      whatIfNot = { flag = true }
+      whatIfNot = { flag = true },
     )
     assertThat(flag, Is.`is`(true))
   }
@@ -96,7 +96,7 @@ internal class WhatIfFragmentTest {
     var flag = false
     fragment.whatIfNotNullActivity(
       whatIf = {},
-      whatIfNot = { flag = true }
+      whatIfNot = { flag = true },
     )
     assertThat(flag, Is.`is`(true))
   }
@@ -124,7 +124,7 @@ internal class WhatIfFragmentTest {
     var flag = false
     fragment.whatIfHasArguments(
       whatIf = {},
-      whatIfNot = { flag = true }
+      whatIfNot = { flag = true },
     )
     assertThat(flag, Is.`is`(true))
   }
@@ -166,7 +166,7 @@ internal class WhatIfFragmentTest {
       },
       whatIfNot = {
         flag = true
-      }
+      },
     )
     assertThat(flag, Is.`is`(true))
   }

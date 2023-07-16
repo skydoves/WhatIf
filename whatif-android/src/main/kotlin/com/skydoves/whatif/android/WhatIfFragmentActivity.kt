@@ -35,7 +35,7 @@ import kotlin.contracts.contract
 @WhatIfInlineOnly
 public inline fun <reified T : Fragment> FragmentActivity.whatIfFindFragment(
   @IdRes id: Int,
-  whatIf: (T) -> Unit
+  whatIf: (T) -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.EXACTLY_ONCE)
@@ -58,7 +58,7 @@ public inline fun <reified T : Fragment> FragmentActivity.whatIfFindFragment(
 public inline fun <reified T : Fragment> FragmentActivity.whatIfFindFragment(
   @IdRes id: Int,
   whatIf: (T) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.EXACTLY_ONCE)
@@ -78,7 +78,7 @@ public inline fun <reified T : Fragment> FragmentActivity.whatIfFindFragment(
 @WhatIfInlineOnly
 public inline fun <reified T : Fragment> FragmentActivity.whatIfFindFragment(
   tag: String?,
-  whatIf: (T) -> Unit
+  whatIf: (T) -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.EXACTLY_ONCE)
@@ -101,7 +101,7 @@ public inline fun <reified T : Fragment> FragmentActivity.whatIfFindFragment(
 public inline fun <reified T : Fragment> FragmentActivity.whatIfFindFragment(
   tag: String?,
   whatIf: (T) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ) {
   contract {
     callsInPlace(whatIf, InvocationKind.EXACTLY_ONCE)

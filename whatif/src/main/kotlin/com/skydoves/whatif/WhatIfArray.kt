@@ -32,14 +32,14 @@ import kotlin.contracts.contract
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
-  whatIf: (Array<out T>) -> Unit
+  whatIf: (Array<out T>) -> Unit,
 ): Array<out T>? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   this.whatIfNotNullOrEmpty(
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
   return this
 }
@@ -57,7 +57,7 @@ public inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
 @WhatIfInlineOnly
 public inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
   whatIf: (Array<out T>) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ): Array<out T>? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -81,14 +81,14 @@ public inline fun <T> Array<out T>?.whatIfNotNullOrEmpty(
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun ByteArray?.whatIfNotNullOrEmpty(
-  whatIf: (ByteArray) -> Unit
+  whatIf: (ByteArray) -> Unit,
 ): ByteArray? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   return this.whatIfNotNullOrEmpty(
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
 }
 
@@ -105,7 +105,7 @@ public inline fun ByteArray?.whatIfNotNullOrEmpty(
 @WhatIfInlineOnly
 public inline fun ByteArray?.whatIfNotNullOrEmpty(
   whatIf: (ByteArray) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ): ByteArray? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -129,14 +129,14 @@ public inline fun ByteArray?.whatIfNotNullOrEmpty(
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun ShortArray?.whatIfNotNullOrEmpty(
-  whatIf: (ShortArray) -> Unit
+  whatIf: (ShortArray) -> Unit,
 ): ShortArray? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   this.whatIfNotNullOrEmpty(
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
   return this
 }
@@ -154,7 +154,7 @@ public inline fun ShortArray?.whatIfNotNullOrEmpty(
 @WhatIfInlineOnly
 public inline fun ShortArray?.whatIfNotNullOrEmpty(
   whatIf: (ShortArray) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ): ShortArray? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -178,14 +178,14 @@ public inline fun ShortArray?.whatIfNotNullOrEmpty(
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun IntArray?.whatIfNotNullOrEmpty(
-  whatIf: (IntArray) -> Unit
+  whatIf: (IntArray) -> Unit,
 ): IntArray? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   this.whatIfNotNullOrEmpty(
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
   return this
 }
@@ -203,7 +203,7 @@ public inline fun IntArray?.whatIfNotNullOrEmpty(
 @WhatIfInlineOnly
 public inline fun IntArray?.whatIfNotNullOrEmpty(
   whatIf: (IntArray) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ): IntArray? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -227,14 +227,14 @@ public inline fun IntArray?.whatIfNotNullOrEmpty(
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun LongArray?.whatIfNotNullOrEmpty(
-  whatIf: (LongArray) -> Unit
+  whatIf: (LongArray) -> Unit,
 ): LongArray? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   this.whatIfNotNullOrEmpty(
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
   return this
 }
@@ -252,7 +252,7 @@ public inline fun LongArray?.whatIfNotNullOrEmpty(
 @WhatIfInlineOnly
 public inline fun LongArray?.whatIfNotNullOrEmpty(
   whatIf: (LongArray) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ): LongArray? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -276,14 +276,14 @@ public inline fun LongArray?.whatIfNotNullOrEmpty(
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun FloatArray?.whatIfNotNullOrEmpty(
-  whatIf: (FloatArray) -> Unit
+  whatIf: (FloatArray) -> Unit,
 ): FloatArray? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   this.whatIfNotNullOrEmpty(
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
   return this
 }
@@ -301,7 +301,7 @@ public inline fun FloatArray?.whatIfNotNullOrEmpty(
 @WhatIfInlineOnly
 public inline fun FloatArray?.whatIfNotNullOrEmpty(
   whatIf: (FloatArray) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ): FloatArray? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -325,14 +325,14 @@ public inline fun FloatArray?.whatIfNotNullOrEmpty(
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun DoubleArray?.whatIfNotNullOrEmpty(
-  whatIf: (DoubleArray) -> Unit
+  whatIf: (DoubleArray) -> Unit,
 ): DoubleArray? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   this.whatIfNotNullOrEmpty(
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
   return this
 }
@@ -350,7 +350,7 @@ public inline fun DoubleArray?.whatIfNotNullOrEmpty(
 @WhatIfInlineOnly
 public inline fun DoubleArray?.whatIfNotNullOrEmpty(
   whatIf: (DoubleArray) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ): DoubleArray? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -374,14 +374,14 @@ public inline fun DoubleArray?.whatIfNotNullOrEmpty(
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun BooleanArray?.whatIfNotNullOrEmpty(
-  whatIf: (BooleanArray) -> Unit
+  whatIf: (BooleanArray) -> Unit,
 ): BooleanArray? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   this.whatIfNotNullOrEmpty(
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
   return this
 }
@@ -399,7 +399,7 @@ public inline fun BooleanArray?.whatIfNotNullOrEmpty(
 @WhatIfInlineOnly
 public inline fun BooleanArray?.whatIfNotNullOrEmpty(
   whatIf: (BooleanArray) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ): BooleanArray? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
@@ -423,14 +423,14 @@ public inline fun BooleanArray?.whatIfNotNullOrEmpty(
 @JvmSynthetic
 @WhatIfInlineOnly
 public inline fun CharArray?.whatIfNotNullOrEmpty(
-  whatIf: (CharArray) -> Unit
+  whatIf: (CharArray) -> Unit,
 ): CharArray? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
   }
   this.whatIfNotNullOrEmpty(
     whatIf = whatIf,
-    whatIfNot = { }
+    whatIfNot = { },
   )
   return this
 }
@@ -448,7 +448,7 @@ public inline fun CharArray?.whatIfNotNullOrEmpty(
 @WhatIfInlineOnly
 public inline fun CharArray?.whatIfNotNullOrEmpty(
   whatIf: (CharArray) -> Unit,
-  whatIfNot: () -> Unit
+  whatIfNot: () -> Unit,
 ): CharArray? {
   contract {
     callsInPlace(whatIf, InvocationKind.AT_MOST_ONCE)
