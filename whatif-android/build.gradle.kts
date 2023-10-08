@@ -3,15 +3,24 @@ plugins {
   id(libs.plugins.android.library.get().pluginId)
   id(libs.plugins.kotlin.android.get().pluginId)
   id(libs.plugins.kotlin.binary.compatibility.get().pluginId)
+  id(libs.plugins.nexus.plugin.get().pluginId)
 }
 
-rootProject.extra.apply {
-  set("PUBLISH_GROUP_ID", Configuration.artifactGroup)
-  set("PUBLISH_ARTIFACT_ID", "whatif-android")
-  set("PUBLISH_VERSION", rootProject.extra.get("rootVersionName"))
-}
+apply(from = "${rootDir}/scripts/publish-module.gradle.kts")
 
-apply(from ="${rootDir}/scripts/publish-module.gradle")
+mavenPublishing {
+  val artifactId = "whatif-android"
+  coordinates(
+    Configuration.artifactGroup,
+    artifactId,
+    rootProject.extra.get("libVersion").toString()
+  )
+
+  pom {
+    name.set(artifactId)
+    description.set("Fluent syntactic sugar of Kotlin for handling single if-else statements, nullable, collections, and booleans.")
+  }
+}
 
 android {
   namespace = "com.skydoves.whatif.android"

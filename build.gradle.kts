@@ -9,8 +9,6 @@ plugins {
   alias(libs.plugins.dokka)
 }
 
-apply(from ="${rootDir}/scripts/publish-root.gradle")
-
 subprojects {
   if (name != "app") {
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
