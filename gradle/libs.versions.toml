@@ -4,9 +4,9 @@ kotlin = "1.9.10"
 dokka = "1.9.0"
 nexusPlugin = "0.25.3"
 kotlinBinaryCompatibility = "0.13.1"
-jvmTarget = "1.8"
+jvmTarget = "11"
 material = "1.10.0"
-androidxActivity = "1.7.2"
+androidxActivity = "1.8.0"
 androidxAppCompat = "1.6.1"
 androidxCompose = "1.5.3"
 androidxComposeCompiler = "1.5.3"
@@ -27,8 +27,6 @@ spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 kotlin-binary-compatibility = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "kotlinBinaryCompatibility" }
 
 [libraries]
-agp = { module = "com.android.tools.build:gradle", version.ref = "agp" }
-
 # For the demo project
 material = { module = "com.google.android.material:material", version.ref = "material" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppCompat" }
@@ -38,9 +36,6 @@ androidx-activity-compose = { group = "androidx.activity", name = "activity-comp
 androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "androidxCompose" }
 androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "androidxCompose" }
 landscapist-glide = { module = "com.github.skydoves:landscapist-glide", version.ref = "landscapist" }
-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
-retrofit = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
-retrofit-adapters = { module = "com.github.skydoves:retrofit-adapters-result", version.ref = "retrofitAdapters" }
 robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
 
 # Test libs
