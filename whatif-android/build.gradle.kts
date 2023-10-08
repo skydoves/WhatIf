@@ -14,6 +14,7 @@ rootProject.extra.apply {
 apply(from ="${rootDir}/scripts/publish-module.gradle")
 
 android {
+  namespace = "com.skydoves.whatif.android"
   compileSdk = Configuration.compileSdk
   defaultConfig {
     minSdk = Configuration.minSdk
