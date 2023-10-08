@@ -20,6 +20,11 @@ mavenPublishing {
   }
 }
 
+tasks.withType(JavaCompile::class.java).configureEach {
+  this.targetCompatibility = libs.versions.jvmTarget.get()
+  this.sourceCompatibility = libs.versions.jvmTarget.get()
+}
+
 dependencies {
   testImplementation(libs.junit)
 }

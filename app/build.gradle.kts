@@ -21,11 +21,20 @@ android {
     viewBinding = true
   }
 
+  compileOptions {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+  }
+
+  kotlinOptions {
+    jvmTarget = libs.versions.jvmTarget.get()
+  }
+
   composeOptions {
     kotlinCompilerExtensionVersion = libs.versions.androidxComposeCompiler.get()
   }
 
-  packagingOptions {
+  packaging {
     resources {
       excludes.add("/META-INF/{AL2.0,LGPL2.1}")
     }
