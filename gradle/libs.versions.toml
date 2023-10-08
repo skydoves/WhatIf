@@ -14,7 +14,7 @@ landscapist = "2.2.10"
 coroutines = "1.7.3"
 retrofit = "2.9.0"
 retrofitAdapters = "1.0.9"
-robolectric = "4.4"
+robolectric = "4.10.3"
 spotless = "6.19.0"
 
 [plugins]
