@@ -52,12 +52,6 @@ kotlin {
       languageSettings.optIn("kotlin.contracts.ExperimentalContracts")
       languageSettings.optIn("com.skydoves.sandwich.annotations.InternalSandwichApi")
     }
-
-    val commonTest by getting {
-      dependencies {
-        implementation(libs.junit)
-      }
-    }
   }
 
   explicitApi()
@@ -80,4 +74,8 @@ android {
 tasks.withType(JavaCompile::class.java).configureEach {
   this.targetCompatibility = libs.versions.jvmTarget.get()
   this.sourceCompatibility = libs.versions.jvmTarget.get()
+}
+
+dependencies {
+  androidTestImplementation(libs.junit)
 }
