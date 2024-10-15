@@ -15,13 +15,12 @@
  */
 
 @file:Suppress("unused")
-@file:JvmName("WhatIf")
-@file:JvmMultifileClass
 
 package com.skydoves.whatif
 
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import kotlin.jvm.JvmSynthetic
 
 /**
  * WhatIf is kotlin extensions for expressing a single if-else statement, nullable and boolean.

@@ -14,13 +14,11 @@
  * limitations under the License.
  */
 
-@file:JvmName("WhatIfString")
-@file:JvmMultifileClass
-
 package com.skydoves.whatif
 
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import kotlin.jvm.JvmSynthetic
 
 /**
  * An expression for invoking [whatIf] when the [String] is not null and not empty.

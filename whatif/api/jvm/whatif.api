@@ -1,0 +1,62 @@
+public final class com/skydoves/whatif/WhatIfArrayKt {
+	public static final synthetic fun whatIfNotNullOrEmpty ([BLkotlin/jvm/functions/Function1;)[B
+	public static final synthetic fun whatIfNotNullOrEmpty ([BLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)[B
+	public static final synthetic fun whatIfNotNullOrEmpty ([CLkotlin/jvm/functions/Function1;)[C
+	public static final synthetic fun whatIfNotNullOrEmpty ([CLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)[C
+	public static final synthetic fun whatIfNotNullOrEmpty ([DLkotlin/jvm/functions/Function1;)[D
+	public static final synthetic fun whatIfNotNullOrEmpty ([DLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)[D
+	public static final synthetic fun whatIfNotNullOrEmpty ([FLkotlin/jvm/functions/Function1;)[F
+	public static final synthetic fun whatIfNotNullOrEmpty ([FLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)[F
+	public static final synthetic fun whatIfNotNullOrEmpty ([ILkotlin/jvm/functions/Function1;)[I
+	public static final synthetic fun whatIfNotNullOrEmpty ([ILkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)[I
+	public static final synthetic fun whatIfNotNullOrEmpty ([JLkotlin/jvm/functions/Function1;)[J
+	public static final synthetic fun whatIfNotNullOrEmpty ([JLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)[J
+	public static final synthetic fun whatIfNotNullOrEmpty ([Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)[Ljava/lang/Object;
+	public static final synthetic fun whatIfNotNullOrEmpty ([Ljava/lang/Object;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)[Ljava/lang/Object;
+	public static final synthetic fun whatIfNotNullOrEmpty ([SLkotlin/jvm/functions/Function1;)[S
+	public static final synthetic fun whatIfNotNullOrEmpty ([SLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)[S
+	public static final synthetic fun whatIfNotNullOrEmpty ([ZLkotlin/jvm/functions/Function1;)[Z
+	public static final synthetic fun whatIfNotNullOrEmpty ([ZLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)[Z
+}
+
+public final class com/skydoves/whatif/WhatIfCollectionsKt {
+	public static final synthetic fun whatIfAnd (Ljava/lang/Iterable;Lkotlin/jvm/functions/Function0;)Ljava/lang/Iterable;
+	public static final synthetic fun whatIfAnd (Ljava/lang/Iterable;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Ljava/lang/Iterable;
+	public static final synthetic fun whatIfNotNullOrEmpty (Ljava/util/List;Lkotlin/jvm/functions/Function1;)Ljava/util/List;
+	public static final synthetic fun whatIfNotNullOrEmpty (Ljava/util/List;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)Ljava/util/List;
+	public static final synthetic fun whatIfNotNullOrEmpty (Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
+	public static final synthetic fun whatIfNotNullOrEmpty (Ljava/util/Map;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)Ljava/util/Map;
+	public static final synthetic fun whatIfNotNullOrEmpty (Ljava/util/Set;Lkotlin/jvm/functions/Function1;)Ljava/util/Set;
+	public static final synthetic fun whatIfNotNullOrEmpty (Ljava/util/Set;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)Ljava/util/Set;
+	public static final synthetic fun whatIfOr (Ljava/lang/Iterable;Lkotlin/jvm/functions/Function0;)Ljava/lang/Iterable;
+	public static final synthetic fun whatIfOr (Ljava/lang/Iterable;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Ljava/lang/Iterable;
+}
+
+public final class com/skydoves/whatif/WhatIfKt {
+	public static final synthetic fun whatIf (Ljava/lang/Boolean;Lkotlin/jvm/functions/Function0;)Ljava/lang/Boolean;
+	public static final synthetic fun whatIf (Ljava/lang/Boolean;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Ljava/lang/Boolean;
+	public static final synthetic fun whatIf (Ljava/lang/Object;Ljava/lang/Boolean;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+	public static final synthetic fun whatIf (Ljava/lang/Object;Ljava/lang/Boolean;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+	public static final synthetic fun whatIf (Ljava/lang/Object;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+	public static final synthetic fun whatIf (Ljava/lang/Object;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+	public static final synthetic fun whatIf (Ljava/lang/Object;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+	public static final synthetic fun whatIf (Ljava/lang/Object;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+	public static final synthetic fun whatIfAnd (Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlin/jvm/functions/Function0;)Ljava/lang/Boolean;
+	public static final synthetic fun whatIfElse (Ljava/lang/Boolean;Lkotlin/jvm/functions/Function0;)Ljava/lang/Boolean;
+	public static final synthetic fun whatIfLet (Ljava/lang/Object;Ljava/lang/Boolean;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+	public static final synthetic fun whatIfLet (Ljava/lang/Object;Ljava/lang/Boolean;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+	public static final synthetic fun whatIfMap (Ljava/lang/Object;Ljava/lang/Boolean;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+	public static final synthetic fun whatIfMap (Ljava/lang/Object;Ljava/lang/Boolean;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+	public static final synthetic fun whatIfMap (Ljava/lang/Object;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+	public static final synthetic fun whatIfMap (Ljava/lang/Object;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+	public static final synthetic fun whatIfNotNull (Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+	public static final synthetic fun whatIfNotNull (Ljava/lang/Object;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+	public static final synthetic fun whatIfNotNullWith (Ljava/lang/Object;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+	public static final synthetic fun whatIfOr (Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlin/jvm/functions/Function0;)Ljava/lang/Boolean;
+}
+
+public final class com/skydoves/whatif/WhatIfStringKt {
+	public static final synthetic fun whatIfNotNullOrEmpty (Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
+	public static final synthetic fun whatIfNotNullOrEmpty (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)Ljava/lang/String;
+}
+
