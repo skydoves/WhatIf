@@ -2,6 +2,7 @@
 plugins {
   id(libs.plugins.android.application.get().pluginId)
   id(libs.plugins.kotlin.android.get().pluginId)
+  id(libs.plugins.compose.compiler.get().pluginId)
 }
 
 android {
@@ -28,10 +29,6 @@ android {
 
   kotlinOptions {
     jvmTarget = libs.versions.jvmTarget.get()
-  }
-
-  composeOptions {
-    kotlinCompilerExtensionVersion = libs.versions.androidxComposeCompiler.get()
   }
 
   packaging {

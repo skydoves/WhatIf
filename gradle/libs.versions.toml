@@ -1,26 +1,27 @@
 [versions]
-agp = "8.1.2"
-kotlin = "1.9.10"
+agp = "8.6.1"
+kotlin = "2.0.21"
 dokka = "1.9.0"
-nexusPlugin = "0.25.3"
-kotlinBinaryCompatibility = "0.13.1"
+nexusPlugin = "0.26.0"
+kotlinBinaryCompatibility = "0.16.3"
 jvmTarget = "11"
-material = "1.10.0"
-androidxActivity = "1.8.0"
-androidxAppCompat = "1.6.1"
-androidxCompose = "1.5.3"
-androidxComposeCompiler = "1.5.3"
-landscapist = "2.2.10"
+material = "1.12.0"
+androidxActivity = "1.9.2"
+androidxAppCompat = "1.7.0"
+androidxCompose = "1.7.3"
+landscapist = "2.4.1"
 coroutines = "1.7.3"
 retrofit = "2.9.0"
 retrofitAdapters = "1.0.9"
-robolectric = "4.10.3"
+robolectric = "4.12.1"
 spotless = "6.19.0"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 nexus-plugin = { id = "com.vanniktech.maven.publish", version.ref = "nexusPlugin" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }

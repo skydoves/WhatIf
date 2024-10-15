@@ -14,13 +14,11 @@
  * limitations under the License.
  */
 
-@file:JvmName("WhatIfCollections")
-@file:JvmMultifileClass
-
 package com.skydoves.whatif
 
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import kotlin.jvm.JvmSynthetic
 
 /**
  * An expression for invoking [whatIf] when the [List] is not null and not empty.
