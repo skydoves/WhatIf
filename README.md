@@ -2,7 +2,7 @@
 
 
 <p align="center">
-☔ Fluent Kotlin expressions for handling single if-else statements, nullable, collections, and boolean.
+☔ Fluent Kotlin expressions for handling single if-else statements, nullable, collections, and boolean. This library supports Kotlin Multiplatform.
 </p>
 <br>
 
@@ -28,6 +28,18 @@ Add the dependency below to your module's `build.gradle` file:
 ```gradle
 dependencies {
     implementation("com.github.skydoves:whatif:1.2.0")
+}
+```
+
+For Kotlin Multiplatform, add the dependency below to your module's `build.gradle.kts` file:
+
+```kotlin
+sourceSets {
+    val commonMain by getting {
+        dependencies {
+            implementation("com.github.skydoves:whatif:1.2.0")
+        }
+    }
 }
 ```
 
