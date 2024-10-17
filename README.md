@@ -57,6 +57,8 @@ Box(
 )
 ```
 
+![preview](https://github.com/user-attachments/assets/99d73a48-2e8e-4e99-b553-2c7e57382bfd)
+
 ### WhatIf
 
 `WhatIf` is a Kotlin expression that triggers a lambda expression (`whatIf` block) when the provided boolean condition is true and the object is non-null. It's a concise way to handle conditional logic without needing verbose if-else statements, enabling cleaner, more readable code for specific actions when conditions are met.
