@@ -52,7 +52,7 @@ Box(
   modifier = Modifier
       .align(Alignment.Center)
       .clickable { isBlueColor = !isBlueColor }
-      .whatIfMap(isBlueColor,{ it.background(Color.Blue) }, { it.background(Color.Cyan) })
+      .whatIfMap(isBlueColor, { it.background(Color.Blue) }, { it.background(Color.Cyan) })
       .whatIfMap(isBlueColor, { it.size(120.dp) }, { it.size(240.dp) }),
 )
 ```
