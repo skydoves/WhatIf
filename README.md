@@ -45,6 +45,20 @@ sourceSets {
 
 ## Usage
 
+WhatIf fully supports Kotlin Multiplatform, making it versatile for use in pure Kotlin modules as well as other platforms. You can leverage it in various use cases, including Jetpack Compose, where it helps streamline conditional logic. For instance, you can integrate `WhatIf` in Jetpack Compose to handle conditional rendering, as shown in the example below. This flexibility allows developers to maintain clean, readable code across different Kotlin Multiplatform projects.
+
+```kotlin
+Box(
+  modifier = Modifier
+      .align(Alignment.Center)
+      .clickable { isBlueColor = !isBlueColor }
+      .whatIfMap(isBlueColor, { it.background(Color.Blue) }, { it.background(Color.Cyan) })
+      .whatIfMap(isBlueColor, { it.size(120.dp) }, { it.size(240.dp) }),
+)
+```
+
+![preview](https://github.com/user-attachments/assets/99d73a48-2e8e-4e99-b553-2c7e57382bfd)
+
 ### WhatIf
 
 `WhatIf` is a Kotlin expression that triggers a lambda expression (`whatIf` block) when the provided boolean condition is true and the object is non-null. It's a concise way to handle conditional logic without needing verbose if-else statements, enabling cleaner, more readable code for specific actions when conditions are met.

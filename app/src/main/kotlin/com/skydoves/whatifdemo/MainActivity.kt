@@ -25,6 +25,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.Text
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -55,9 +56,31 @@ class MainActivity : ComponentActivity() {
             modifier = Modifier
               .align(Alignment.Center)
               .clickable { isBlueColor = !isBlueColor }
-              .whatIfMap(isBlueColor, { it.background(Color.Blue) }, { it.background(Color.Cyan) })
+              .whatIfMap(
+                isBlueColor,
+                { it.background(Color.Blue) },
+                { it.background(Color.Cyan) },
+              )
               .whatIfMap(isBlueColor, { it.size(120.dp) }, { it.size(240.dp) }),
           )
+
+          Box(modifier = Modifier.align(Alignment.Center)) {
+            whatIf(
+              given = isBlueColor,
+              whatIf = {
+                Text(
+                  text = "isBlueColor=$isBlueColor",
+                  color = Color.White,
+                )
+              },
+              whatIfNot = {
+                Text(
+                  text = "isBlueColor=$isBlueColor",
+                  color = Color.Red,
+                )
+              },
+            )
+          }
         }
       }
     }
