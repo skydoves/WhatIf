@@ -29,5 +29,11 @@ jobs:
         restore-keys: |
            ${{ runner.os }}-gradle-
 
+    - name: spotless
+      run: ./gradlew spotlessCheck
+
+    - name: API check
+      run: ./gradlew apiCheck
+      
     - name: Build with Gradle
       run: ./gradlew build
