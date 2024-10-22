@@ -27,7 +27,7 @@ Add the dependency below to your module's `build.gradle` file:
 
 ```gradle
 dependencies {
-    implementation("com.github.skydoves:whatif:1.2.0")
+    implementation("com.github.skydoves:whatif:1.2.1")
 }
 ```
 
@@ -37,7 +37,7 @@ For Kotlin Multiplatform, add the dependency below to your module's `build.gradl
 sourceSets {
     val commonMain by getting {
         dependencies {
-            implementation("com.github.skydoves:whatif:1.2.0")
+            implementation("com.github.skydoves:whatif:1.2.1")
         }
     }
 }
@@ -259,7 +259,7 @@ nullableBoolean.whatIfOr(predicate) {
 
 You can use the whatIf extensions related to the Android project.<br>
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.github.skydoves/whatif-android.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.skydoves%22%20AND%20a:%22whatif-android%22)
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.skydoves/whatif-android-ext.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.skydoves%22%20AND%20a:%22whatif-android%22)
 
 ### Gradle
 
@@ -267,7 +267,7 @@ Add the dependency below to your **module**'s `build.gradle` file:
 
 ```gradle
 dependencies {
-    implementation "com.github.skydoves:whatif-android:version"
+    implementation "com.github.skydoves:whatif-android-ext:version"
 }
 ```
 

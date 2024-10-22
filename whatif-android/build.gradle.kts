@@ -9,7 +9,7 @@ plugins {
 apply(from = "${rootDir}/scripts/publish-module.gradle.kts")
 
 mavenPublishing {
-  val artifactId = "whatif-android"
+  val artifactId = "whatif-android-ext"
   coordinates(
     Configuration.artifactGroup,
     artifactId,
