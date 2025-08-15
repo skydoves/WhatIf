@@ -27,7 +27,7 @@ Add the dependency below to your module's `build.gradle` file:
 
 ```gradle
 dependencies {
-    implementation("com.github.skydoves:whatif:1.2.1")
+    implementation("com.github.skydoves:whatif:1.2.2")
 }
 ```
 
@@ -37,7 +37,7 @@ For Kotlin Multiplatform, add the dependency below to your module's `build.gradl
 sourceSets {
     val commonMain by getting {
         dependencies {
-            implementation("com.github.skydoves:whatif:1.2.1")
+            implementation("com.github.skydoves:whatif:1.2.2")
         }
     }
 }
