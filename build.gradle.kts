@@ -1,4 +1,6 @@
-@Suppress("DSL_SCOPE_VIOLATION")
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
+
 plugins {
   alias(libs.plugins.android.application) apply false
   alias(libs.plugins.android.library) apply false
@@ -13,12 +15,16 @@ plugins {
 
 subprojects {
   if (name != "app") {
-    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-      kotlinOptions.jvmTarget = libs.versions.jvmTarget.get()
-      kotlinOptions.freeCompilerArgs += listOf(
-        "-Xexplicit-api=strict",
-        "-Xopt-in=kotlin.contracts.ExperimentalContracts"
-      )
+    tasks.withType<KotlinJvmCompile>().configureEach {
+      compilerOptions {
+        jvmTarget.set(JvmTarget.fromTarget(libs.versions.jvmTarget.get()))
+        freeCompilerArgs.addAll(
+          listOf(
+            "-Xexplicit-api=strict",
+            "-Xopt-in=kotlin.contracts.ExperimentalContracts"
+          )
+        )
+      }
     }
   }
 
@@ -27,7 +33,7 @@ subprojects {
     kotlin {
       target("**/*.kt")
       targetExclude("$buildDir/**/*.kt")
-      ktlint().setUseExperimental(true).editorConfigOverride(
+      ktlint().editorConfigOverride(
         mapOf(
           "indent_size" to "2",
           "continuation_indent_size" to "2"
